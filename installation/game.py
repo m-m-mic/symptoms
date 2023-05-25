@@ -16,7 +16,7 @@ class Symptoms:
         self.didGameEnd = False
         self.startYear = 2025
         self.year = self.startYear
-        self.section = 1
+        self.count = 1
         self.deathCount = 0
         self.temperature = 1
         self.regions = ["na1", "na2", "eu1", "eu2", "sa1", "sa2", "me1", "af1", "af2", "as1", "as2", "oc1"]
@@ -33,9 +33,12 @@ class Symptoms:
                      "content": "Generiere 25 kurze, fiktive & sarkastische Schlagzeilen über den Klimawandel. Die Schlagzeilen sollen keine Jahreszahlen oder den Begriff Klimawandel beinhalten. Geb die Schlagzeilen als Liste mit dem key 'headlines' in einer JSON zurück"}
                 ]
             )
-            headlines_json = json.loads(completion.choices[0].message.content)
-            for headline in headlines_json['headlines']:
-                self.headlines.append(headline)
+            try: 
+                headlines_json = json.loads(completion.choices[0].message.content)
+                for headline in headlines_json['headlines']:
+                    self.headlines.append(headline)
+            except: 
+                print('GPT returned wrong data format')
 
     def getTemperature(self):
         self.temperature = 1.5*math.cos(0.04*(self.year-self.startYear)+math.pi)+2.5
@@ -56,13 +59,12 @@ class Symptoms:
             self.generateHeadlines()
         while self.year < 2100:
             self.triggerEvent()
-            if self.section == 6:
+            self.count += 1
+            if self.count == 6:
                 self.year += 1
                 print(self.year)
-                self.section = 1
+                self.count = 1
                 self.getTemperature()
-            else:
-                self.section += 1
             time.sleep(1)
         self.didGameEnd = True
         self.generateHeadlines()
