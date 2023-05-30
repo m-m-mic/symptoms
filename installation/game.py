@@ -5,6 +5,7 @@ import openai
 import json
 import os
 from dotenv import load_dotenv
+import asyncio
 
 load_dotenv()
 
@@ -44,14 +45,32 @@ class Symptoms:
         self.temperature = 1.5*math.cos(0.04*(self.year-self.startYear)+math.pi)+2.5
         print(self.temperature)
 
-    def triggerEvent(self):
+    def triggerHeadline(self):
         if len(self.headlines) > 0:
             index = random.randrange(0, len(self.headlines))
             print(self.headlines[index])
             del self.headlines[index]
         else:
             print("Ran out of headlines :((((")
-        return
+        
+    def triggerCatastrophe(self):
+        catastrophes = ['drought', 'hurricane', 'flood', 'wildfire', 'sandstorm']
+        catastrophe = random.choice(catastrophes)
+        print(f'Oh no! A {catastrophe}  ＼(º □ º l|l)/')
+    
+    def triggerEvent(self):
+        headlineChance = 0.25
+        startingCatastropheChance = 0.10
+        tempIncrease = self.temperature - 1
+        restChance = 1 - headlineChance - startingCatastropheChance
+        catastrChance = startingCatastropheChance + (math.cos(math.pi + (tempIncrease / 3) * math.pi) + 1) * restChance
+
+        randomNumber = random.randrange(0, 101) / 100
+
+        if(randomNumber < headlineChance):
+            self.triggerHeadline()
+        elif(randomNumber < (headlineChance + catastrChance)):
+            self.triggerCatastrophe()
 
     def run(self):
         self.didGameEnd = False
