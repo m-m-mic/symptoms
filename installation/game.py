@@ -66,7 +66,7 @@ class Symptoms:
                      "content": self.prompt}
                 ]
             )
-            try: 
+            try:
                 headlines_json = json.loads(gpt_response.choices[0].message.content)
                 for headline in headlines_json['headlines']:
                     self.headlines.append(headline)
@@ -101,7 +101,8 @@ class Symptoms:
         base_chance_catastrophe = 0.10
         temperature_delta = self.temperature - 1
         chance_remaining = 1 - chance_headline - base_chance_catastrophe
-        chance_catastrophe = base_chance_catastrophe + (math.cos(math.pi + (temperature_delta / 3) * math.pi) + 1) * chance_remaining
+        chance_catastrophe = base_chance_catastrophe + (
+                math.cos(math.pi + (temperature_delta / 3) * math.pi) + 1) * chance_remaining
         random_number = random.randrange(0, 101) / 100
 
         if random_number < chance_headline:
@@ -109,9 +110,9 @@ class Symptoms:
         elif random_number < (chance_headline + chance_catastrophe):
             self.trigger_catastrophe()
 
-    def run(self):
+    def run(self, skip_headlines=False):
         self.did_game_end = False
-        if len(self.headlines) == 0:
+        if len(self.headlines) == 0 and skip_headlines is False:
             self.generate_headlines()
         while self.year < 2100:
             # self.trigger_event()
@@ -132,6 +133,7 @@ class Symptoms:
         Thread(target=self.run, args=(skip_headlines,)).start()
         # Thread(target=self.trigger_catastrophe).start()
         Thread(target=self.get_inputs(), daemon=True).start()
+
 
 symptoms = Symptoms()
 symptoms.main(True)
