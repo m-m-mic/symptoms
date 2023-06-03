@@ -86,6 +86,7 @@ class Symptoms:
             print("Ran out of headlines :((((")
 
     def trigger_catastrophe(self):
+        self.is_test_event_active = True
         catastrophes = ['drought', 'hurricane', 'flood', 'wildfire', 'sandstorm']
         catastrophe = random.choice(catastrophes)
         print(f'Oh no! A {catastrophe}  ＼(º □ º l|l)/')
@@ -113,7 +114,9 @@ class Symptoms:
         if len(self.headlines) == 0:
             self.generate_headlines()
         while self.year < 2100:
-            self.trigger_event()
+            # self.trigger_event()
+            if not self.is_test_event_active:
+                Thread(target=self.trigger_catastrophe).start()
             self.count += 1
             if self.count == 6:
                 self.year += 1
@@ -122,8 +125,13 @@ class Symptoms:
                 self.get_temperature()
             time.sleep(1)
         self.did_game_end = True
-        self.generate_headlines()
+        if skip_headlines is False:
+            self.generate_headlines()
 
+    def main(self, skip_headlines=False):
+        Thread(target=self.run, args=(skip_headlines,)).start()
+        # Thread(target=self.trigger_catastrophe).start()
+        Thread(target=self.get_inputs(), daemon=True).start()
 
 symptoms = Symptoms()
-symptoms.run()
+symptoms.main(True)
