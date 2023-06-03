@@ -5,12 +5,21 @@ import openai
 import json
 import os
 from dotenv import load_dotenv
-import asyncio
+import liblo
+from threading import Thread
 
 load_dotenv()
 
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
+server = liblo.Server(3000)
+
+class Catastrophe:
+    def __init__(self):
+        self.type = 'hurricane'
+        self.duration = 100
+        self.wind_up = 10
+        self.deaths_per_second = 10
 
 class Symptoms:
     def __init__(self):
@@ -34,6 +43,18 @@ class Symptoms:
             },
         }
         self.headlines = []
+        self.sensor_values = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+        self.is_test_event_active = False
+
+    def get_inputs(self):
+        def get_diff_values(path, args, types, src):
+            self.sensor_values = args
+            # print(self.sensor_values)
+
+        server.add_method("/diff", None, get_diff_values)
+
+        while True:
+            server.recv(100)
 
     def generate_headlines(self):
         while len(self.headlines) < 100:
@@ -68,6 +89,11 @@ class Symptoms:
         catastrophes = ['drought', 'hurricane', 'flood', 'wildfire', 'sandstorm']
         catastrophe = random.choice(catastrophes)
         print(f'Oh no! A {catastrophe}  ＼(º □ º l|l)/')
+        while self.sensor_values[0] < 100:
+            time.sleep(0.01)
+        print(f'{catastrophe} resolved.')
+        self.is_test_event_active = False
+        time.sleep(0.5)
 
     def trigger_event(self):
         chance_headline = 0.25
