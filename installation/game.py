@@ -110,9 +110,9 @@ class Symptoms:
         elif random_number < (chance_headline + chance_catastrophe):
             self.trigger_catastrophe()
 
-    def run(self, skip_headlines=False):
+    def run(self, skip_headlines):
         self.did_game_end = False
-        if len(self.headlines) == 0 and skip_headlines is False:
+        if len(self.headlines) == 0 and not skip_headlines:
             self.generate_headlines()
         while self.year < 2100:
             # self.trigger_event()
@@ -126,7 +126,7 @@ class Symptoms:
                 self.get_temperature()
             time.sleep(1)
         self.did_game_end = True
-        if skip_headlines is False:
+        if not skip_headlines:
             self.generate_headlines()
 
     def main(self, skip_headlines=False):
