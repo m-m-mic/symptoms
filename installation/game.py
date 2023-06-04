@@ -6,7 +6,8 @@ import json
 import os
 from dotenv import load_dotenv
 from pythonosc import udp_client
-#import liblo
+from pythonosc import osc_server
+from pythonosc.dispatcher import Dispatcher
 from threading import Thread
 
 load_dotenv()
@@ -14,7 +15,6 @@ load_dotenv()
 client = udp_client.SimpleUDPClient("127.0.0.1", 7000)
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
-#server = liblo.Server(3000)
 
 class Catastrophe:
     def __init__(self):
@@ -49,14 +49,20 @@ class Symptoms:
         self.is_test_event_active = False
 
     def get_inputs(self):
-        def get_diff_values(path, args, types, src):
+        # Writes sensor input from Pi Cap into variable
+        def get_diff_values(unused_addr, args, volume):
             self.sensor_values = args
-            # print(self.sensor_values)
+            print(self.sensor_values)
 
-        #server.add_method("/diff", None, get_diff_values)
+        # Maps dispatcher to path of diff values
+        dispatcher = Dispatcher()
+        dispatcher.map("/diff", get_diff_values)
 
-        #while True:
-            #server.recv(100)
+        # Initiates OSC server
+        server = osc_server.ThreadingOSCUDPServer(
+            ("127.0.0.1", 3000), dispatcher)
+
+        server.serve_forever()
 
     def generate_headlines(self):
         while len(self.headlines) < 100:
@@ -131,7 +137,7 @@ class Symptoms:
             if self.count == 6:
                 self.year += 1
                 print(self.year)
-                #Sendet Jahreszahl an TouchDesigner
+                # Sendet Jahreszahl an TouchDesigner
                 client.send_message("/year", self.year)
                 self.count = 1
                 self.get_temperature()
@@ -142,8 +148,8 @@ class Symptoms:
 
     def main(self, skip_headlines=False):
         Thread(target=self.run, args=(skip_headlines,)).start()
-        Thread(target=self.trigger_catastrophe).start()
-        #Thread(target=self.get_inputs(), daemon=True).start()
+        # Thread(target=self.trigger_catastrophe).start()
+        Thread(target=self.get_inputs(), daemon=True).start()
 
 
 symptoms = Symptoms()
