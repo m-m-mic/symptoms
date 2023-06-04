@@ -5,14 +5,16 @@ import openai
 import json
 import os
 from dotenv import load_dotenv
-import liblo
+from pythonosc import udp_client
+#import liblo
 from threading import Thread
 
 load_dotenv()
-
+# client für export zu touchdesigner
+client = udp_client.SimpleUDPClient("127.0.0.1", 7000)
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
-server = liblo.Server(3000)
+#server = liblo.Server(3000)
 
 class Catastrophe:
     def __init__(self):
@@ -51,10 +53,10 @@ class Symptoms:
             self.sensor_values = args
             # print(self.sensor_values)
 
-        server.add_method("/diff", None, get_diff_values)
+        #server.add_method("/diff", None, get_diff_values)
 
-        while True:
-            server.recv(100)
+        #while True:
+            #server.recv(100)
 
     def generate_headlines(self):
         while len(self.headlines) < 100:
@@ -76,20 +78,27 @@ class Symptoms:
     def get_temperature(self):
         self.temperature = 1.5 * math.cos(0.04 * (self.year - self.start_year) + math.pi) + 2.5
         print(self.temperature)
+        # Sendet Temperatur an TouchDesigner
+        client.send_message("/temperature", self.temperature)
 
     def trigger_headline(self):
         if len(self.headlines) > 0:
             index = random.randrange(0, len(self.headlines))
             print(self.headlines[index])
+            # Sendet Headline an TouchDesigner
+            client.send_message("/headline", self.headlines[index])
             del self.headlines[index]
         else:
             print("Ran out of headlines :((((")
+            client.send_message("/headline", "Ran out of headlines :((((")
 
     def trigger_catastrophe(self):
         self.is_test_event_active = True
         catastrophes = ['drought', 'hurricane', 'flood', 'wildfire', 'sandstorm']
         catastrophe = random.choice(catastrophes)
         print(f'Oh no! A {catastrophe}  ＼(º □ º l|l)/')
+        # Sendet Katastrophe an TouchDesigner
+        client.send_message("/catastrophe", catastrophe)
         while self.sensor_values[0] < 100:
             time.sleep(0.01)
         print(f'{catastrophe} resolved.')
@@ -122,6 +131,8 @@ class Symptoms:
             if self.count == 6:
                 self.year += 1
                 print(self.year)
+                #Sendet Jahreszahl an TouchDesigner
+                client.send_message("/year", self.year)
                 self.count = 1
                 self.get_temperature()
             time.sleep(1)
@@ -131,8 +142,8 @@ class Symptoms:
 
     def main(self, skip_headlines=False):
         Thread(target=self.run, args=(skip_headlines,)).start()
-        # Thread(target=self.trigger_catastrophe).start()
-        Thread(target=self.get_inputs(), daemon=True).start()
+        Thread(target=self.trigger_catastrophe).start()
+        #Thread(target=self.get_inputs(), daemon=True).start()
 
 
 symptoms = Symptoms()
