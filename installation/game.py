@@ -27,7 +27,7 @@ class Symptoms:
     def __init__(self):
         self.prompt = "Generiere 25 kurze, fiktive & sarkastische Schlagzeilen über den Klimawandel. Die Schlagzeilen sollen keine Jahreszahlen oder den Begriff Klimawandel beinhalten. Geb die Schlagzeilen als Liste mit dem key 'headlines' in einer JSON zurück"
         self.did_game_end = False
-        self.start_year = 2025
+        self.start_year = 2024
         self.year = self.start_year
         self.count = 1
         self.death_count = 0
