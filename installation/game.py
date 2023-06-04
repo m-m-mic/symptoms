@@ -9,12 +9,19 @@ from pythonosc import udp_client
 from pythonosc import osc_server
 from pythonosc.dispatcher import Dispatcher
 from threading import Thread
+import socket
 
 load_dotenv()
 # client für export zu touchdesigner
 client = udp_client.SimpleUDPClient("127.0.0.1", 7000)
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
+# copied from: https://www.w3resource.com/python-exercises/python-basic-exercise-55.php
+# gets current ip address from pc
+ip_address = [l for l in ([ip for ip in socket.gethostbyname_ex(socket.gethostname())[2] 
+if not ip.startswith("127.")][:1], [[(s.connect(('8.8.8.8', 53)), 
+s.getsockname()[0], s.close()) for s in [socket.socket(socket.AF_INET, 
+socket.SOCK_DGRAM)]][0][1]]) if l][0][0]
 
 class Catastrophe:
     def __init__(self):
@@ -50,17 +57,17 @@ class Symptoms:
 
     def get_inputs(self):
         # Writes sensor input from Pi Cap into variable
-        def get_diff_values(unused_addr, args, volume):
+        def get_diff_values(unused_addr, *args):
             self.sensor_values = args
-            print(self.sensor_values)
+            #print(self.sensor_values)
 
         # Maps dispatcher to path of diff values
         dispatcher = Dispatcher()
-        dispatcher.map("/diff", get_diff_values)
+        dispatcher.map("/diff*", get_diff_values)
 
         # Initiates OSC server
-        server = osc_server.ThreadingOSCUDPServer(
-            ("127.0.0.1", 3000), dispatcher)
+        server = osc_server.BlockingOSCUDPServer(
+            (ip_address, 3000), dispatcher)
 
         server.serve_forever()
 
