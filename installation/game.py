@@ -134,16 +134,15 @@ class Symptoms:
         if random_number < chance_headline:
             self.trigger_headline()
         elif random_number < (chance_headline + chance_catastrophe):
-            self.trigger_catastrophe()
+            if not self.is_test_event_active:
+                Thread(target=self.trigger_catastrophe).start()
 
     def run(self, skip_headlines):
         self.did_game_end = False
         if len(self.headlines) == 0 and not skip_headlines:
             self.generate_headlines()
         while self.year < 2100:
-            # self.trigger_event()
-            if not self.is_test_event_active:
-                Thread(target=self.trigger_catastrophe).start()
+            self.trigger_event()
             self.count += 1
             if self.count == 6:
                 self.year += 1
@@ -160,10 +159,12 @@ class Symptoms:
     def main(self, skip_headlines=False):
         # runtime thread
         Thread(target=self.run, args=(skip_headlines,)).start()
-        # Thread(target=self.trigger_catastrophe).start()
         # input fetching thread
         Thread(target=self.get_inputs(), daemon=True).start()
+        # TODO: Hier Headlines generieren
+        # TODO: Hier GUI einfügen
 
 
 symptoms = Symptoms()
-symptoms.main(True)
+# Set prop to False if you want to generate headlines
+symptoms.main(False)
