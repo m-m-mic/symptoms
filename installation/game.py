@@ -11,13 +11,16 @@ from pythonosc.dispatcher import Dispatcher
 from threading import Thread
 import socket
 
+# loads in .env file which needs to be located in the same folder
 load_dotenv()
-# client für export zu touchdesigner
-client = udp_client.SimpleUDPClient("127.0.0.1", 7000)
+# fetches api key from .env file (can be generated at https://platform.openai.com/account/api-keys)
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
+# client für export zu touchdesigner
+client = udp_client.SimpleUDPClient("127.0.0.1", 7000)
+
 # copied from: https://www.w3resource.com/python-exercises/python-basic-exercise-55.php
-# gets current ip address from pc
+# gets current ip address of pc
 ip_address = [l for l in ([ip for ip in socket.gethostbyname_ex(socket.gethostname())[2] 
 if not ip.startswith("127.")][:1], [[(s.connect(('8.8.8.8', 53)), 
 s.getsockname()[0], s.close()) for s in [socket.socket(socket.AF_INET, 
@@ -32,6 +35,7 @@ class Catastrophe:
 
 class Symptoms:
     def __init__(self):
+        # Start values
         self.prompt = "Generiere 25 kurze, fiktive & sarkastische Schlagzeilen über den Klimawandel. Die Schlagzeilen sollen keine Jahreszahlen oder den Begriff Klimawandel beinhalten. Geb die Schlagzeilen als Liste mit dem key 'headlines' in einer JSON zurück"
         self.did_game_end = False
         self.start_year = 2025
@@ -59,19 +63,18 @@ class Symptoms:
         # Writes sensor input from Pi Cap into variable
         def get_diff_values(unused_addr, *args):
             self.sensor_values = args
-            #print(self.sensor_values)
+            # print(self.sensor_values)
 
         # Maps dispatcher to path of diff values
         dispatcher = Dispatcher()
         dispatcher.map("/diff*", get_diff_values)
 
         # Initiates OSC server
-        server = osc_server.BlockingOSCUDPServer(
-            (ip_address, 3000), dispatcher)
-
+        server = osc_server.BlockingOSCUDPServer((ip_address, 3000), dispatcher)
         server.serve_forever()
 
     def generate_headlines(self):
+        # TODO: needs to run alongside runtime method to reduce wait times
         while len(self.headlines) < 100:
             print("Generating headlines... (" + str(len(self.headlines)) + "/100)")
             gpt_response = openai.ChatCompletion.create(
@@ -86,6 +89,7 @@ class Symptoms:
                 for headline in headlines_json['headlines']:
                     self.headlines.append(headline)
             except Exception:
+                # Catches wrong response from GPT API
                 print('GPT returned wrong data format')
 
     def get_temperature(self):
@@ -154,8 +158,10 @@ class Symptoms:
             self.generate_headlines()
 
     def main(self, skip_headlines=False):
+        # runtime thread
         Thread(target=self.run, args=(skip_headlines,)).start()
         # Thread(target=self.trigger_catastrophe).start()
+        # input fetching thread
         Thread(target=self.get_inputs(), daemon=True).start()
 
 
