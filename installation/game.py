@@ -73,24 +73,28 @@ class Symptoms:
         server = osc_server.BlockingOSCUDPServer((ip_address, 3000), dispatcher)
         server.serve_forever()
 
-    def generate_headlines(self):
-        # TODO: needs to run alongside runtime method to reduce wait times
-        while len(self.headlines) < 100:
-            print("Generating headlines... (" + str(len(self.headlines)) + "/100)")
-            gpt_response = openai.ChatCompletion.create(
-                model="gpt-3.5-turbo",
-                messages=[
-                    {"role": "user",
-                     "content": self.prompt}
-                ]
-            )
-            try:
-                headlines_json = json.loads(gpt_response.choices[0].message.content)
-                for headline in headlines_json['headlines']:
-                    self.headlines.append(headline)
-            except Exception:
-                # Catches wrong response from GPT API
-                print('GPT returned wrong data format')
+    def generate_headlines(self, verbose=True):
+        while True:
+            if len(self.headlines) < 100:
+                if verbose:
+                    print("Filling up headlines... (currently " + str(len(self.headlines)) + "/100)")
+                gpt_response = openai.ChatCompletion.create(
+                    model="gpt-3.5-turbo",
+                    messages=[
+                        {"role": "user",
+                         "content": self.prompt}
+                    ]
+                )
+                try:
+                    headlines_json = json.loads(gpt_response.choices[0].message.content)
+                    for headline in headlines_json['headlines']:
+                        self.headlines.append(headline)
+                except Exception:
+                    # Catches wrong response from GPT API
+                    print('GPT returned wrong data format')
+            time.sleep(5)
+
+
 
     def get_temperature(self):
         self.temperature = 1.5 * math.cos(0.04 * (self.year - self.start_year) + math.pi) + 2.5
@@ -120,7 +124,7 @@ class Symptoms:
             time.sleep(0.01)
         print(f'{catastrophe} resolved.')
         self.is_test_event_active = False
-        time.sleep(0.5)
+        time.sleep(2)
 
     def trigger_event(self):
         chance_headline = 0.25
@@ -136,11 +140,17 @@ class Symptoms:
         elif random_number < (chance_headline + chance_catastrophe):
             if not self.is_test_event_active:
                 Thread(target=self.trigger_catastrophe).start()
+            else:
+                print("--- Blank ---")
+        else:
+            print("--- Blank ---")
 
     def run(self, skip_headlines):
         self.did_game_end = False
-        if len(self.headlines) == 0 and not skip_headlines:
-            self.generate_headlines()
+        if len(self.headlines) < 20 and not skip_headlines:
+            print("Waiting for headlines")
+        while len(self.headlines) < 20 and not skip_headlines:
+            pass
         while self.year < 2100:
             self.trigger_event()
             self.count += 1
@@ -157,6 +167,8 @@ class Symptoms:
             self.generate_headlines()
 
     def main(self, skip_headlines=False):
+        if not skip_headlines:
+            Thread(target=self.generate_headlines).start()
         # runtime thread
         Thread(target=self.run, args=(skip_headlines,)).start()
         # input fetching thread
@@ -166,5 +178,5 @@ class Symptoms:
 
 
 symptoms = Symptoms()
-# Set prop to False if you want to generate headlines
-symptoms.main(False)
+# Set prop to True if you want to skip headline generation
+symptoms.main()
