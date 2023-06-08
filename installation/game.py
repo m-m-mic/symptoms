@@ -11,6 +11,7 @@ from pythonosc.dispatcher import Dispatcher
 from threading import Thread
 import socket
 
+
 # Loads in .env file which needs to be located in the same folder as this file
 load_dotenv()
 # Fetches api key from .env file (can be generated at https://platform.openai.com/account/api-keys)
@@ -27,7 +28,6 @@ ip_address = [l for l in ([ip for ip in socket.gethostbyname_ex(socket.gethostna
                                                                 [socket.socket(socket.AF_INET,
                                                                                socket.SOCK_DGRAM)]][0][1]]) if l][0][0]
 
-
 class Catastrophe:
     def __init__(self):
         self.type = 'hurricane'
@@ -35,13 +35,12 @@ class Catastrophe:
         self.wind_up = 10
         self.deaths_per_second = 10
 
-
 class Symptoms:
     def __init__(self):
         # Start values
         self.prompt = "Generiere 25 kurze, fiktive & sarkastische Schlagzeilen über den Klimawandel. Die Schlagzeilen sollen keine Jahreszahlen oder den Begriff Klimawandel beinhalten. Geb die Schlagzeilen als Liste mit dem key 'headlines' in einer JSON zurück"
         self.is_game_running = True
-        self.start_year = 2024
+        self.start_year = 2025
         self.year = self.start_year
         self.count = 0
         self.death_count = 0
@@ -104,21 +103,22 @@ class Symptoms:
         # Temperature graph
         self.temperature = 1.5 * math.cos(0.04 * (self.year - self.start_year) + math.pi) + 2.5
         print(self.temperature)
-        # Sendet Temperatur an TouchDesigner
-        client.send_message("/temperature", self.temperature)
+        # Sendet Temperatur an Textfile
+        speichern_news("/temperature/", self.temperature)
 
     def trigger_headline(self):
         if len(self.headlines) > 0:
             # Randomly picks headline from array
             index = random.randrange(0, len(self.headlines))
             print(self.headlines[index])
-            # Sendet Headline an TouchDesigner
-            client.send_message("/headline", self.headlines[index])
+            # Sendet Headline an Textfile
+            speichern_news("/headline/", self.headlines[index])
             # Removes chosen headline from array
             del self.headlines[index]
         else:
             print("--- Blank (headline) ---")
-            client.send_message("/headline", "Ran out of headlines :((((")
+            #Später löschen
+            speichern_news("/headline/", "nix")
 
     def trigger_catastrophe(self):
         # TODO: Proper catastrophe logic
@@ -126,8 +126,8 @@ class Symptoms:
         catastrophes = ['drought', 'hurricane', 'flood', 'wildfire', 'sandstorm']
         catastrophe = random.choice(catastrophes)
         print(f'Oh no! A {catastrophe}  ＼(º □ º l|l)/')
-        # Sendet Katastrophe an TouchDesigner
-        client.send_message("/catastrophe", catastrophe)
+        # Sendet Katastrophe an Textfile
+        speichern_news("/catastrophe/", catastrophe)
         while self.sensor_values[0] < 100:
             time.sleep(0.01)
         print(f'{catastrophe} resolved.')
@@ -160,10 +160,13 @@ class Symptoms:
             else:
                 # Triggers nothing if all regions are occupied
                 print("--- Blank (catastrophe) ---")
+                #Später löschen
+                speichern_news("/catastrophe/", "nix")
         # Triggers nothing
         else:
             print("--- Blank ---")
-
+            #Später löschen
+            speichern_news("/catastrophe/", "nix")
     def run(self, skip_headlines):
         # Waits for headline generation until at least 20 are available
         if len(self.headlines) < 20 and not skip_headlines:
@@ -178,15 +181,14 @@ class Symptoms:
             if self.count == 5:
                 self.year += 1
                 print(self.year)
-                # Sendet Jahreszahl an TouchDesigner
-                client.send_message("/year", self.year)
+                speichern_news("/year/", self.year)
                 self.count = 0
                 self.get_temperature()
             time.sleep(1)
         # TODO: logic for starting & ending game
         self.is_game_running = False
-
-    def main(self, skip_headlines=False, verbose=True):
+    
+    def main(self, skip_headlines=True, verbose=True):
         # headline generation thread
         if not skip_headlines:
             Thread(target=self.generate_headlines, args=(verbose,)).start()
@@ -197,11 +199,14 @@ class Symptoms:
         # input fetching thread
         Thread(target=self.get_inputs(), daemon=True).start()
 
-        # TODO: Hier GUI einfügen
-
+#Speichert alle News für die GUI in news.txt
+def speichern_news(type , value):
+    with open("news.txt", 'a') as datei: 
+        datei.write(type + str(value) + '\n')
 
 symptoms = Symptoms()
+
 # Props:
 # skip_headlines: Whether headline generation is skipped (defaults to False)
 # verbose: Prints progress of headline generation (defaults to True)
-symptoms.main(skip_headlines=False, verbose=True)
+symptoms.main(skip_headlines=True, verbose=True)
