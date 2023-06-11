@@ -1,0 +1,525 @@
+/catastrophe/nix
+/catastrophe/nix
+/catastrophe/nix
+/catastrophe/nix
+/catastrophe/nix
+/year/2026
+/temperature/1.0011998400085331
+/catastrophe/nix
+/catastrophe/nix
+/catastrophe/nix
+/catastrophe/nix
+/catastrophe/nix
+/year/2027
+/temperature/1.004797440546071
+/catastrophe/hurricane
+/catastrophe/nix
+/catastrophe/nix
+/catastrophe/nix
+/catastrophe/nix
+/year/2028
+/temperature/1.0107870462192006
+/catastrophe/nix
+/catastrophe/nix
+/catastrophe/nix
+/catastrophe/nix
+/catastrophe/nix
+/year/2029
+/temperature/1.0191590749365596
+/catastrophe/nix
+/headline/Inselbewohner �ben schwimmen - in ihren Wohnungen
+/headline/Februar-Sommer l�sst Gletscher in Sorge zur�ck
+/catastrophe/nix
+/catastrophe/nix
+/year/2030
+/temperature/1.0299001332381374
+/catastrophe/nix
+/catastrophe/nix
+/catastrophe/nix
+/headline/Sonne, Sand und M�llberge: Die Str�nde sehen anders aus als fr�her
+/headline/Wie du mit nur einer Maske den Sahara-Staub und die Luftverschmutzung �berstehst
+/year/2031
+/temperature/1.0429930377219556
+/catastrophe/nix
+/catastrophe/nix
+/catastrophe/nix
+/catastrophe/nix
+/headline/Ozeane entt�uscht von Regenmangel
+/year/2032
+/temperature/1.0584168425338436
+/catastrophe/nix
+/catastrophe/nix
+/catastrophe/nix
+/headline/Windr�der als neue Touristenattraktion: Romantisch und charmant
+/catastrophe/nix
+/year/2033
+/temperature/1.0761468728763386
+/catastrophe/nix
+/catastrophe/nix
+/catastrophe/nix
+/catastrophe/nix
+/catastrophe/nix
+/year/2034
+/temperature/1.0961547644830976
+/headline/Deutschland gewinnt endlich Sommerolympiade in der Kategorie Hitzetod
+/headline/W�hrend Sahara-Regenwalds Ausbau, entsteht neue Vielfalt von giftigen Tieren
+/catastrophe/nix
+/catastrophe/nix
+/catastrophe/nix
+/year/2035
+/temperature/1.1184085089956721
+/catastrophe/nix
+/catastrophe/nix
+/headline/Polarnacht endet mit 30 Grad im Schatten
+/catastrophe/nix
+/headline/Tropenst�rme w�ten auf Nordseeinseln
+/year/2036
+/temperature/1.1428725051700548
+/catastrophe/nix
+/catastrophe/nix
+/catastrophe/nix
+/catastrophe/nix
+/headline/Hitzewelle in der Antarktis: Pinguine im Stress
+/year/2037
+/temperature/1.1695076158310735
+/catastrophe/nix
+/headline/Nordpol: Wo Selfies gemacht werden, bevor er weg ist
+/catastrophe/nix
+/catastrophe/nix
+/catastrophe/nix
+/year/2038
+/temperature/1.198271230483525
+/catastrophe/nix
+/catastrophe/nix
+/catastrophe/nix
+/catastrophe/nix
+/catastrophe/nix
+/year/2039
+/temperature/1.2291173334798757
+/catastrophe/nix
+/catastrophe/nix
+/catastrophe/nix
+/catastrophe/nix
+/catastrophe/nix
+/year/2040
+/temperature/1.2619965776354825
+/headline/Vitamin-D Mangel: Die Sorgen um Hautkrebs sind vergangen
+/catastrophe/nix
+/catastrophe/nix
+/catastrophe/nix
+/catastrophe/nix
+/year/2041
+/temperature/1.296856363173561
+/catastrophe/nix
+/catastrophe/nix
+/headline/Klimawandel ignoriert, weil Politiker von fossilen Brennstoffen abh�ngig sind
+/catastrophe/nix
+/catastrophe/nix
+/year/2042
+/temperature/1.333640921873608
+/catastrophe/nix
+/catastrophe/nix
+/catastrophe/nix
+/headline/Deutschland wird zum W�stenstaat � eine Chance f�r die Tourismusbranche
+/catastrophe/nix
+/year/2043
+/temperature/1.3722914062886573
+/headline/Antarktis wird zum neuen Badeort f�r Badetouristen
+/headline/W�stenbildung breitet sich in Deutschland aus
+/catastrophe/nix
+/catastrophe/nix
+/catastrophe/nix
+/year/2044
+/temperature/1.4127459838886418
+/headline/Forscher warnen: Die Erde f�llt auseinander
+/catastrophe/nix
+/catastrophe/nix
+/catastrophe/nix
+/catastrophe/nix
+/year/2045
+/temperature/1.4549399359792516
+/catastrophe/nix
+/headline/D�rre in Sibirien: B�ren verlassen den Wald
+/catastrophe/nix
+/headline/Eisberg mit zwei Zimmern und Meerblick zu vermieten
+/catastrophe/nix
+/year/2046
+/temperature/1.4988057612380374
+/headline/Wassersparen: Veganer wechseln zum Trockenfutter
+/headline/Neues Strandresort er�ffnet in der Sahara
+/catastrophe/nix
+/catastrophe/nix
+/catastrophe/nix
+/year/2047
+/temperature/1.5442732837021294
+/headline/Leere Ozeane, die neue Quelle der Inspiration
+/headline/Hitze in Deutschland: Sorge um Bierg�rten und Grillabende
+/headline/Polarb�ren werden endlich d�nn genug, um durch Gitterst�be zu passen
+/catastrophe/nix
+/catastrophe/nix
+/year/2048
+/temperature/1.5912697650348056
+/catastrophe/nix
+/headline/Hitze l�sst Knoblauch aussterben
+/headline/Klimawandel rettet endlich Rentiere vor Weihnachtsmann
+/catastrophe/nix
+/catastrophe/nix
+/year/2049
+/temperature/1.6397200208913147
+/catastrophe/nix
+/catastrophe/nix
+/catastrophe/nix
+/catastrophe/nix
+/catastrophe/nix
+/year/2050
+/temperature/1.6895465411977904
+/headline/Neue Klimaregulierung f�rs Auto: R�ckenlehne als Klimablocker
+/headline/Kurse in Kamelreiten im Alpengebiet - die neue Zukunft
+/catastrophe/nix
+/headline/Frische Luft ist ein seltenes Gut - nur noch mit CO2-Filter erh�ltlich
+/catastrophe/nix
+/year/2051
+/temperature/1.7406696141508322
+/headline/Neues Rekordjahr: Klimaerw�rmung sorgt f�r steigende Besucherzahlen am Nordpol
+/catastrophe/nix
+/headline/Eine erfrischende Erweckung in der H�lle erspart K�ltegesch�digten den Winter
+/catastrophe/nix
+/catastrophe/nix
+/year/2052
+/temperature/1.7930074537393899
+/catastrophe/nix
+/catastrophe/nix
+/catastrophe/nix
+/headline/Tolle Sache: Meeresspiegel steigt, bald kann man beim Fr�hst�ck im Ozean planschen!
+/catastrophe/nix
+/year/2053
+/temperature/1.8464763305849319
+/headline/Stadtr�te beschlie�en neue Pl�ne f�r den klimatischen Notstand
+/catastrophe/nix
+/headline/Komplettes Abschmelzen von Eis am Nordpol
+/headline/Strandurlaub nur noch mit Taucherbrille m�glich
+/catastrophe/nix
+/year/2054
+/temperature/1.9009907058905902
+/catastrophe/nix
+/catastrophe/nix
+/catastrophe/nix
+/headline/Polarb�r trifft auf Grizzlyb�r: Arktis schmilzt, Verteilungsk�mpfe um Territorien entbrennen
+/catastrophe/nix
+/year/2055
+/temperature/1.9564633682849897
+/catastrophe/nix
+/catastrophe/nix
+/catastrophe/nix
+/catastrophe/nix
+/catastrophe/nix
+/year/2056
+/temperature/2.0128055733418355
+/headline/Zwischen Theorie und Praxis: Klimawandel sorgt f�r hitzige Debatten um Ursachen und Ma�nahmen!
+/catastrophe/nix
+/headline/Bienen besorgt: Pflanzen bl�hen zu fr�h
+/catastrophe/nix
+/catastrophe/nix
+/year/2057
+/temperature/2.069927185552067
+/headline/Der Mensch hat den Regen verloren
+/catastrophe/nix
+/headline/Gr�nland schwitzt: Eisberge schmelzen
+/catastrophe/nix
+/catastrophe/nix
+/year/2058
+/temperature/2.127736822521441
+/catastrophe/nix
+/headline/Klimawandel? Nicht mit uns! Wir bauen einfach ein klimatisiertes Weltallhotel
+/headline/Kleines Risiko, gro�e Wirkung: Klimawandel sorgt f�r Katastrophen, aber es passiert ja immer nur den anderen!
+/catastrophe/nix
+/catastrophe/nix
+/year/2059
+/temperature/2.1861420011628714
+/catastrophe/nix
+/catastrophe/nix
+/catastrophe/nix
+/catastrophe/nix
+/catastrophe/nix
+/year/2060
+/temperature/2.245049285649639
+/catastrophe/nix
+/headline/Hitzewelle: Die Klimaanlagen laufen sich warm
+/catastrophe/nix
+/headline/B�ume sind jetzt Luxusartikel - nur noch gegen viele Dollar erh�ltlich
+/catastrophe/nix
+/year/2061
+/temperature/2.3043644368927807
+/headline/Es ist so hei�, die Menschen kochen ihre Mittagessen auf dem Gehweg
+/catastrophe/nix
+/catastrophe/nix
+/headline/Endlich Sommer, endlich unangenehm
+/catastrophe/nix
+/year/2062
+/temperature/2.363992563303536
+/headline/H�user fallen auseinander aufgrund hei�en Sommerns
+/catastrophe/nix
+/catastrophe/nix
+/catastrophe/nix
+/catastrophe/nix
+/year/2063
+/temperature/2.4238382725996304
+/catastrophe/nix
+/catastrophe/nix
+/catastrophe/nix
+/headline/Regenw�lder verschwinden, um Platz f�r Golfpl�tze zu machen
+/catastrophe/nix
+/year/2064
+/temperature/2.4838058244125993
+/catastrophe/nix
+/catastrophe/nix
+/headline/Meteorologen raten: Nimm niemals Schnee mit zum Strand
+/catastrophe/nix
+/catastrophe/nix
+/year/2065
+/temperature/2.5437992834519325
+/catastrophe/nix
+/headline/Taucher entdecken Korallenriffe vor Berlin
+/headline/Von der Plastikt�te zur CO2-Transportkiste: Die neue Umweltbewegung
+/catastrophe/nix
+/headline/Da ist der Sommer aber wirklich noch mal zur�ckgekommen: Klimawandel sorgt f�r Rekordtemperaturen im Oktober!
+/year/2066
+/temperature/2.603722672981094
+/catastrophe/nix
+/catastrophe/nix
+/headline/Endlich Winterkleidung sind pass� - es ist immer Sommer
+/headline/Eisberge werden knapper - Zeit f�r eine Preiserh�hung
+/catastrophe/nix
+/year/2067
+/temperature/2.663480128359806
+/headline/T-Shirt-Produzenten gehen neue Wege: Klimatisierte Kleidung ist der Trend
+/catastrophe/nix
+/catastrophe/nix
+/headline/Tolle Aussichten: Weihnachten bald ohne Schnee, daf�r mit Palmen und Kokosn�ssen!
+/catastrophe/nix
+/year/2068
+/temperature/2.722976050407045
+/catastrophe/nix
+/headline/Weniger ist mehr: Klimawandel sorgt f�r weniger Lebensqualit�t, daf�r mehr �berlebenskampf!
+/catastrophe/nix
+/catastrophe/nix
+/catastrophe/nix
+/year/2069
+/temperature/2.78211525833932
+/catastrophe/nix
+/catastrophe/nix
+/headline/Mit Flip Flops und Stra�enkreide statt Skiern zum Wintersport
+/catastrophe/nix
+/catastrophe/nix
+/year/2070
+/temperature/2.84080314203963
+/catastrophe/nix
+/headline/Dank Klimawandel: Neue Weinanbaugebiete in Gr�nland entdeckt
+/headline/Der t�gliche Kampf um den Schatten: Urlaub in Griechenland
+/catastrophe/nix
+/catastrophe/nix
+/year/2071
+/temperature/2.8989458134134702
+/headline/Inklusive Schnorchelausflug: Der neue Wellness-Trend im Malediven-Urlaub
+/catastrophe/nix
+/headline/Der neue Trend: Luftfilter f�r Zuhause!
+/catastrophe/nix
+/headline/Warum auf einen gr�nen Planeten hinarbeiten, wenn wir die Marsw�ste haben?
+/year/2072
+/temperature/2.9564502565897497
+/catastrophe/nix
+/catastrophe/nix
+/catastrophe/nix
+/catastrophe/nix
+/catastrophe/nix
+/year/2073
+/temperature/3.013224476726347
+/catastrophe/nix
+/catastrophe/nix
+/catastrophe/nix
+/catastrophe/nix
+/headline/Sonnenschein und D�rre - der perfekte Sommerurlaub!
+/year/2074
+/temperature/3.0691776471822316
+/headline/Ich wollte diesen Sommer Strandurlaub machen - Jetzt wohne ich am Strand. Gef�llt mir!
+/catastrophe/nix
+/catastrophe/nix
+/catastrophe/nix
+/catastrophe/nix
+/year/2075
+/temperature/3.124220254820713
+/headline/Waldbr�nde in Sibirien: Anheizen leicht gemacht dank des Treibhauseffekts
+/catastrophe/nix
+/catastrophe/nix
+/catastrophe/nix
+/catastrophe/nix
+/year/2076
+/temperature/3.178264243211368
+/headline/Endlich Walking Dead in echt erleben! Klimawandel l�sst uns in naher Zukunft in einer postapokalyptischen Welt leben
+/catastrophe/nix
+/catastrophe/nix
+/catastrophe/nix
+/catastrophe/nix
+/year/2077
+/temperature/3.231223153501539
+/catastrophe/nix
+/catastrophe/nix
+/catastrophe/nix
+/catastrophe/nix
+/headline/Klimagipfel endet ohne Ergebnis - Wir haben schlie�lich noch genug Zeit, oder nicht?
+/year/2078
+/temperature/3.283012262732061
+/catastrophe/nix
+/catastrophe/nix
+/catastrophe/nix
+/catastrophe/nix
+/headline/Forscher finden heraus: Hitzewellen sind jetzt offiziell normale Temperaturen.
+/year/2079
+/temperature/3.333548719375919
+/headline/Der menschliche Selbsterhaltungstrieb zieht es vor, die Augen vor der Realit�t zu verschlie�en.
+/catastrophe/nix
+/headline/Klimawandel? Was f�r ein Klimawandel?
+/catastrophe/nix
+/catastrophe/nix
+/year/2080
+/temperature/3.3827516758830187
+/catastrophe/nix
+/catastrophe/nix
+/catastrophe/nix
+/catastrophe/nix
+/catastrophe/nix
+/year/2081
+/temperature/3.4305424180190194
+/catastrophe/nix
+/catastrophe/nix
+/catastrophe/nix
+/headline/Besser schwitzen statt frieren: Winter ade
+/catastrophe/nix
+/year/2082
+/temperature/3.4768444907913185
+/headline/Ab in den S�den: Klimawandel strebt s�dw�rts, bald Europa nur noch ein gro�er Tropenwald!
+/headline/Ihr Flug ist leider ausgefallen � wegen zu viel CO2
+/catastrophe/nix
+/catastrophe/nix
+/catastrophe/nix
+/year/2083
+/temperature/3.5215838207607293
+/catastrophe/nix
+/catastrophe/nix
+/catastrophe/nix
+/catastrophe/nix
+/catastrophe/nix
+/year/2084
+/temperature/3.5646888345431798
+/catastrophe/nix
+/headline/Familienspa� bei 40 Grad: Klimawandel sorgt f�r tolle Ferien daheim
+/catastrophe/nix
+/headline/Die letzte Eiszeit: Wer friert, hat verloren
+/catastrophe/nix
+/year/2085
+/temperature/3.606090573311868
+/catastrophe/nix
+/catastrophe/nix
+/catastrophe/nix
+/catastrophe/nix
+/catastrophe/nix
+/year/2086
+/temperature/3.6457228031166604
+/catastrophe/nix
+/headline/Lebe wild und gef�hrlich: Klimawandel sorgt f�r erh�hte Risiken und Gefahren!
+/catastrophe/nix
+/catastrophe/nix
+/catastrophe/nix
+/year/2087
+/temperature/3.683522120844297
+/headline/Haie jetzt auch auf deutschen Autobahnen gesichtet!
+/catastrophe/nix
+/catastrophe/nix
+/catastrophe/nix
+/catastrophe/nix
+/year/2088
+/temperature/3.7194280556498347
+/catastrophe/nix
+/catastrophe/nix
+/catastrophe/nix
+/catastrophe/nix
+/catastrophe/nix
+/year/2089
+/temperature/3.7533831656971115
+/catastrophe/nix
+/headline/Sardinen fl�chten in die Arktis
+/catastrophe/nix
+/headline/Wo ist der Schnee geblieben? Skiorte in Alarmbereitschaft
+/headline/Segelsaison auf unbestimmte Zeit verl�ngert: Das Mittelmeer w�rmer denn je
+/year/2090
+/temperature/3.7853331300534205
+/catastrophe/nix
+/catastrophe/nix
+/headline/Feinstaub sorgt f�r sch�neres Sonnenuntergangserlebnis
+/catastrophe/nix
+/catastrophe/nix
+/year/2091
+/temperature/3.8152268355914223
+/catastrophe/nix
+/catastrophe/nix
+/headline/Gl�ckwunsch: Sibirien bald klimatisch wie die C�te d'Azur!
+/catastrophe/nix
+/catastrophe/nix
+/year/2092
+/temperature/3.8430164587592377
+/catastrophe/nix
+/catastrophe/nix
+/catastrophe/nix
+/catastrophe/nix
+/catastrophe/nix
+/year/2093
+/temperature/3.8686575420879374
+/catastrophe/nix
+/headline/Der Klimawandel ist kein Mythos - aber wer braucht schon Fakten?
+/catastrophe/nix
+/catastrophe/nix
+/headline/Schmelzende Gletscher: Endlich unber�hrtes Land f�r Hotelresorts
+/year/2094
+/temperature/3.892109065313999
+/headline/Wissenschaftler entdecken Meeresschildkr�ten, die nicht �berhitzen k�nnen
+/catastrophe/nix
+/headline/Wenn auch Luxusunterk�nfte unter Wasser stehen
+/catastrophe/nix
+/catastrophe/nix
+/year/2095
+/temperature/3.9133335110029877
+/catastrophe/nix
+/headline/So sch�n bunt: Klimawandel sorgt f�r irreversible Ver�nderungen des Klimas!
+/catastrophe/nix
+/headline/Zu Ehren unserer Vorfahren: Die Eisb�ren halten wir nur noch im Zoo
+/catastrophe/nix
+/year/2096
+/temperature/3.9322969245694397
+/catastrophe/nix
+/headline/London by the sea: Klimawandel l�sst London zur Hafenstadt werden
+/catastrophe/nix
+/catastrophe/nix
+/headline/Freibad im November: Ein neuer Trend setzt sich durch
+/year/2097
+/temperature/3.948968968596962
+/catastrophe/nix
+/catastrophe/nix
+/catastrophe/nix
+/catastrophe/nix
+/catastrophe/nix
+/year/2098
+/temperature/3.963322971371624
+/catastrophe/nix
+/catastrophe/nix
+/catastrophe/nix
+/headline/Sturmfrei: Hurrikans in Florida sorgen f�r leere Str�nde
+/catastrophe/nix
+/year/2099
+/temperature/3.9753359695510095
+/headline/Der Klassiker: Sturmfluten und Hurrikane demn�chst regelm��ig in Deutschland!
+/headline/Treibhausgase f�r neue Nasenjobs verantwortlich
+/catastrophe/nix
+/catastrophe/nix
+/catastrophe/nix
+/year/2100
+/temperature/3.9849887449006682
