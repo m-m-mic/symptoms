@@ -184,10 +184,8 @@ class Symptoms:
             current_duration = 0
             current_resolution_time = 0
             while current_windup < catastrophe.wind_up and self.is_game_running is True:
-                print(catastrophe.electrode_index, self.sensor_values)
                 if self.sensor_values[catastrophe.electrode_index] > 100:
                     current_resolution_time += 0.01
-                    print(catastrophe.electrode_index, current_resolution_time)
                     self.region_data[selected_region][
                         "resolution_percentage"] = current_resolution_time / catastrophe.resolution_time
                 if current_resolution_time >= catastrophe.resolution_time:
@@ -196,7 +194,6 @@ class Symptoms:
                 time.sleep(0.01)
             if catastrophe.resolution_time >= current_resolution_time:
                 while current_duration < catastrophe.duration and self.is_game_running is True:
-                    print(catastrophe.electrode_index, self.sensor_values)
                     if self.sensor_values[catastrophe.electrode_index] > 100:
                         current_resolution_time += 0.01
                         self.region_data[selected_region][
@@ -264,6 +261,7 @@ class Symptoms:
             # Main game loop
             while self.year < 2100:
                 self.trigger_event()
+                print(str(int(self.death_count)) + " people have died.")
                 self.count += 1
                 if self.count == 5:
                     self.year += 1
@@ -297,4 +295,4 @@ symptoms = Symptoms()
 # Props:
 # skip_headlines: Whether headline generation is skipped (defaults to False)
 # verbose: Prints progress of headline generation (defaults to True)
-symptoms.main(skip_headlines=True, verbose=True)
+symptoms.main(skip_headlines=False, verbose=True)
