@@ -97,7 +97,7 @@ class Catastrophe:
         wind_up = random.randrange(catastrophe_data["wind_up"]["min"], catastrophe_data["wind_up"]["max"])
         # get deaths_per_second
         deaths_per_second = random.randrange(catastrophe_data["deaths_per_second"]["min"],
-                                             catastrophe_data["deaths_per_second"]["max"]) * temperature
+                                             catastrophe_data["deaths_per_second"]["max"]) * (temperature**temperature)
         # get resolution_time
         resolution_time = random.randrange(catastrophe_data["resolution_time"]["min"],
                                            catastrophe_data["resolution_time"]["max"]) * temperature / 100

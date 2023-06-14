@@ -9,26 +9,26 @@ from pythonosc import udp_client
 from pythonosc import osc_server
 from pythonosc.dispatcher import Dispatcher
 from threading import Thread
-import socket
+from get_ip import get_ip
 
 # imports Catastrophe class
 from catastrophe import Catastrophe
+
+# gets headline constructors
+from construct_headline import construct_start_headline, construct_end_headline, get_source
 
 # Loads in .env file which needs to be located in the same folder as this file
 load_dotenv()
 # Fetches api key from .env file (can be generated at https://platform.openai.com/account/api-keys)
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
-# client für export zu touchdesigner
+# UPD Client for world map visualisation
 client = udp_client.SimpleUDPClient("127.0.0.1", 7000)
 
-# Copied from: https://www.w3resource.com/python-exercises/python-basic-exercise-55.php
 # Gets current ip address of pc
-ip_address = [l for l in ([ip for ip in socket.gethostbyname_ex(socket.gethostname())[2]
-                           if not ip.startswith("127.")][:1], [[(s.connect(('8.8.8.8', 53)),
-                                                                 s.getsockname()[0], s.close()) for s in
-                                                                [socket.socket(socket.AF_INET,
-                                                                               socket.SOCK_DGRAM)]][0][1]]) if l][0][0]
+ip_address = get_ip()
+
+key_mapping = ["a", "s", "d", "f", "g", "h", "j", "k", "l", "ö", "ä", "#"]
 
 
 class Symptoms:
@@ -47,67 +47,71 @@ class Symptoms:
             "na1": {
                 "is_active": False,
                 "type": None,
-                "resolution_percentage": 0,  # Muss in Prozent übergeben werden
+                "resolution_percentage": 0,
             },
             "na2": {
                 "is_active": False,
                 "type": None,
-                "resolution_percentage": 0,  # Muss in Prozent übergeben werden
+                "resolution_percentage": 0,
             },
             "eu1": {
                 "is_active": False,
                 "type": None,
-                "resolution_percentage": 0,  # Muss in Prozent übergeben werden
+                "resolution_percentage": 0,
             },
             "sa1": {
                 "is_active": False,
                 "type": None,
-                "resolution_percentage": 0,  # Muss in Prozent übergeben werden
+                "resolution_percentage": 0,
             },
             "sa2": {
                 "is_active": False,
                 "type": None,
-                "resolution_percentage": 0,  # Muss in Prozent übergeben werden
+                "resolution_percentage": 0,
             },
             "af1": {
                 "is_active": False,
                 "type": None,
-                "resolution_percentage": 0,  # Muss in Prozent übergeben werden
+                "resolution_percentage": 0,
             },
             "af2": {
                 "is_active": False,
                 "type": None,
-                "resolution_percentage": 0,  # Muss in Prozent übergeben werden
+                "resolution_percentage": 0,
             },
             "af3": {
                 "is_active": False,
                 "type": None,
-                "resolution_percentage": 0,  # Muss in Prozent übergeben werden
+                "resolution_percentage": 0,
             },
             "as1": {
                 "is_active": False,
                 "type": None,
-                "resolution_percentage": 0,  # Muss in Prozent übergeben werden
+                "resolution_percentage": 0,
             },
             "as2": {
                 "is_active": False,
                 "type": None,
-                "resolution_percentage": 0,  # Muss in Prozent übergeben werden
+                "resolution_percentage": 0,
             },
             "as3": {
                 "is_active": False,
                 "type": None,
-                "resolution_percentage": 0,  # Muss in Prozent übergeben werden
+                "resolution_percentage": 0,
             },
             "oc1": {
                 "is_active": False,
                 "type": None,
-                "resolution_percentage": 0,  # Muss in Prozent übergeben werden
+                "resolution_percentage": 0,
             },
         }
         self.headlines = []
-        self.sensor_values = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-        self.is_test_event_active = False
+        self.sensor_values = [0] * 12
+
+    def reset_attributes(self):
+        generated_headlines = self.headlines
+        self.__init__()
+        self.headlines = generated_headlines
 
     def get_inputs(self):
         # Writes sensor input from Pi Cap into variable
@@ -127,30 +131,29 @@ class Symptoms:
             if len(self.headlines) < 100:
                 if verbose:
                     print("Filling up headlines... (currently " + str(len(self.headlines)) + "/100)")
-                # Calls GPT API and requests headlines
-                gpt_response = openai.ChatCompletion.create(
-                    model="gpt-3.5-turbo",
-                    messages=[
-                        {"role": "user",
-                         "content": self.prompt}
-                    ]
-                )
                 try:
+                    # Calls GPT API and requests headlines
+                    gpt_response = openai.ChatCompletion.create(
+                        model="gpt-3.5-turbo",
+                        messages=[
+                            {"role": "user",
+                             "content": self.prompt}
+                        ]
+                    )
                     # Converts response into JSON
                     headlines_json = json.loads(gpt_response.choices[0].message.content)
                     # Adds new headlines to headlines array
                     for headline in headlines_json['headlines']:
-                        self.headlines.append(headline)
+                        self.headlines.append({"headline": headline, "source": get_source()})
                     # Rests for 5 seconds
                     time.sleep(5)
-                except Exception:
-                    # Catches wrong response from GPT API
-                    print('GPT returned wrong data format')
+                except Exception as e:
+                    # Catches bad response from GPT API
+                    print("Error while generating headlines:", e)
 
-    def get_temperature(self):
+    def set_temperature(self):
         # Temperature graph
         self.temperature = 1.5 * math.cos(0.04 * (self.year - self.start_year) + math.pi) + 2.5
-        print(self.temperature)
         # Sendet Temperatur an Textfile
         speichern_news("/temperature/", self.temperature)
 
@@ -158,7 +161,8 @@ class Symptoms:
         if len(self.headlines) > 0:
             # Randomly picks headline from array
             index = random.randrange(0, len(self.headlines))
-            print(self.headlines[index])
+            headline = self.headlines[index]
+            print(headline["headline"] + " - " + headline["source"])
             # Sendet Headline an Textfile
             speichern_news("/headline/", self.headlines[index])
             # Removes chosen headline from array
@@ -171,18 +175,38 @@ class Symptoms:
     def trigger_catastrophe(self):
         # TODO: Melli News input
         if len(self.free_regions) != 0:
+            # Moves region from free to occupied
             selected_region = random.choice(self.free_regions)
             self.occupied_regions.add(selected_region)
             self.free_regions.remove(selected_region)
+
+            # Initialises the catastrophe based on selected region and current temperature
             catastrophe = Catastrophe(selected_region, self.temperature)
-            print(catastrophe.type + " in region " + selected_region + " is active " + "(" + str(
-                catastrophe.electrode_index) + ")\n")
+
+            # Constructs starting headline based on type and region
+            start_headline = {
+                "headline": construct_start_headline(selected_region, catastrophe.type),
+                "source": get_source()
+            }
+            print("════════════════════════════════════════════════════════════════")
+            print("!!! CATASTROPHE !!!")
+            print(start_headline["headline"] + " - " + start_headline["source"])
+            print("!!! On electrode " + str(catastrophe.electrode_index) + " - " + key_mapping[
+                catastrophe.electrode_index] + " !!!")
+            print("════════════════════════════════════════════════════════════════")
+
+            # Changes region data
             self.region_data[selected_region]["is_active"] = True
             self.region_data[selected_region]["type"] = catastrophe.type
             self.region_data[selected_region]["resolution_percentage"] = 0
+
+            # Sets starting parameters for catastrophe
             current_windup = 0
             current_duration = 0
             current_resolution_time = 0
+            current_death_count = 0
+
+            # Wind up period of catastrophe
             while current_windup < catastrophe.wind_up and self.is_game_running is True:
                 if self.sensor_values[catastrophe.electrode_index] > 100:
                     current_resolution_time += 0.01
@@ -192,6 +216,8 @@ class Symptoms:
                     break
                 current_windup += 0.01
                 time.sleep(0.01)
+
+            # Main duration of catastrophe if it hasn't been resolved yet
             if catastrophe.resolution_time >= current_resolution_time:
                 while current_duration < catastrophe.duration and self.is_game_running is True:
                     if self.sensor_values[catastrophe.electrode_index] > 100:
@@ -201,12 +227,27 @@ class Symptoms:
                     if current_resolution_time >= catastrophe.resolution_time:
                         break
                     self.death_count += catastrophe.deaths_per_second * 0.01
+                    current_death_count += catastrophe.deaths_per_second * 0.01
                     current_duration += 0.01
                     time.sleep(0.01)
+
+            # Changes region data
             self.region_data[selected_region]["is_active"] = False
-            print(catastrophe.type + " in region " + selected_region + " is resolved " + "(" + str(
-                catastrophe.electrode_index) + ")\n")
+
+            # Constructs ending headline
+            end_headline = {
+                "headline": construct_end_headline(selected_region, catastrophe.type, current_death_count),
+                "source": get_source()
+            }
+            print("════════════════════════════════════════════════════════════════")
+            print(">>> RESOLVED <<<")
+            print(end_headline["headline"] + " - " + end_headline["source"])
+            print("════════════════════════════════════════════════════════════════")
+
+            # Puts region on 2 second cooldown
             time.sleep(2)
+
+            # Moves region back from occupied to free
             self.free_regions.append(selected_region)
             self.occupied_regions.remove(selected_region)
         else:
@@ -232,6 +273,7 @@ class Symptoms:
         # Triggers headline
         if random_number < chance_headline:
             self.trigger_headline()
+
         # Triggers catastrophe
         elif random_number < (chance_headline + chance_catastrophe):
             Thread(target=self.trigger_catastrophe).start()
@@ -244,33 +286,44 @@ class Symptoms:
 
     def run(self, skip_headlines):
         while True:
-            print("Touch any electrode to start game.")
+            # Game starts when any of the sensors are touched by the player
+            print("Touch any electrode to start game.\n")
             while self.is_game_running is False:
                 for sensor in self.sensor_values:
                     if sensor > 100:
-                        self.__init__()
+                        # Clears all attributes except headlines
+                        self.reset_attributes()
                         self.is_game_running = True
                         break
 
             # Waits for headline generation until at least 20 are available
             if len(self.headlines) < 20 and not skip_headlines:
-                print("Waiting for GPT to return headlines...")
+                print("Waiting for GPT to return headlines...\n")
             while len(self.headlines) < 20 and not skip_headlines:
                 pass
+
+            print("/// SYMPTOMS startet ///")
+            print("\n")
+            time.sleep(1)
 
             # Main game loop
             while self.year < 2100:
                 self.trigger_event()
-                print("> " + str(int(self.death_count)) + " people have died.")
                 self.count += 1
                 if self.count == 5:
                     self.year += 1
-                    print("Year", self.year)
-                    speichern_news("/year/", self.year)
                     self.count = 0
-                    self.get_temperature()
+                    self.set_temperature()
+                    print("┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄")
+                    print(
+                        f"JAHR {str(self.year)} - {float(self.temperature):.2}°C - {str(int(self.death_count))} TOTE - {len(self.occupied_regions)} AKTIVE REGION(EN)")
+                    print("┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄")
+                    speichern_news("/year/", self.year)
                 time.sleep(1)
             self.is_game_running = False
+            time.sleep(1)
+            print(f"SPIEL ZU ENDE: {str(int(self.death_count))} TOTE")
+            time.sleep(1)
 
     def main(self, skip_headlines=False, verbose=False):
         # headline generation thread
@@ -295,4 +348,4 @@ symptoms = Symptoms()
 # Props:
 # skip_headlines: Whether headline generation is skipped (defaults to False)
 # verbose: Prints progress of headline generation (defaults to True)
-symptoms.main(skip_headlines=False, verbose=True)
+symptoms.main(skip_headlines=False, verbose=False)
