@@ -254,25 +254,25 @@ class Symptoms:
 
             # Waits for headline generation until at least 20 are available
             if len(self.headlines) < 20 and not skip_headlines:
-                print("Waiting for headlines...")
+                print("Waiting for GPT to return headlines...")
             while len(self.headlines) < 20 and not skip_headlines:
                 pass
 
             # Main game loop
             while self.year < 2100:
                 self.trigger_event()
-                print(str(int(self.death_count)) + " people have died.")
+                print("> " + str(int(self.death_count)) + " people have died.")
                 self.count += 1
                 if self.count == 5:
                     self.year += 1
-                    print(self.year)
+                    print("Year", self.year)
                     speichern_news("/year/", self.year)
                     self.count = 0
                     self.get_temperature()
                 time.sleep(1)
             self.is_game_running = False
 
-    def main(self, skip_headlines=True, verbose=True):
+    def main(self, skip_headlines=False, verbose=False):
         # headline generation thread
         if not skip_headlines:
             Thread(target=self.generate_headlines, args=(verbose,)).start()
