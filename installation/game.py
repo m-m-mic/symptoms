@@ -11,6 +11,8 @@ from pythonosc.dispatcher import Dispatcher
 from threading import Thread
 import socket
 
+# imports Catastrophe class
+from catastrophe import Catastrophe
 
 # Loads in .env file which needs to be located in the same folder as this file
 load_dotenv()
@@ -28,33 +30,79 @@ ip_address = [l for l in ([ip for ip in socket.gethostbyname_ex(socket.gethostna
                                                                 [socket.socket(socket.AF_INET,
                                                                                socket.SOCK_DGRAM)]][0][1]]) if l][0][0]
 
-class Catastrophe:
-    def __init__(self):
-        self.type = 'hurricane'
-        self.duration = 100
-        self.wind_up = 10
-        self.deaths_per_second = 10
 
 class Symptoms:
     def __init__(self):
         # Start values
         self.prompt = "Generiere 25 kurze, fiktive & sarkastische Schlagzeilen über den Klimawandel. Die Schlagzeilen sollen keine Jahreszahlen oder den Begriff Klimawandel beinhalten. Geb die Schlagzeilen als Liste mit dem key 'headlines' in einer JSON zurück"
-        self.is_game_running = True
+        self.is_game_running = False
         self.start_year = 2025
         self.year = self.start_year
         self.count = 0
         self.death_count = 0
         self.temperature = 1
-        self.free_regions = ("na1", "na2", "eu1", "eu2", "sa1", "sa2", "me1", "af1", "af2", "as1", "as2", "oc1")
+        self.free_regions = ["na1", "na2", "eu1", "sa1", "sa2", "af1", "af2", "af3", "as1", "as2", "as3", "oc1"]
         self.occupied_regions = set()
         self.region_data = {
             "na1": {
                 "is_active": False,
                 "type": None,
-                "duration": None,
-                "wind_up": None,
-                "deaths_per_second": None,
-                "resolution_time": None,
+                "resolution_percentage": 0,  # Muss in Prozent übergeben werden
+            },
+            "na2": {
+                "is_active": False,
+                "type": None,
+                "resolution_percentage": 0,  # Muss in Prozent übergeben werden
+            },
+            "eu1": {
+                "is_active": False,
+                "type": None,
+                "resolution_percentage": 0,  # Muss in Prozent übergeben werden
+            },
+            "sa1": {
+                "is_active": False,
+                "type": None,
+                "resolution_percentage": 0,  # Muss in Prozent übergeben werden
+            },
+            "sa2": {
+                "is_active": False,
+                "type": None,
+                "resolution_percentage": 0,  # Muss in Prozent übergeben werden
+            },
+            "af1": {
+                "is_active": False,
+                "type": None,
+                "resolution_percentage": 0,  # Muss in Prozent übergeben werden
+            },
+            "af2": {
+                "is_active": False,
+                "type": None,
+                "resolution_percentage": 0,  # Muss in Prozent übergeben werden
+            },
+            "af3": {
+                "is_active": False,
+                "type": None,
+                "resolution_percentage": 0,  # Muss in Prozent übergeben werden
+            },
+            "as1": {
+                "is_active": False,
+                "type": None,
+                "resolution_percentage": 0,  # Muss in Prozent übergeben werden
+            },
+            "as2": {
+                "is_active": False,
+                "type": None,
+                "resolution_percentage": 0,  # Muss in Prozent übergeben werden
+            },
+            "as3": {
+                "is_active": False,
+                "type": None,
+                "resolution_percentage": 0,  # Muss in Prozent übergeben werden
+            },
+            "oc1": {
+                "is_active": False,
+                "type": None,
+                "resolution_percentage": 0,  # Muss in Prozent übergeben werden
             },
         }
         self.headlines = []
@@ -117,22 +165,53 @@ class Symptoms:
             del self.headlines[index]
         else:
             print("--- Blank (headline) ---")
-            #Später löschen
+            # Später löschen
             speichern_news("/headline/", "nix")
 
     def trigger_catastrophe(self):
-        # TODO: Proper catastrophe logic
-        self.is_test_event_active = True
-        catastrophes = ['drought', 'hurricane', 'flood', 'wildfire', 'sandstorm']
-        catastrophe = random.choice(catastrophes)
-        print(f'Oh no! A {catastrophe}  ＼(º □ º l|l)/')
-        # Sendet Katastrophe an Textfile
-        speichern_news("/catastrophe/", catastrophe)
-        while self.sensor_values[0] < 100:
-            time.sleep(0.01)
-        print(f'{catastrophe} resolved.')
-        time.sleep(2)
-        self.is_test_event_active = False
+        # TODO: Melli News input
+        if len(self.free_regions) != 0:
+            selected_region = random.choice(self.free_regions)
+            self.occupied_regions.add(selected_region)
+            self.free_regions.remove(selected_region)
+            catastrophe = Catastrophe(selected_region, self.temperature)
+            print(catastrophe.type + " in region " + selected_region + " is active " + "(" + str(
+                catastrophe.electrode_index) + ")\n")
+            self.region_data[selected_region]["is_active"] = True
+            self.region_data[selected_region]["type"] = catastrophe.type
+            self.region_data[selected_region]["resolution_percentage"] = 0
+            current_windup = 0
+            current_duration = 0
+            current_resolution_time = 0
+            while current_windup < catastrophe.wind_up and self.is_game_running is True:
+                if self.sensor_values[catastrophe.electrode_index] > 100:
+                    current_resolution_time += 0.01
+                    self.region_data[selected_region][
+                        "resolution_percentage"] = current_resolution_time / catastrophe.resolution_time
+                if current_resolution_time >= catastrophe.resolution_time:
+                    break
+                current_windup += 0.01
+                time.sleep(0.01)
+            if catastrophe.resolution_time >= current_resolution_time:
+                while current_duration < catastrophe.duration and self.is_game_running is True:
+                    if self.sensor_values[catastrophe.electrode_index] > 100:
+                        current_resolution_time += 0.01
+                        self.region_data[selected_region][
+                            "resolution_percentage"] = current_resolution_time / catastrophe.resolution_time
+                    if current_resolution_time >= catastrophe.resolution_time:
+                        break
+                    self.death_count += catastrophe.deaths_per_second * 0.01
+                    current_duration += 0.01
+                    time.sleep(0.01)
+            self.region_data[selected_region]["is_active"] = False
+            print(catastrophe.type + " in region " + selected_region + " is resolved " + "(" + str(
+                catastrophe.electrode_index) + ")\n")
+            time.sleep(2)
+            self.free_regions.append(selected_region)
+            self.occupied_regions.remove(selected_region)
+        else:
+            print("--- Blank (catastrophe) ---")
+            speichern_news("/catastrophe/", "nix")
 
     def trigger_event(self):
         # Chance of headline occurring
@@ -155,39 +234,43 @@ class Symptoms:
             self.trigger_headline()
         # Triggers catastrophe
         elif random_number < (chance_headline + chance_catastrophe):
-            if not self.is_test_event_active:
-                Thread(target=self.trigger_catastrophe).start()
-            else:
-                # Triggers nothing if all regions are occupied
-                print("--- Blank (catastrophe) ---")
-                #Später löschen
-                speichern_news("/catastrophe/", "nix")
+            Thread(target=self.trigger_catastrophe).start()
+
         # Triggers nothing
         else:
             print("--- Blank ---")
-            #Später löschen
+            # Später löschen
             speichern_news("/catastrophe/", "nix")
-    def run(self, skip_headlines):
-        # Waits for headline generation until at least 20 are available
-        if len(self.headlines) < 20 and not skip_headlines:
-            print("Waiting for headlines...")
-        while len(self.headlines) < 20 and not skip_headlines:
-            pass
 
-        # Main game loop
-        while self.year < 2100:
-            self.trigger_event()
-            self.count += 1
-            if self.count == 5:
-                self.year += 1
-                print(self.year)
-                speichern_news("/year/", self.year)
-                self.count = 0
-                self.get_temperature()
-            time.sleep(1)
-        # TODO: logic for starting & ending game
-        self.is_game_running = False
-    
+    def run(self, skip_headlines):
+        while True:
+            print("Touch any electrode to start game.")
+            while self.is_game_running is False:
+                for sensor in self.sensor_values:
+                    if sensor > 100:
+                        self.__init__()
+                        self.is_game_running = True
+                        break
+
+            # Waits for headline generation until at least 20 are available
+            if len(self.headlines) < 20 and not skip_headlines:
+                print("Waiting for headlines...")
+            while len(self.headlines) < 20 and not skip_headlines:
+                pass
+
+            # Main game loop
+            while self.year < 2035:
+                self.trigger_event()
+                self.count += 1
+                if self.count == 5:
+                    self.year += 1
+                    print(self.year)
+                    speichern_news("/year/", self.year)
+                    self.count = 0
+                    self.get_temperature()
+                time.sleep(1)
+            self.is_game_running = False
+
     def main(self, skip_headlines=True, verbose=True):
         # headline generation thread
         if not skip_headlines:
@@ -199,10 +282,12 @@ class Symptoms:
         # input fetching thread
         Thread(target=self.get_inputs(), daemon=True).start()
 
-#Speichert alle News für die GUI in news.txt
-def speichern_news(type , value):
-    with open("news.txt", 'a') as datei: 
+
+# Speichert alle News für die GUI in news.txt
+def speichern_news(type, value):
+    with open("news.txt", 'a') as datei:
         datei.write(type + str(value) + '\n')
+
 
 symptoms = Symptoms()
 
