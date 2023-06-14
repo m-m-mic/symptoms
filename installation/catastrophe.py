@@ -34,7 +34,7 @@ class Catastrophe:
                 },
                 "resolution_time": {
                     "min": 1,
-                    "max": 200
+                    "max": 80
                 }
             },
             "hurricane": {
@@ -52,7 +52,7 @@ class Catastrophe:
                 },
                 "resolution_time": {
                     "min": 1,
-                    "max": 200
+                    "max": 80
                 }
             },
             "drought": {
@@ -70,7 +70,7 @@ class Catastrophe:
                 },
                 "resolution_time": {
                     "min": 1,
-                    "max": 200
+                    "max": 80
                 }
             }
         }
