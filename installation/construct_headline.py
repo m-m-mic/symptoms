@@ -52,7 +52,7 @@ def construct_start_headline(region, catastrophe_type):
 
 def construct_end_headline(region, catastrophy_type, death_count):
     region_term = terminology[region]
-    death_count_string = str(int(death_count))
+    death_count_string = f"{int(death_count):,}"
     if catastrophy_type == "hurricane":
         if region == "na1" or region == "na2":
             catastrophe_term = "Hurricane"
@@ -64,7 +64,8 @@ def construct_end_headline(region, catastrophy_type, death_count):
             catastrophe_term = "Wirbelsturm"
 
         headlines = [
-            catastrophe_term + " " + region_term + " hat sich aufgelöst (" + death_count_string + " Tote)"
+            catastrophe_term + " " + region_term + " hat sich aufgelöst (" + death_count_string + " Tote)",
+            death_count_string + "Tote und überall Zerstörung - " + catastrophe_term + " " + region_term + " offiziell zu Ende"
         ]
         return headlines[0]
     elif catastrophy_type == "drought":
