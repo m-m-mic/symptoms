@@ -188,12 +188,12 @@ class Symptoms:
                 "headline": construct_start_headline(selected_region, catastrophe.type),
                 "source": get_source()
             }
-            print("════════════════════════════════════════════════════════════════")
-            print("!!! CATASTROPHE !!!")
+            print("════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════")
+            print(f"!!! CATASTROPHE - {selected_region} - {catastrophe.type} - {catastrophe.wind_up} wind up - {catastrophe.duration} duration - {catastrophe.deaths_per_second} deaths - {catastrophe.resolution_time} resolution time !!!")
             print(start_headline["headline"] + " - " + start_headline["source"])
             print("!!! On electrode " + str(catastrophe.electrode_index) + " - " + key_mapping[
                 catastrophe.electrode_index] + " !!!")
-            print("════════════════════════════════════════════════════════════════")
+            print("════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════")
 
             # Changes region data
             self.region_data[selected_region]["is_active"] = True
@@ -205,6 +205,7 @@ class Symptoms:
             current_duration = 0
             current_resolution_time = 0
             current_death_count = 0
+            resolved_by_player = False
 
             # Wind up period of catastrophe
             while current_windup < catastrophe.wind_up and self.is_game_running is True:
@@ -213,6 +214,7 @@ class Symptoms:
                     self.region_data[selected_region][
                         "resolution_percentage"] = current_resolution_time / catastrophe.resolution_time
                 if current_resolution_time >= catastrophe.resolution_time:
+                    resolved_by_player = True
                     break
                 current_windup += 0.01
                 time.sleep(0.01)
@@ -225,6 +227,7 @@ class Symptoms:
                         self.region_data[selected_region][
                             "resolution_percentage"] = current_resolution_time / catastrophe.resolution_time
                     if current_resolution_time >= catastrophe.resolution_time:
+                        resolved_by_player = True
                         break
                     self.death_count += catastrophe.deaths_per_second * 0.01
                     current_death_count += catastrophe.deaths_per_second * 0.01
@@ -239,10 +242,10 @@ class Symptoms:
                 "headline": construct_end_headline(selected_region, catastrophe.type, current_death_count),
                 "source": get_source()
             }
-            print("════════════════════════════════════════════════════════════════")
-            print(">>> RESOLVED <<<")
+            print("════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════")
+            print(f">>> RESOLVED - {selected_region} - {catastrophe.type} - resolved by player? {resolved_by_player} <<<")
             print(end_headline["headline"] + " - " + end_headline["source"])
-            print("════════════════════════════════════════════════════════════════")
+            print("════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════")
 
             # Puts region on 2 second cooldown
             time.sleep(2)
@@ -289,12 +292,11 @@ class Symptoms:
             # Game starts when any of the sensors are touched by the player
             print("Touch any electrode to start game.\n")
             while self.is_game_running is False:
-                for sensor in self.sensor_values:
-                    if sensor > 100:
-                        # Clears all attributes except headlines
-                        self.reset_attributes()
-                        self.is_game_running = True
-                        break
+                if any(sensor > 100 for sensor in self.sensor_values):
+                    # Clears all attributes except headlines
+                    self.reset_attributes()
+                    self.is_game_running = True
+                    break
 
             # Waits for headline generation until at least 20 are available
             if len(self.headlines) < 20 and not skip_headlines:
@@ -323,7 +325,7 @@ class Symptoms:
             self.is_game_running = False
             time.sleep(1)
             print(f"SPIEL ZU ENDE: {str(int(self.death_count))} TOTE")
-            time.sleep(1)
+            time.sleep(4)
 
     def main(self, skip_headlines=False, verbose=False):
         # headline generation thread
