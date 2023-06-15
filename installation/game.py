@@ -193,7 +193,7 @@ class Symptoms:
             print(
                 "════════════════════════════════════════════════════════════════════════════════════════════════════════════")
             print(
-                f"!!! CATASTROPHE - {selected_region} - {catastrophe.type} - {catastrophe.wind_up} wind up - {catastrophe.duration} duration - {catastrophe.deaths_per_second} deaths - {catastrophe.resolution_time} resolution time !!!")
+                f"!!! CATASTROPHE - {selected_region} - {catastrophe.type} - {float(catastrophe.wind_up):.3}s wind_up - {float(catastrophe.duration):.3}s dur - {float(catastrophe.resolution_time):.3}s res_time - {int(catastrophe.deaths_per_second):,} d_p_s !!!")
             print(start_headline["headline"] + " - " + start_headline["source"])
             print("!!! On electrode " + str(catastrophe.electrode_index) + " - " + key_mapping[
                 catastrophe.electrode_index] + " !!!")
@@ -267,7 +267,7 @@ class Symptoms:
             speichern_news("/catastrophe/", "nix")
 
     def trigger_annihilation(self):
-        print("Started annihilation event")
+        print("☁☢☁ Started annihilation event ☁☢☁")
         # Occupies regions until it reaches four occupied
         war_regions = []
         while len(war_regions) < 4:
@@ -275,7 +275,7 @@ class Symptoms:
                 selected_region = self.free_regions[0]
                 self.free_regions.remove(selected_region)
                 self.occupied_regions.add(selected_region)
-                print(f"Added {selected_region} to annihilation event")
+                print(f"☁☢☁ Added {selected_region} to annihilation event ☁☢☁")
                 war_regions.append(selected_region)
 
         # Gets sensor value indexes for all four occupied regions
@@ -327,7 +327,7 @@ class Symptoms:
         # Sends ending headline if annihilation was resolved
         if self.annihilation_triggered is True:
             end_headline = {
-                "headline": "Ein Wunder: Der Atomkrieg ist vorbei! Für den Frieden mussten nur " + str(int(current_death_count)) + " Personen sterben",
+                "headline": f"Ein Wunder: Der Atomkrieg ist vorbei! Für den Frieden mussten nur {int(current_death_count):,} Personen sterben",
                 "source": "Tiffany"
             }
             print(
@@ -347,7 +347,7 @@ class Symptoms:
 
     def trigger_event(self):
         # Chance of nuclear war
-        chance_annihilation = 0.001 * (self.death_count / 10_000_000)
+        chance_annihilation = 0.005 * (self.death_count / 10_000_000)
         if self.annihilation_triggered is True:
             chance_annihilation = 0
         # Chance of headline occurring
@@ -391,7 +391,7 @@ class Symptoms:
     def run(self, skip_headlines):
         while True:
             # Game starts when any of the sensors are touched by the player
-            print("Touch any electrode to start game.\n")
+            print("\nTouch any electrode to start game.\n")
             while self.is_game_running is False:
                 if any(sensor > 100 for sensor in self.sensor_values):
                     # Clears all attributes except headlines
@@ -417,18 +417,18 @@ class Symptoms:
                     self.year += 1
                     self.count = 0
                     self.set_temperature()
-                    print("┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄")
+                    print("┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄")
                     print(
-                        f"JAHR {str(self.year)} - {float(self.temperature):.2}°C - {str(int(self.death_count))} TOTE - {len(self.occupied_regions)} AKTIVE REGION(EN)")
-                    print("┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄")
+                        f"JAHR {self.year} - {float(self.temperature):.2}°C - {int(self.death_count):,} TOTE - {len(self.occupied_regions)} AKTIVE REGION(EN) - ATOMKRIEG WAHRSCHEINLICHKEIT {(0.005 * (self.death_count / 10_000_000)):.2%}")
+                    print("┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄")
                     speichern_news("/year/", self.year)
                 time.sleep(1)
             self.is_game_running = False
             time.sleep(1)
             if self.death_count >= 10_000_000_000:
-                print(f"MENSCHHEIT AUSGESTORBEN, SPIEL ZU ENDE: {str(int(self.death_count))} TOTE")
+                print(f"\n// MENSCHHEIT AUSGESTORBEN, SPIEL ZU ENDE: {int(self.death_count):,} TOTE //")
             else:
-                print(f"SPIEL ZU ENDE: {str(int(self.death_count))} TOTE")
+                print(f"\n// SPIEL ZU ENDE: {int(self.death_count):,} TOTE //")
                 if self.annihilation_triggered:
                     print("★ DU HAST DIE ZERSTÖRUNG DER MENSCHHEIT DURCH DEN ATOMKRIEG VERHINDERT. GUT GEMACHT! ★")
             time.sleep(4)
