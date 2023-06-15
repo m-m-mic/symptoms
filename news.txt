@@ -1351,3 +1351,1206 @@
 /headline/Sportlich unterwegs - Mit dem Fahrrad durch die Sahara: Wie der Klimawandel für neue Reise-Highlights sorgt
 /year/2089
 /temperature/3.7533831656971115
+/catastrophe/nix
+/headline/{'headline': 'Armutsbekämpfung dank steigender Meeresspiegel', 'source': 'New York Now'}
+/catastrophe/nix
+/temperature/1.0011998400085331
+/year/2026
+/headline/{'headline': 'Weltweit steigt die Nachfrage nach Schwimmflügeln', 'source': 'The Moon'}
+/catastrophe/nix
+/catastrophe/nix
+/catastrophe/nix
+/catastrophe/nix
+/temperature/1.004797440546071
+/year/2027
+/headline/{'headline': 'Neue VW-Modelle: Beach-Buggy statt Limousine', 'source': 'The Moon'}
+/catastrophe/nix
+/catastrophe/nix
+/headline/{'headline': 'Pinguine rüsten auf: Regenmäntel statt Frack', 'source': 'The Impartial'}
+/catastrophe/nix
+/temperature/1.0107870462192006
+/year/2028
+/headline/{'headline': 'Grünkohl ersetzt Palmen an der Strandpromenade', 'source': 'Erde'}
+/catastrophe/nix
+/catastrophe/nix
+/catastrophe/nix
+/temperature/1.0191590749365596
+/year/2029
+/catastrophe/nix
+/catastrophe/nix
+/catastrophe/nix
+/catastrophe/nix
+/temperature/1.0299001332381374
+/year/2030
+/catastrophe/nix
+/catastrophe/nix
+/catastrophe/nix
+/headline/{'headline': 'Schnee wird zum exklusiven Luxusgut', 'source': 'Beuters'}
+/temperature/1.0429930377219556
+/year/2031
+/catastrophe/nix
+/catastrophe/nix
+/headline/{'headline': 'Gefrorenes Obst und Gemüse erzielen Rekordpreise', 'source': 'RAUM'}
+/catastrophe/nix
+/temperature/1.0584168425338436
+/year/2032
+/headline/{'headline': 'Venedig – die Stadt auf dem Wasser wird endlich wieder zum Trendziel', 'source': 'The Impartial'}
+/catastrophe/nix
+/headline/{'headline': 'Die Sonnencreme-Hersteller jubeln', 'source': 'The Impartial'}
+/catastrophe/nix
+/catastrophe/nix
+/temperature/1.0761468728763386
+/year/2033
+/catastrophe/nix
+/catastrophe/nix
+/catastrophe/nix
+/catastrophe/nix
+/catastrophe/nix
+/temperature/1.0961547644830976
+/year/2034
+/headline/{'headline': 'Die Nordpolarmeere planen, zusammenzuschmelzen und Party zu machen', 'source': 'Chicago Times'}
+/headline/{'headline': 'Nach dem Dürresommer: Oktoberfest jetzt nur noch im Winter', 'source': 'APD'}
+/headline/{'headline': 'Huch, warum ist das Great Barrier Reef verschwunden?', 'source': 'Tiffany'}
+/catastrophe/nix
+/temperature/1.1184085089956721
+/year/2035
+/catastrophe/nix
+/headline/{'headline': 'Schneeflöckchen, Weißröckchen – was war das nochmal?', 'source': 'TON'}
+/catastrophe/nix
+/catastrophe/nix
+/temperature/1.1428725051700548
+/year/2036
+/catastrophe/nix
+/headline/{'headline': 'Statt Skipiste: Outdoor-Schwimmbäder im Alpenraum', 'source': 'The Protector'}
+/catastrophe/nix
+/catastrophe/nix
+/headline/{'headline': 'Die Gletscher wurden müde und beschlossen, sich zurückzuziehen', 'source': 'Beuters'}
+/temperature/1.1695076158310735
+/year/2037
+/catastrophe/nix
+/catastrophe/nix
+/catastrophe/nix
+/catastrophe/nix
+/temperature/1.198271230483525
+/year/2038
+/catastrophe/nix
+/catastrophe/nix
+/catastrophe/nix
+/catastrophe/nix
+/temperature/1.2291173334798757
+/year/2039
+/headline/{'headline': 'Die neue Art der Schneemänner: Statuen aus püriertem Eis', 'source': 'Tiffany'}
+/catastrophe/nix
+/headline/{'headline': 'Neue Modetrends: Wärmegenerierende Klamotten statt Haute Couture', 'source': 'The Moon'}
+/headline/{'headline': 'Kaffee wird endlich als Grundnahrungsmittel anerkannt', 'source': 'TON'}
+/catastrophe/nix
+/temperature/1.2619965776354825
+/year/2040
+/catastrophe/nix
+/catastrophe/nix
+/headline/{'headline': 'Überschwemmungen zerstören Wohnhäuser - Camping boomt', 'source': 'Tiffany'}
+/catastrophe/nix
+/headline/{'headline': 'Tschüss Schnee - Hallo Dürre', 'source': 'The Protector'}
+/temperature/1.2968563631735612
+/year/2041
+/headline/{'headline': 'Meeresspiegel steigt bedrohlich - Surfen wird zum neuen Massensport', 'source': 'New York Now'}
+/headline/{'headline': 'Gletscher schmelzen - Skifahren wird unbequem', 'source': 'Norddeutsche Nachrichten'}
+/catastrophe/nix
+/catastrophe/nix
+/temperature/1.333640921873608
+/year/2042
+/catastrophe/nix
+/catastrophe/nix
+/catastrophe/nix
+/temperature/1.3722914062886573
+/year/2043
+/catastrophe/nix
+/catastrophe/nix
+/catastrophe/nix
+/temperature/1.4127459838886418
+/year/2044
+/catastrophe/nix
+/catastrophe/nix
+/headline/{'headline': 'Europäische Touristen auf der Suche nach kühlen Ferienzielen', 'source': 'The Protector'}
+/catastrophe/nix
+/headline/{'headline': 'Gletscherschmelze ermöglicht neuen Rekord: Größter Sandkasten der Welt in Sibirien', 'source': 'The Impartial'}
+/temperature/1.4549399359792514
+/year/2045
+/headline/{'headline': 'Gewinner des Klimawandels: Dackel und andere Kurzhaarrassen', 'source': 'TON'}
+/catastrophe/nix
+/catastrophe/nix
+/headline/{'headline': 'Waldbrände zerstören Lebensraum - weniger Insektenstiche beim Wandern', 'source': 'The Moon'}
+/temperature/1.4988057612380374
+/year/2046
+/headline/{'headline': 'Klimawandel gut für den Tourismus: Neue Kletter-Challenge am Mount Everest', 'source': 'Erde'}
+/catastrophe/nix
+/headline/{'headline': 'Ein Leben ohne Eisbären ist möglich - aber sinnlos', 'source': 'Tiffany'}
+/catastrophe/nix
+/temperature/1.5442732837021294
+/year/2047
+/catastrophe/nix
+/catastrophe/nix
+/headline/{'headline': 'Der Sommer wird immer heißer - verkauft eure Winterkleidung', 'source': 'New York Now'}
+/headline/{'headline': 'Neue Geschäftsidee: Eisangler wechseln auf Sandwüsten', 'source': 'The Impartial'}
+/catastrophe/nix
+/temperature/1.5912697650348056
+/year/2048
+/headline/{'headline': 'Dänemark freut sich auf neue Inselkette dank steigendem Meeresspiegel', 'source': 'The Moon'}
+/headline/{'headline': 'Sonne pur - Deutschland bald Sonnenstudio Europas', 'source': 'The Impartial'}
+/headline/{'headline': 'Wunderschöne tropische Strände gesucht? Versuchen Sie Ihre Anfrage erneut in 3-5 Jahren', 'source': 'RAUM'}
+/temperature/1.6397200208913147
+/year/2049
+/headline/{'headline': 'Methan-Emissionen aus Kuhfürzen steigen - Wissenschaftler suchen nach effektiven Pups-Filtern', 'source': 'RAUM'}
+/headline/{'headline': 'Hochwasser steigt immer weiter an - Hamburg wird bald zum nächsten Venedig', 'source': 'TON'}
+/catastrophe/nix
+/catastrophe/nix
+/catastrophe/nix
+/temperature/1.6895465411977901
+/year/2050
+/catastrophe/nix
+/catastrophe/nix
+/catastrophe/nix
+/headline/{'headline': 'Wenn der Klimawandel nicht aufgehalten wird, könnte es keine Jahreszeiten mehr geben', 'source': 'HARE NEWS'}
+/catastrophe/nix
+/temperature/1.7406696141508322
+/year/2051
+/headline/{'headline': 'Bayern bietet bald perfektes Klima für den Anbau von Weinreben', 'source': 'APD'}
+/catastrophe/nix
+/headline/{'headline': 'Endlich keine lästigen Jahreszeiten mehr, sondern nur noch Sommer!', 'source': 'TON'}
+/catastrophe/nix
+/temperature/1.7930074537393899
+/year/2052
+/catastrophe/nix
+/catastrophe/nix
+/catastrophe/nix
+/temperature/1.8464763305849319
+/year/2053
+/catastrophe/nix
+/catastrophe/nix
+/headline/{'headline': 'Mit mehr Stürmen haben wir auch mehr gratis Dachreparaturen.', 'source': 'Beuters'}
+/headline/{'headline': 'Der NEUE Trend: Sonnenschirme im Schnee.', 'source': 'Norddeutsche Nachrichten'}
+/temperature/1.9009907058905904
+/year/2054
+/headline/{'headline': 'Dürreperioden lassen Felder austrocknen - Smoothies werden immer beliebter', 'source': 'The Protector'}
+/headline/{'headline': 'Die Erde stirbt - Jemand sollte vielleicht etwas dagegen tun', 'source': 'The Impartial'}
+/catastrophe/nix
+/temperature/1.9564633682849897
+/year/2055
+/headline/{'headline': 'Klimawandel: Der Sprung in die Zukunft!', 'source': 'RAUM'}
+/catastrophe/nix
+/headline/{'headline': 'Ozeanversauerung - Machen Sie sich bereit, Fische in Cola-Sauce zu essen', 'source': 'Erde'}
+/temperature/2.012805573341836
+/year/2056
+/catastrophe/nix
+/headline/{'headline': 'Gletscherschmelze - Für Kinder: Malen Sie Ihre eigene postapokalyptische Welt!', 'source': 'RAUM'}
+/temperature/2.069927185552067
+/year/2057
+/headline/{'headline': 'Wer braucht noch Schnee? - Skisport jetzt auch im Sommer möglich', 'source': 'The Protector'}
+/catastrophe/nix
+/headline/{'headline': 'Kaffee wird bald ein Luxusartikel sein - Prost!', 'source': 'Norddeutsche Nachrichten'}
+/temperature/2.127736822521441
+/year/2058
+/headline/{'headline': 'Die Zukunft liegt in der Dusche - Endlos-Warmwasser durch Sonnenenergie', 'source': 'Chicago Times'}
+/headline/{'headline': 'Der größte Indoor-Skatepark der Welt entsteht in der Sahara', 'source': 'Beuters'}
+/temperature/2.1861420011628714
+/year/2059
+/catastrophe/nix
+/catastrophe/nix
+/temperature/2.245049285649639
+/year/2060
+/headline/{'headline': 'Hurrikan Patricia - Perfektes Ziel für Strandurlauber', 'source': 'TON'}
+/headline/{'headline': 'Klimaschutz durch Quarantäne - wir schaffen das!', 'source': 'Chicago Times'}
+/headline/{'headline': 'Tropenstürme verwüsten Landstriche - mehr Abenteuerurlaub', 'source': 'Norddeutsche Nachrichten'}
+/headline/{'headline': 'Kaufen Sie jetzt noch schnell Schnee - Eiskalt reduziert.', 'source': 'Tiffany'}
+/catastrophe/nix
+/temperature/2.3043644368927807
+/year/2061
+/headline/{'headline': 'Flora und Fauna sterben aus - mehr Platz für uns Menschen', 'source': 'Erde'}
+/temperature/2.363992563303536
+/year/2062
+/headline/{'headline': 'Klimawandel bedroht die Menschheit - ab morgen läuft bei Lidl eine Sonderaktion auf Einwegplastik', 'source': 'Norddeutsche Nachrichten'}
+/headline/{'headline': 'Das Klima macht, was es will - ab jetzt auch bei den Temperaturen im Büro.', 'source': 'The Protector'}
+/temperature/2.4238382725996304
+/year/2063
+/temperature/2.4838058244125993
+/year/2064
+/catastrophe/nix
+/temperature/2.5437992834519325
+/catastrophe/nix
+/year/2065
+/catastrophe/nix
+/headline/{'headline': 'Hitze und Dürre: Afrika wird bald zum neuen Paradies für Wüstenliebhaber', 'source': 'Erde'}
+/headline/{'headline': 'Schneefrei bedeutet jetzt arbeitsfrei', 'source': 'HARE NEWS'}
+/temperature/2.603722672981094
+/year/2066
+/temperature/2.663480128359806
+/year/2067
+/headline/{'headline': 'Mein Eisberg schmilzt - ein Erfahrungsbericht.', 'source': 'RAUM'}
+/temperature/2.722976050407045
+/year/2068
+/temperature/2.78211525833932
+/year/2069
+/catastrophe/nix
+/catastrophe/nix
+/catastrophe/nix
+/temperature/2.84080314203963
+/catastrophe/nix
+/year/2070
+/catastrophe/nix
+/headline/{'headline': 'Winter wonderland to be replaced by beachy paradise', 'source': 'The Protector'}
+/catastrophe/nix
+/catastrophe/nix
+/temperature/2.8989458134134702
+/year/2071
+/catastrophe/nix
+/catastrophe/nix
+/catastrophe/nix
+/temperature/2.9564502565897497
+/catastrophe/nix
+/year/2072
+/catastrophe/nix
+/catastrophe/nix
+/temperature/3.013224476726347
+/year/2073
+/headline/{'headline': 'Schneemangel sorgt für sinkende Skiauslastung - dafür herrscht nun Kitesurf-Boom an der Ostsee', 'source': 'RAUM'}
+/temperature/3.0691776471822316
+/year/2074
+/headline/{'headline': 'Weihnachten unter Palmen - bald auch in Deutschland.', 'source': 'The Protector'}
+/temperature/3.124220254820713
+/year/2075
+/catastrophe/nix
+/catastrophe/nix
+/temperature/3.178264243211368
+/year/2076
+/catastrophe/nix
+/catastrophe/nix
+/catastrophe/nix
+/catastrophe/nix
+/headline/{'headline': 'Permafrost ade: Schnell vergessene Eiszeit', 'source': 'HARE NEWS'}
+/temperature/3.231223153501539
+/year/2077
+/headline/{'headline': 'Klimawandel führt zu neuen Speiseregionen: Australien wird bald Pasta-Land', 'source': 'Erde'}
+/headline/{'headline': 'Deutschland im Sommer: Kann man jetzt auch ohne Sauna schwitzen?', 'source': 'The Protector'}
+/catastrophe/nix
+/catastrophe/nix
+/catastrophe/nix
+/temperature/3.283012262732061
+/year/2078
+/catastrophe/nix
+/headline/{'headline': 'Können Sie erraten, welches Land dieses Jahr eine Goldmedaille in der Dürre gewinnt?', 'source': 'Erde'}
+/catastrophe/nix
+/temperature/3.333548719375919
+/catastrophe/nix
+/year/2079
+/catastrophe/nix
+/headline/{'headline': 'In Anbetracht dessen, dass wir nur eine Erde haben - warum sollten wir uns sorgen?', 'source': 'New York Now'}
+/catastrophe/nix
+/catastrophe/nix
+/catastrophe/nix
+/temperature/3.3827516758830187
+/year/2080
+/headline/{'headline': 'Die Polkappen sind verschwunden - Wohin sind die Pinguine gegangen?', 'source': 'Beuters'}
+/temperature/3.4305424180190194
+/year/2081
+/headline/{'headline': 'Heizölkonzerne legen Badehaus-Ketten auf', 'source': 'Chicago Times'}
+/temperature/3.4768444907913185
+/year/2082
+/catastrophe/nix
+/catastrophe/nix
+/temperature/3.5215838207607293
+/year/2083
+/headline/{'headline': 'Ich freue mich immer auf die nächste Hitzewelle.', 'source': 'The Moon'}
+/catastrophe/nix
+/headline/{'headline': 'Mittsommer wird bald zum Mittwinter - be prepared', 'source': 'The Moon'}
+/catastrophe/nix
+/catastrophe/nix
+/temperature/3.5646888345431798
+/year/2084
+/catastrophe/nix
+/catastrophe/nix
+/catastrophe/nix
+/headline/{'headline': 'Forscher finden neue Unterwasserarchitektur bei steigenden Meeresspiegeln', 'source': 'RAUM'}
+/temperature/3.606090573311868
+/year/2085
+/catastrophe/nix
+/headline/{'headline': 'Klimawandel? Ach was, alles nur eine Legende', 'source': 'New York Now'}
+/catastrophe/nix
+/headline/{'headline': 'Hitzewellen bringen Abkühlung für verfaulte Eier unter der Erde', 'source': 'APD'}
+/headline/{'headline': 'Warum in die Ferne schweifen? Die Sahara wird auch bei uns Urlaubsziel.', 'source': 'Tiffany'}
+/temperature/3.6457228031166604
+/year/2086
+/headline/{'headline': 'Urlaub im Pool - wer braucht schon das Meer?', 'source': 'The Protector'}
+/headline/{'headline': 'Waldbrände non-stop: Entdecken Sie die neue Oragne Farbe des Himmels', 'source': 'Tiffany'}
+/catastrophe/nix
+/temperature/3.683522120844297
+/year/2087
+/headline/{'headline': 'Rekordverdächtige Staubstürme: Eine neue Art von Schneefall', 'source': 'Erde'}
+/headline/{'headline': 'Monsoons 365 days a year?', 'source': 'The Moon'}
+/temperature/3.7194280556498347
+/year/2088
+/headline/{'headline': 'Bienensterben für Anfänger - wie man im Handumdrehen die Umwelt ruiniert', 'source': 'The Protector'}
+/headline/{'headline': 'Pinguine auf Reisen: Zurück in den Norden', 'source': 'Erde'}
+/temperature/3.7533831656971115
+/year/2089
+/headline/{'headline': 'Drei Jahreszeiten: Sommer, Todeshitze und Frost', 'source': 'Beuters'}
+/temperature/3.7853331300534205
+/year/2090
+/catastrophe/nix
+/headline/{'headline': 'Steigender Meeresspiegel: Meerjungfrauen bald in allen Ozeanen zu finden', 'source': 'The Impartial'}
+/catastrophe/nix
+/headline/{'headline': 'Wenn die Wissenschaft falsch liegt, ist es keine Katastrophe - doch, das ist es', 'source': 'Norddeutsche Nachrichten'}
+/temperature/3.8152268355914223
+/year/2091
+/catastrophe/nix
+/headline/{'headline': 'Endlich können wir unsere Winterklamotten aussortieren!', 'source': 'The Moon'}
+/catastrophe/nix
+/catastrophe/nix
+/temperature/3.8430164587592377
+/year/2092
+/headline/{'headline': 'Meeresspiegelanstieg sorgt für neue Strandlage in Florida', 'source': 'Erde'}
+/catastrophe/nix
+/catastrophe/nix
+/catastrophe/nix
+/temperature/3.8686575420879374
+/year/2093
+/headline/{'headline': 'Eisbären danken uns für das schöne Wetter', 'source': 'Erde'}
+/catastrophe/nix
+/headline/{'headline': 'Extremwetter bedroht auch Polarregionen', 'source': 'The Protector'}
+/headline/{'headline': 'Städte versinken im Meer - weniger Verkehr durch Bootfahren', 'source': 'Erde'}
+/temperature/3.892109065313999
+/year/2094
+/headline/{'headline': 'Klimawandel? Kein Problem, lasst uns einfach die Augen zu machen', 'source': 'New York Now'}
+/catastrophe/nix
+/catastrophe/nix
+/catastrophe/nix
+/temperature/3.9133335110029877
+/year/2095
+/headline/{'headline': 'Gletscher in den Alpen schmelzen rasant', 'source': 'New York Now'}
+/headline/{'headline': "Surfen in der Stadt? Der Klimawandel macht's möglich!", 'source': 'Norddeutsche Nachrichten'}
+/catastrophe/nix
+/temperature/3.9322969245694397
+/year/2096
+/headline/{'headline': 'Gesucht: Grüner Daumen, um die Wüste zurück in unsere Städte zu bringen', 'source': 'APD'}
+/catastrophe/nix
+/temperature/3.948968968596962
+/catastrophe/nix
+/year/2097
+/headline/{'headline': '50 Shades of Brown: Eine Hommage an die neue Farbe der Natur.', 'source': 'New York Now'}
+/catastrophe/nix
+/catastrophe/nix
+/temperature/3.963322971371624
+/year/2098
+/catastrophe/nix
+/headline/{'headline': 'Es ist so heiß - wir kühlen das Meer', 'source': 'HARE NEWS'}
+/catastrophe/nix
+/headline/{'headline': 'Riesiges Korallenriff massiv beschädigt', 'source': 'Tiffany'}
+/temperature/3.9753359695510095
+/year/2099
+/catastrophe/nix
+/headline/{'headline': 'Keine Sorge - Klimaflüchtlinge sind nicht gefährlich. Oder doch?', 'source': 'The Protector'}
+/headline/{'headline': 'Hurra, bald gibt es auch bei uns Dürre und Wüste!', 'source': 'Tiffany'}
+/headline/{'headline': 'Hitzewelle sorgt für Stromausfälle', 'source': 'The Protector'}
+/temperature/3.9849887449006682
+/year/2100
+/catastrophe/nix
+/catastrophe/nix
+/headline/{'headline': 'Insekten kuscheln jetzt auch gerne in der Wohnung.', 'source': 'Norddeutsche Nachrichten'}
+/catastrophe/nix
+/temperature/1.0011998400085331
+/year/2026
+/headline/{'headline': 'Kühe spenden Höchstleistung: Machen Sie Schluss mit Ihrer Fitnessroutine!', 'source': 'Erde'}
+/catastrophe/nix
+/catastrophe/nix
+/catastrophe/nix
+/catastrophe/nix
+/temperature/1.004797440546071
+/year/2027
+/headline/{'headline': 'Everglades im Frühling: Mehr Abenteuer denn je zuvor!', 'source': 'Tiffany'}
+/catastrophe/nix
+/headline/{'headline': 'Vergessen Sie Eisbäder - jetzt nehmen wir Lava-Bäder', 'source': 'Chicago Times'}
+/headline/{'headline': 'Hurra! Eisbären ziehen nach Sibirien.', 'source': 'Beuters'}
+/temperature/1.0107870462192006
+/year/2028
+/catastrophe/nix
+/headline/{'headline': 'Ernten im Dezember: Wer braucht schon Kühlschränke?', 'source': 'The Moon'}
+/catastrophe/nix
+/catastrophe/nix
+/temperature/1.0191590749365596
+/year/2029
+/catastrophe/nix
+/catastrophe/nix
+/catastrophe/nix
+/catastrophe/nix
+/catastrophe/nix
+/temperature/1.0299001332381374
+/year/2030
+/headline/{'headline': 'Globale Erwärmung beschleunigt sich - bald können wir uns in Deutschland am nächsten Strand sonnen', 'source': 'Chicago Times'}
+/headline/{'headline': 'Die Wälder brennen, aber wir haben ja noch unser Gedächtnis', 'source': 'APD'}
+/catastrophe/nix
+/catastrophe/nix
+/catastrophe/nix
+/temperature/1.0429930377219556
+/year/2031
+/headline/{'headline': 'Der Tod der Wälder: Ein Segen für Rentierfleisch-Liebhaber', 'source': 'The Moon'}
+/catastrophe/nix
+/catastrophe/nix
+/catastrophe/nix
+/catastrophe/nix
+/catastrophe/nix
+/temperature/1.0011998400085331
+/year/2026
+/catastrophe/nix
+/catastrophe/nix
+/catastrophe/nix
+/catastrophe/nix
+/temperature/1.004797440546071
+/year/2027
+/catastrophe/nix
+/catastrophe/nix
+/headline/{'headline': 'Klimawandel löst Bikini-Boom aus! Es wird immer heißer, die Badesaison ist verlängert!', 'source': 'Tiffany'}
+/catastrophe/nix
+/catastrophe/nix
+/temperature/1.0107870462192006
+/year/2028
+/catastrophe/nix
+/catastrophe/nix
+/catastrophe/nix
+/catastrophe/nix
+/temperature/1.0191590749365596
+/year/2029
+/headline/{'headline': 'Forscher: Klimawandel ist ein Hirngespinst - Alles nur Einbildung der Medien!', 'source': 'Tiffany'}
+/catastrophe/nix
+/catastrophe/nix
+/headline/{'headline': 'Geniale Idee: Polenzaun um ganze Erde zu bauen und Klima zu retten!', 'source': 'Chicago Times'}
+/temperature/1.0299001332381374
+/year/2030
+/catastrophe/nix
+/catastrophe/nix
+/catastrophe/nix
+/catastrophe/nix
+/catastrophe/nix
+/temperature/1.0429930377219556
+/year/2031
+/catastrophe/nix
+/headline/{'headline': 'Klimawandel ignoriert: Der Sommer wird noch heißer dank veralteter Klimaanlagen!', 'source': 'Chicago Times'}
+/catastrophe/nix
+/headline/{'headline': 'Hitzefreie Schulen wegen Eiseskälte: Klimawandel an den Pranger gestellt!', 'source': 'Norddeutsche Nachrichten'}
+/catastrophe/nix
+/temperature/1.0584168425338436
+/year/2032
+/catastrophe/nix
+/catastrophe/nix
+/catastrophe/nix
+/headline/{'headline': 'Klimawandel verursacht neue Schwemme an pinkfarbenen Einhörnern!', 'source': 'Tiffany'}
+/headline/{'headline': 'Fukushima-Debakel zeigt: Atomkraft ist die Lösung gegen den Klimawandel!', 'source': 'Norddeutsche Nachrichten'}
+/temperature/1.0761468728763386
+/year/2033
+/catastrophe/nix
+/headline/{'headline': 'Greenpeace ruft zu Klimawandel-Boykott aus Protest gegen steigende Preise auf!', 'source': 'Beuters'}
+/headline/{'headline': 'Die Sonne lacht immer noch so freundlich, während die Erde sich stöhnten in der Hitze windet.', 'source': 'RAUM'}
+/headline/{'headline': 'Was ist das? Es ist ein Vogel...Es ist ein Flugzeug...Nein, es ist ein Eisberg auf dem Weg nach Miami!', 'source': 'APD'}
+/headline/{'headline': 'Plastikproduktion auf Rekordniveau - endlich gibt es genug Müll für alle!', 'source': 'Erde'}
+/temperature/1.0961547644830976
+/year/2034
+/catastrophe/nix
+/catastrophe/nix
+/catastrophe/nix
+/headline/{'headline': 'Es ist so heiß, dass die Bäume selbst beschließen, in den Pool zu springen.', 'source': 'APD'}
+/temperature/1.1184085089956721
+/year/2035
+/headline/{'headline': 'Der Planet brennt - aber hey, wir haben ein paar coole Instagram-Filter!', 'source': 'The Impartial'}
+/headline/{'headline': 'Es ist so heiß, dass dein Eis schon geschmolzen ist, bevor du es überhaupt gekauft hast.', 'source': 'APD'}
+/headline/{'headline': 'Deine Enkelkinder werden dein Auto nie kennenlernen.', 'source': 'The Impartial'}
+/catastrophe/nix
+/headline/{'headline': 'Neue Studie zeigt: Klimawandel ist eine Erfindung der China-Lobby!', 'source': 'RAUM'}
+/temperature/1.1428725051700548
+/year/2036
+/headline/{'headline': 'Ersticken Sie an Ihrer eigenen Umweltverschmutzung - jetzt für nur $1,99!', 'source': 'The Protector'}
+/catastrophe/nix
+/catastrophe/nix
+/headline/{'headline': 'Ungebetene Gäste: Wegen Klimawandel nisten Eisbären in immer mehr Gärten', 'source': 'Beuters'}
+/headline/{'headline': 'Neue Studie: Klimawandel ist nur Hype von veganen Hipstern!', 'source': 'Beuters'}
+/temperature/1.1695076158310735
+/year/2037
+/catastrophe/nix
+/headline/{'headline': 'Mondlandungen - jetzt noch realistischer, da man die Kuppel des blauen Planeten von hier aus sehen kann!', 'source': 'HARE NEWS'}
+/catastrophe/nix
+/headline/{'headline': "Schöner Strand, aber irgendwie stinkt's.", 'source': '24 hourly Mail'}
+/temperature/1.198271230483525
+/year/2038
+/catastrophe/nix
+/catastrophe/nix
+/catastrophe/nix
+/headline/{'headline': 'Klimaanlage im Freien - die neueste Innovation in der Welt der Kältetechnik!', 'source': 'TON'}
+/headline/{'headline': 'Riesen-Smog-Wolke über LA sorgt für unvergessliches Sonnenuntergangserlebnis!', 'source': 'The Protector'}
+/temperature/1.2291173334798757
+/year/2039
+/headline/{'headline': 'Durstlöscher unbrauchbar - Bier als Wasser-Alternative', 'source': 'RAUM'}
+/catastrophe/nix
+/catastrophe/nix
+/catastrophe/nix
+/catastrophe/nix
+/temperature/1.2619965776354825
+/year/2040
+/catastrophe/nix
+/catastrophe/nix
+/catastrophe/nix
+/temperature/1.2968563631735612
+/year/2041
+/catastrophe/nix
+/catastrophe/nix
+/headline/{'headline': 'Der Ozean ist so sauer, dass es keinen Meeresfrüchte-Geschmack mehr gibt.', 'source': 'The Impartial'}
+/temperature/1.333640921873608
+/year/2042
+/headline/{'headline': 'Städtetag fordert Gratis-Sonnencreme - bald auch für Zehnjährige', 'source': 'APD'}
+/catastrophe/nix
+/catastrophe/nix
+/headline/{'headline': 'Paris - die Stadt der Liebe, der Kunst und... der Überschwemmungen?', 'source': 'Norddeutsche Nachrichten'}
+/headline/{'headline': 'Es ist so heiß, dass du dein Frühstücksei auf dem Bürgersteig braten kannst.', 'source': 'The Impartial'}
+/temperature/1.3722914062886573
+/year/2043
+/catastrophe/nix
+/catastrophe/nix
+/catastrophe/nix
+/headline/{'headline': 'Greenpeace will Klimawandel per Petition stoppen - kein Projekt ohne Arbeit!', 'source': 'Beuters'}
+/temperature/1.4127459838886418
+/year/2044
+/headline/{'headline': 'Polarlichter - jetzt in gruseligem, schmelzendem Grün!', 'source': 'The Impartial'}
+/catastrophe/nix
+/catastrophe/nix
+/headline/{'headline': 'Endlich ist Schneeschippen vom stressigen Schneeentfernen zum nostalgischen Winterspiel geworden.', 'source': 'Tiffany'}
+/temperature/1.4549399359792514
+/year/2045
+/catastrophe/nix
+/headline/{'headline': 'Vogelbeobachtung in den Alpen: Endlich mit Flip-Flops', 'source': 'New York Now'}
+/catastrophe/nix
+/headline/{'headline': 'Supermarktkassen-Fließband von Plastik-Müll bedroht - bald Nahrungs-Lieferservice mit Drohnen', 'source': 'TON'}
+/temperature/1.4988057612380374
+/year/2046
+/catastrophe/nix
+/headline/{'headline': 'Ganzjähriger Strandurlaub in Alaska: Flip-Flops statt Fellboots', 'source': 'Erde'}
+/catastrophe/nix
+/headline/{'headline': 'Sommerloch auf Fünf-Sterne-Niveau: Internationale Stars und Sternchen auf dem Polarkreis', 'source': 'TON'}
+/temperature/1.5442732837021294
+/year/2047
+/catastrophe/nix
+/catastrophe/nix
+/headline/{'headline': "Leben ohne Pflanzen? Aber sonst geht's Ihnen gut? Dorotheenstädtischer Friedhof ab sofort mit Kunstrasen", 'source': 'Tiffany'}
+/temperature/1.5912697650348056
+/year/2048
+/catastrophe/nix
+/catastrophe/nix
+/headline/{'headline': 'Jesuitenstieg-Streit beigelegt: Hamburg hat jetzt eigenen Strand in der Hafencity', 'source': 'The Protector'}
+/temperature/1.6397200208913147
+/year/2049
+/catastrophe/nix
+/catastrophe/nix
+/headline/{'headline': 'Wasser - der Geschmack, den man nie wieder vergisst, wenn man das erste Mal ungewollt davon geflutet wird.', 'source': 'TON'}
+/temperature/1.6895465411977901
+/year/2050
+/headline/{'headline': 'Eisfischen in der Sahara: Jetzt sogar mit Sonnencreme', 'source': 'Tiffany'}
+/headline/{'headline': 'Nordlichter-Beobachtung jetzt auch im Amazonas-Regenwald möglich', 'source': 'New York Now'}
+/headline/{'headline': 'Saure Sauerkraut-Ozeane - Wie schädlich ist rechtzeitig ausgepresster Orangensaft', 'source': 'Erde'}
+/temperature/1.7406696141508322
+/year/2051
+/catastrophe/nix
+/catastrophe/nix
+/headline/{'headline': 'Bahamas: Klimawandel beschert Luxus-Hotels eine unvergessliche Unterwasser-Erfahrung!', 'source': 'APD'}
+/headline/{'headline': "Klimawandel rettet das Reisebüro-Geschäft - bald gibt's exotische Strände in Berlin", 'source': 'Erde'}
+/temperature/1.7930074537393899
+/year/2052
+/catastrophe/nix
+/headline/{'headline': 'Sommerurlaub in Sibirien: Endlich mal ordentlich schwitzen', 'source': 'Beuters'}
+/catastrophe/nix
+/catastrophe/nix
+/catastrophe/nix
+/temperature/1.8464763305849319
+/year/2053
+/catastrophe/nix
+/headline/{'headline': 'Skiurlaub im tropischen Regenwald: Der neue Spaß-Faktor', 'source': 'Erde'}
+/catastrophe/nix
+/catastrophe/nix
+/headline/{'headline': 'Bundesregierung fordert mehr Industrieabgase, um den Nachthimmel wieder schön bunt zu machen!', 'source': 'Tiffany'}
+/temperature/1.9009907058905904
+/year/2054
+/catastrophe/nix
+/headline/{'headline': 'Tierliebhaber freuen sich - In Deutschland gibt es bald Pandas statt Eichhörnchen', 'source': '24 hourly Mail'}
+/temperature/1.9564633682849897
+/year/2055
+/catastrophe/nix
+/catastrophe/nix
+/catastrophe/nix
+/temperature/2.012805573341836
+/year/2056
+/catastrophe/nix
+/headline/{'headline': 'Tropensturm bläst Regenwald weg - Monokulturen übernehmen die Macht', 'source': '24 hourly Mail'}
+/headline/{'headline': 'Grönland als neues Strand-Paradies für Bade-Urlauber!', 'source': 'APD'}
+/temperature/2.069927185552067
+/year/2057
+/headline/{'headline': 'Grönland sorgt für weltweites Wachstum - Ski-Industrie erlebt einen Aufschwung', 'source': 'The Moon'}
+/catastrophe/nix
+/catastrophe/nix
+/temperature/2.127736822521441
+/year/2058
+/catastrophe/nix
+/catastrophe/nix
+/temperature/2.1861420011628714
+/year/2059
+/headline/{'headline': 'Weltweite Wüstenbildung sorgt für zukünftige Safari-Attraktionen!', 'source': 'TON'}
+/temperature/2.245049285649639
+/year/2060
+/catastrophe/nix
+/catastrophe/nix
+/temperature/2.3043644368927807
+/year/2061
+/headline/{'headline': 'Nachtwanderungen im arktischen Regenwald: Die neue Trend-Sportart', 'source': 'New York Now'}
+/temperature/2.363992563303536
+/year/2062
+/headline/{'headline': 'Golfen im Schnee: Neues Highlight in den Alpen', 'source': 'Norddeutsche Nachrichten'}
+/headline/{'headline': 'Die neue Tour de France: Auf Skiern durch die Alpen', 'source': '24 hourly Mail'}
+/temperature/2.4238382725996304
+/year/2063
+/headline/{'headline': 'Städte schwimmen im Meer: Aquakulturen für Anfänger', 'source': 'Erde'}
+/temperature/2.4838058244125993
+/year/2064
+/temperature/2.5437992834519325
+/catastrophe/nix
+/year/2065
+/headline/{'headline': 'Rekordtemperaturen und Dürren sorgen dafür, dass trotzdem jeder Pool voll bleibt!', 'source': 'The Impartial'}
+/catastrophe/nix
+/catastrophe/nix
+/temperature/2.603722672981094
+/year/2066
+/catastrophe/nix
+/temperature/2.663480128359806
+/catastrophe/nix
+/year/2067
+/catastrophe/nix
+/catastrophe/nix
+/catastrophe/nix
+/temperature/2.722976050407045
+/year/2068
+/catastrophe/nix
+/headline/{'headline': 'Hörst du das Rauschen des Meeres oder das Schreien der Eisbären?', 'source': 'The Impartial'}
+/catastrophe/nix
+/temperature/2.78211525833932
+/year/2069
+/catastrophe/nix
+/temperature/2.84080314203963
+/year/2070
+/temperature/2.8989458134134702
+/year/2071
+/catastrophe/nix
+/catastrophe/nix
+/catastrophe/nix
+/temperature/2.9564502565897497
+/catastrophe/nix
+/year/2072
+/headline/{'headline': 'Deutschland wird bald das neue Spanien: Kleidungsschonend packen!', 'source': 'New York Now'}
+/temperature/3.013224476726347
+/year/2073
+/headline/{'headline': 'Jahreszeiten endgültig abgesagt: Das ganze Jahr nur noch Sommer', 'source': 'HARE NEWS'}
+/headline/{'headline': 'Die Eisbären sind bekanntlich nur Übungstiere für den Klimawandel', 'source': 'Erde'}
+/temperature/3.0691776471822316
+/year/2074
+/headline/{'headline': 'Sonne rund um die Uhr: Endlich kein Schatten mehr!', 'source': 'Norddeutsche Nachrichten'}
+/headline/{'headline': 'Die Polkappen schmilzen nicht, sie machen bloß Pause', 'source': 'Tiffany'}
+/temperature/3.124220254820713
+/year/2075
+/headline/{'headline': "Bürgerinitiative: 'Endlich Malibu-Feeling in Deutschland'", 'source': 'Tiffany'}
+/headline/{'headline': 'Die neuen Weltmeister im Segelsport: Leichen im Rhein', 'source': 'The Impartial'}
+/temperature/3.178264243211368
+/year/2076
+/headline/{'headline': 'Zukunftsvisionen: Skifahren auf Vulkanen', 'source': 'Tiffany'}
+/headline/{'headline': 'Nordpol auf dem Weg zum Wellnesscenter', 'source': 'The Protector'}
+/headline/{'headline': 'Fische tanzen auf Straßen: Endlich Unterhaltung im Sommer!', 'source': 'Erde'}
+/temperature/3.231223153501539
+/year/2077
+/headline/{'headline': 'Hitzefrei für alle: Schule wird zum Schwimmbad umfunktioniert', 'source': 'The Moon'}
+/headline/{'headline': 'Wovor rettet uns der Klimawandel als nächstes? - Hollywood plant neuen Katastrophen-Film', 'source': 'TON'}
+/temperature/3.283012262732061
+/year/2078
+/headline/{'headline': 'Tankstellen setzen auf Vielfalt - bald gibt es Diesel in allen Farben', 'source': 'TON'}
+/headline/{'headline': 'In Australien kann man bald Eislaufen: Die Pinguine freuen sich schon', 'source': 'HARE NEWS'}
+/temperature/3.333548719375919
+/year/2079
+/catastrophe/nix
+/catastrophe/nix
+/headline/{'headline': 'Fernreise geplant - Willkommen in der Antarktis!', 'source': 'Chicago Times'}
+/temperature/3.3827516758830187
+/year/2080
+/catastrophe/nix
+/headline/{'headline': 'Durststrecken für Marathon-Läufer endlich passé', 'source': 'The Impartial'}
+/catastrophe/nix
+/catastrophe/nix
+/temperature/3.4305424180190194
+/catastrophe/nix
+/year/2081
+/headline/{'headline': "Erdbeeren und Skifahren in der Wüste: Klimawandel macht's möglich", 'source': 'The Moon'}
+/headline/{'headline': "Pinguine machen es sich am Strand gemütlich: 'Wir lassen uns nicht von der Hitze unterkriegen!'", 'source': 'Tiffany'}
+/temperature/3.4768444907913185
+/year/2082
+/catastrophe/nix
+/headline/{'headline': 'Forscher warnen: Bald nur noch 2 Jahreszeiten - heiß und heißer', 'source': 'Chicago Times'}
+/headline/{'headline': 'Gartencenter setzen auf Hitze-Resistente Pflanzen', 'source': 'New York Now'}
+/temperature/3.5215838207607293
+/year/2083
+/headline/{'headline': 'Eisbären bauen sich Schwimmwesten', 'source': 'Tiffany'}
+/temperature/3.5646888345431798
+/year/2084
+/headline/{'headline': 'Grönland plant baldigen Umzug in die Karibik', 'source': 'TON'}
+/headline/{'headline': 'Immer mehr Waldbrände: bald kein Barbecue mehr im Freien', 'source': 'The Moon'}
+/temperature/3.606090573311868
+/year/2085
+/headline/{'headline': 'Von Hitzewellen und Eisbergen - Kreuzfahrten für jeden Geschmack!', 'source': 'The Impartial'}
+/temperature/3.6457228031166604
+/year/2086
+/headline/{'headline': "Mücken im November? Klimawandel macht's möglich", 'source': '24 hourly Mail'}
+/catastrophe/nix
+/temperature/3.683522120844297
+/year/2087
+/headline/{'headline': 'Bienensterben - Liebe Kinder, nutzt die letzten Sonnenstrahlen für eine Trauermarsch', 'source': 'The Impartial'}
+/headline/{'headline': 'Neue Cocktailkreation: Geschmackvolle Ölspuren', 'source': 'RAUM'}
+/headline/{'headline': 'Das Klima verändert sich: Der Winter wird immer dunkler', 'source': 'Erde'}
+/temperature/3.7194280556498347
+/year/2088
+/headline/{'headline': 'Pinguine siedeln sich im Dschungel an!', 'source': 'The Moon'}
+/catastrophe/nix
+/temperature/3.7533831656971115
+/year/2089
+/catastrophe/nix
+/catastrophe/nix
+/catastrophe/nix
+/headline/{'headline': 'Deutschland wird neues Dschungelcamp: Nur noch Sonnencreme und Insektenmittel erlaubt', 'source': 'The Protector'}
+/temperature/3.7853331300534205
+/year/2090
+/headline/{'headline': 'Die neue Golfer-Generation - das Mars Green und Schwarze Fairways!', 'source': 'Erde'}
+/catastrophe/nix
+/catastrophe/nix
+/temperature/3.8152268355914223
+/year/2091
+/catastrophe/nix
+/catastrophe/nix
+/catastrophe/nix
+/catastrophe/nix
+/temperature/3.8430164587592377
+/year/2092
+/headline/{'headline': 'Klimawandel? Ich würde eher sagen: Erderwärmungs-Joga!', 'source': 'Norddeutsche Nachrichten'}
+/temperature/3.8686575420879374
+/year/2093
+/catastrophe/nix
+/catastrophe/nix
+/headline/{'headline': 'Großbritannien: Klimawandel verantwortlich für schottische Winter-Perfektion!', 'source': 'RAUM'}
+/catastrophe/nix
+/temperature/3.892109065313999
+/catastrophe/nix
+/year/2094
+/catastrophe/nix
+/catastrophe/nix
+/headline/{'headline': 'Global Cooling: Deutschland erwartet den härtesten Winter seit 50 Jahren', 'source': 'RAUM'}
+/temperature/3.9133335110029877
+/year/2095
+/headline/{'headline': 'Sparprogramm der Regierung: Schnee nur noch auf Bestellung', 'source': 'Chicago Times'}
+/headline/{'headline': 'Eisbären veranstalten Strandparty am Nordpol!', 'source': 'The Protector'}
+/temperature/3.9322969245694397
+/year/2096
+/temperature/3.948968968596962
+/year/2097
+/headline/{'headline': 'Meeresspiegelanstieg? Na und? Mallorca-Immobilien jetzt auch für Schildkröten geeignet', 'source': 'Erde'}
+/temperature/3.963322971371624
+/year/2098
+/headline/{'headline': 'Eiseskälte im Sommer? Kommt, wenn der Kaktus blüht', 'source': 'The Impartial'}
+/temperature/3.9753359695510095
+/year/2099
+/headline/{'headline': 'Auswahl an Pool-Partys in Sibirien erweitert', 'source': 'Tiffany'}
+/temperature/3.9849887449006682
+/year/2100
+/catastrophe/nix
+/catastrophe/nix
+/catastrophe/nix
+/temperature/1.0011998400085331
+/year/2026
+/catastrophe/nix
+/headline/{'headline': 'Kanthölzer statt Hockey-Schläger: Spielveränderung durch Klimawandel', 'source': 'The Impartial'}
+/headline/{'headline': 'Klimawandel fordert Opfer: Zombie-Pinguine greifen an', 'source': 'Beuters'}
+/catastrophe/nix
+/catastrophe/nix
+/temperature/1.004797440546071
+/year/2027
+/catastrophe/nix
+/catastrophe/nix
+/headline/{'headline': 'Plastikflaschen statt Pinguine: Wie die Arktis zum Mülldeponie wird', 'source': 'APD'}
+/catastrophe/nix
+/temperature/1.0107870462192006
+/year/2028
+/catastrophe/nix
+/catastrophe/nix
+/headline/{'headline': 'Schnee ade, Strand olé: Skifahren wird zum Surfen', 'source': 'Norddeutsche Nachrichten'}
+/catastrophe/nix
+/catastrophe/nix
+/temperature/1.0191590749365596
+/year/2029
+/catastrophe/nix
+/catastrophe/nix
+/headline/{'headline': 'Weltrekord im Schwimmen: Atlantik erreicht Temperaturen wie die Karibik', 'source': 'The Impartial'}
+/catastrophe/nix
+/temperature/1.0299001332381374
+/year/2030
+/catastrophe/nix
+/catastrophe/nix
+/catastrophe/nix
+/catastrophe/nix
+/catastrophe/nix
+/temperature/1.0429930377219556
+/year/2031
+/headline/{'headline': 'Ozeane bald ohne Fisch: Alternativen wie Algen angesagt', 'source': 'Erde'}
+/catastrophe/nix
+/catastrophe/nix
+/catastrophe/nix
+/catastrophe/nix
+/temperature/1.0584168425338436
+/year/2032
+/catastrophe/nix
+/catastrophe/nix
+/catastrophe/nix
+/catastrophe/nix
+/headline/{'headline': 'Hitzeschlacht am Arbeitsplatz: Büros ohne Klimaanlage bald unzumutbar', 'source': 'The Impartial'}
+/temperature/1.0761468728763386
+/year/2033
+/headline/{'headline': 'Galapagos-Inseln im Schwitzkasten: Ein Paradies in Gefahr', 'source': 'New York Now'}
+/catastrophe/nix
+/catastrophe/nix
+/catastrophe/nix
+/headline/{'headline': 'Desertifikation schafft neue Karrierechancen für Sandbotschafter', 'source': 'Chicago Times'}
+/temperature/1.0961547644830976
+/year/2034
+/catastrophe/nix
+/catastrophe/nix
+/headline/{'headline': 'Erdrutsche für Touristenattraktionen: Urlaubs-Spaß für die ganze Familie', 'source': 'The Protector'}
+/catastrophe/nix
+/temperature/1.1184085089956721
+/year/2035
+/catastrophe/nix
+/catastrophe/nix
+/headline/{'headline': 'Sonnenschirme im Regen: Wie das neue Klima unser Leben bereichert', 'source': 'The Protector'}
+/catastrophe/nix
+/catastrophe/nix
+/temperature/1.1428725051700548
+/year/2036
+/headline/{'headline': 'Unberechenbare Wetterphänomene als neue Herausforderungen für Kleidergeschäfte', 'source': 'The Impartial'}
+/catastrophe/nix
+/catastrophe/nix
+/catastrophe/nix
+/temperature/1.1695076158310735
+/year/2037
+/headline/{'headline': 'Neue Freibad-Rekorde dank Sonnenbrand-Bräune', 'source': 'TON'}
+/catastrophe/nix
+/catastrophe/nix
+/catastrophe/nix
+/catastrophe/nix
+/temperature/1.198271230483525
+/year/2038
+/catastrophe/nix
+/catastrophe/nix
+/headline/{'headline': 'Jogging im Bikini: Wie der Klimawandel unser Training verändert', 'source': 'The Moon'}
+/catastrophe/nix
+/temperature/1.2291173334798757
+/year/2039
+/headline/{'headline': 'Wassertaxis statt Autos: Klimanotstand sorgt für Bootsfieber', 'source': 'Beuters'}
+/headline/{'headline': 'Schneeballschlacht im August: Schnee für alle dank Hitzewelle', 'source': 'Tiffany'}
+/headline/{'headline': "'Klima-Akne' setzt Trend: Pickel als Zeichen für Öko-Engagement", 'source': 'HARE NEWS'}
+/headline/{'headline': 'Britische Inseln endlich wieder grün: Kaktuswelle erobert Europa', 'source': '24 hourly Mail'}
+/temperature/1.2619965776354825
+/year/2040
+/headline/{'headline': 'Karibik-Feeling im Vorgarten: Lernen Sie das neue Unkraut kennen', 'source': 'HARE NEWS'}
+/catastrophe/nix
+/catastrophe/nix
+/catastrophe/nix
+/temperature/1.2968563631735612
+/year/2041
+/headline/{'headline': 'Schnee als neues Symbol für den Frühling', 'source': 'New York Now'}
+/catastrophe/nix
+/catastrophe/nix
+/catastrophe/nix
+/temperature/1.333640921873608
+/year/2042
+/catastrophe/nix
+/headline/{'headline': 'Sonnensegel für Kreuzfahrtschiffe: Übermorgen dunkler als gestern', 'source': 'Tiffany'}
+/temperature/1.3722914062886573
+/year/2043
+/catastrophe/nix
+/catastrophe/nix
+/catastrophe/nix
+/headline/{'headline': 'Deutschlands Fachkräfte lösen Klimaproblem: Pizza aus Pappe und Plastikstrohhalm', 'source': 'HARE NEWS'}
+/temperature/1.4127459838886418
+/year/2044
+/catastrophe/nix
+/catastrophe/nix
+/catastrophe/nix
+/temperature/1.4549399359792514
+/year/2045
+/catastrophe/nix
+/headline/{'headline': 'Deutschlands dümmster Kleingärtner gewinnt Klimapreis', 'source': 'Tiffany'}
+/catastrophe/nix
+/temperature/1.4988057612380374
+/year/2046
+/catastrophe/nix
+/catastrophe/nix
+/headline/{'headline': 'Forscher warnen: Bald kein Eis mehr in der Arktis', 'source': 'Erde'}
+/headline/{'headline': 'Pinguine feiern erfolgreiches Jahr ohne Touristen', 'source': 'HARE NEWS'}
+/temperature/1.5442732837021294
+/year/2047
+/catastrophe/nix
+/catastrophe/nix
+/catastrophe/nix
+/catastrophe/nix
+/catastrophe/nix
+/temperature/1.5912697650348056
+/year/2048
+/headline/{'headline': 'Stromabschaltung: Romantische Kerzenlicht-Stimmung zu jeder Tageszeit', 'source': 'APD'}
+/temperature/1.6397200208913147
+/year/2049
+/headline/{'headline': 'Möbelindustrie setzt auf die neuen Farben der Natur: Düstergrau und Staubbraun', 'source': 'Tiffany'}
+/catastrophe/nix
+/catastrophe/nix
+/headline/{'headline': 'Gemeinde verblüfft: Sonne scheint, obwohl kein SUV unterwegs ist', 'source': 'Norddeutsche Nachrichten'}
+/temperature/1.6895465411977901
+/year/2050
+/catastrophe/nix
+/headline/{'headline': "Die 'neue' Sahara: Solaranlagen statt Sanddünen", 'source': 'Chicago Times'}
+/headline/{'headline': 'Eisbären als Dekoration für Wohnräume - Kanadische Regierung genehmigt Verkauf', 'source': 'Erde'}
+/headline/{'headline': 'Tierwelt enttäuscht: Eisbären finden keine Eisberge mehr', 'source': 'New York Now'}
+/temperature/1.7406696141508322
+/year/2051
+/catastrophe/nix
+/catastrophe/nix
+/headline/{'headline': 'Skrupellose Konzerne: Klimakatastrophe als lukrativer Business Plan', 'source': 'HARE NEWS'}
+/headline/{'headline': 'MEER benötigt MEHR: Kreuzfahrten als Beitrag zum Umweltschutz', 'source': 'The Impartial'}
+/headline/{'headline': 'Frühling abgesagt: Winter wird auf unbestimmte Zeit verlängert', 'source': 'Erde'}
+/temperature/1.7930074537393899
+/year/2052
+/catastrophe/nix
+/catastrophe/nix
+/headline/{'headline': 'Klimawandel entführt: Wohlverdienter Urlaub auf dem Mars!', 'source': 'Norddeutsche Nachrichten'}
+/temperature/1.8464763305849319
+/year/2053
+/catastrophe/nix
+/headline/{'headline': 'Alarmstufe Rot: Die Erde wird zur unwirtlichen Wüste', 'source': 'APD'}
+/headline/{'headline': 'Apokalyptische Landwirtschaft als Motivation zum Einkaufen', 'source': '24 hourly Mail'}
+/headline/{'headline': 'Russland plant Skitourismus in der Arktis', 'source': 'HARE NEWS'}
+/temperature/1.9009907058905904
+/year/2054
+/catastrophe/nix
+/temperature/1.9564633682849897
+/year/2055
+/catastrophe/nix
+/headline/{'headline': 'Tierwelt hautnah erleben: Arktische Arten sterben aus', 'source': 'HARE NEWS'}
+/catastrophe/nix
+/temperature/2.012805573341836
+/year/2056
+/headline/{'headline': 'Flutwelle dekorativ in den eigenen vier Wänden inszenieren', 'source': 'Tiffany'}
+/headline/{'headline': 'Hohe Luftfeuchtigkeit: Der wahre Grund, warum Miami so heiß ist', 'source': 'The Moon'}
+/temperature/2.069927185552067
+/year/2057
+/catastrophe/nix
+/headline/{'headline': 'Tropen verlassen die Karibik - Jetzt auch Sommer auf Grönland möglich', 'source': 'HARE NEWS'}
+/temperature/2.127736822521441
+/year/2058
+/headline/{'headline': 'Lungenkrebs: Die neue Modeerkrankung wegen Feinstaub', 'source': 'The Impartial'}
+/headline/{'headline': 'Schnee im Juni: Endlich Weihnachten im Sommer', 'source': 'Norddeutsche Nachrichten'}
+/headline/{'headline': 'Meteorologen raten zu Pullovern im Juli', 'source': 'The Impartial'}
+/catastrophe/nix
+/temperature/2.1861420011628714
+/year/2059
+/catastrophe/nix
+/temperature/2.245049285649639
+/year/2060
+/headline/{'headline': 'Dschungel bleibt Dschungel: Grünbereichsquote von Waldgebieten weiterhin bei 0%', 'source': '24 hourly Mail'}
+/temperature/2.3043644368927807
+/year/2061
+/temperature/2.363992563303536
+/year/2062
+/catastrophe/nix
+/catastrophe/nix
+/catastrophe/nix
+/headline/{'headline': 'Tropische Temperaturen sorgen für Rekordzahlen bei Menschenfleisch-Markt', 'source': 'RAUM'}
+/temperature/2.4238382725996304
+/year/2063
+/catastrophe/nix
+/catastrophe/nix
+/catastrophe/nix
+/catastrophe/nix
+/headline/{'headline': 'Landwirte freuen sich auf Paddel-Saison auf ihren Feldern', 'source': 'Tiffany'}
+/temperature/2.4838058244125993
+/year/2064
+/headline/{'headline': 'Weltall-Erkundung zur Suche nach neuem Planeten, nachdem der aktuelle von Touristen überlaufen ist', 'source': 'TON'}
+/headline/{'headline': 'Snowboardindustrie geht bankrott: Keine Winter mehr in den Bergen', 'source': 'The Impartial'}
+/temperature/2.5437992834519325
+/year/2065
+/catastrophe/nix
+/catastrophe/nix
+/catastrophe/nix
+/catastrophe/nix
+/catastrophe/nix
+/temperature/1.0011998400085331
+/year/2026
+/catastrophe/nix
+/catastrophe/nix
+/headline/{'headline': 'Klimaschutz ist out - Albtraumwinter für alle!', 'source': 'The Impartial'}
+/catastrophe/nix
+/temperature/1.004797440546071
+/year/2027
+/catastrophe/nix
+/headline/{'headline': 'Heiße Temperaturen sorgen für Erotik-Flair in Deutschland', 'source': 'New York Now'}
+/catastrophe/nix
+/headline/{'headline': 'Sturmfluten - Wasserspaß direkt vor der Haustür!', 'source': 'Norddeutsche Nachrichten'}
+/temperature/1.0107870462192006
+/year/2028
+/catastrophe/nix
+/catastrophe/nix
+/catastrophe/nix
+/headline/{'headline': 'Mit leichtem Gepäck in den Sommerurlaub: Keine Kleidung notwendig!', 'source': 'The Impartial'}
+/headline/{'headline': 'Industrie freut sich über neue Möglichkeiten der Öl- und Gasförderung in der Arktis', 'source': 'APD'}
+/temperature/1.0191590749365596
+/year/2029
+/headline/{'headline': 'Jetzt können wir endlich auch Litschis und Bananen im Garten anbauen', 'source': 'APD'}
+/catastrophe/nix
+/headline/{'headline': 'Reisebranche jubelt über die neue Größe der Malediven', 'source': 'HARE NEWS'}
+/headline/{'headline': 'Atemberaubende Aussichten im urbanen Skigebiet Dubai', 'source': 'APD'}
+/temperature/1.0299001332381374
+/year/2030
+/headline/{'headline': 'Surreale Strandbuchten laden zum Schwimmen ein: Ein Urlaub auf den Seychellen meldet sich bezahlbar!', 'source': 'The Impartial'}
+/headline/{'headline': 'Küstenstädte bereiten sich langsam auf Sommerpool-Saison vor', 'source': 'The Impartial'}
+/catastrophe/nix
+/catastrophe/nix
+/catastrophe/nix
+/temperature/1.0429930377219556
+/year/2031
+/catastrophe/nix
+/catastrophe/nix
+/catastrophe/nix
+/headline/{'headline': 'Hitzebeständige Eisberge bereiten Pool-Partys den Weg', 'source': 'New York Now'}
+/catastrophe/nix
+/temperature/1.0584168425338436
+/year/2032
+/headline/{'headline': 'Endlich im Klimawandel angekommen: Eisbär wird zum Nutrias-Jäger!', 'source': 'Beuters'}
+/catastrophe/nix
+/headline/{'headline': 'Neue Speisepläne in den Kantinen: Krill und Plankton für Alle!', 'source': 'TON'}
+/catastrophe/nix
+/headline/{'headline': 'Sonnenbrand-Selbstbräuner in neuen Sommerfarben - Entdecke den Look des Jahres!', 'source': 'HARE NEWS'}
+/temperature/1.0761468728763386
+/year/2033
+/catastrophe/nix
+/headline/{'headline': 'Wasser, Wasser, überall: Aber bald nur noch zum Sonderpreis zu haben!', 'source': '24 hourly Mail'}
+/catastrophe/nix
+/temperature/1.0961547644830976
+/year/2034
+/headline/{'headline': 'Flucht vor den sinkenden Inseln: Urlaubsparadies in Gefahr!', 'source': 'Chicago Times'}
+/catastrophe/nix
+/headline/{'headline': 'Fischereiindustrie überrascht: Endlich genug Fische für alle!', 'source': 'Beuters'}
+/catastrophe/nix
+/headline/{'headline': 'Endlich Sommer in Deutschland: Aber wie lange noch?', 'source': 'Chicago Times'}
+/temperature/1.1184085089956721
+/year/2035
+/catastrophe/nix
+/catastrophe/nix
+/headline/{'headline': 'Der Klimawandel ist nicht zu stoppen: Aber immerhin gibt es noch genügend Eiswürfel!', 'source': 'RAUM'}
+/headline/{'headline': 'Die Pole werden bald zur neuen Wüste: Aber dafür gibt es bald neue spannende Abenteuer-Reiseziele!', 'source': 'Beuters'}
+/catastrophe/nix
+/temperature/1.1428725051700548
+/year/2036
+/catastrophe/nix
+/headline/{'headline': 'Endlich kein Grün mehr: Städte unter einer dicken Schneeschicht', 'source': '24 hourly Mail'}
+/headline/{'headline': 'Wassermangel wird zum neuen Statussymbol: Wer hat das teuerste Bewässerungssystem?', 'source': 'Chicago Times'}
+/headline/{'headline': "Land unter in Bangkok: Aber dafür gibt's jetzt die begehrten Floating Markets!", 'source': 'New York Now'}
+/headline/{'headline': 'Hurra, bald ist Ostern: Aber ob es dann noch Schnee gibt?', 'source': 'APD'}
+/temperature/1.1695076158310735
+/year/2037
+/headline/{'headline': 'Endlich gibt es schwarzen Schnee: Dank Klimawandel gibt es neues Trendgetränk!', 'source': 'The Protector'}
+/catastrophe/nix
+/catastrophe/nix
+/headline/{'headline': 'Die Macht des Klimawandels: Kraken auf dem Vormarsch!', 'source': 'TON'}
+/temperature/1.198271230483525
+/year/2038
+/catastrophe/nix
+/catastrophe/nix
+/headline/{'headline': 'Klimawandel - Wer braucht schon Eiszeitfilme?', 'source': 'The Moon'}
+/catastrophe/nix
+/catastrophe/nix
+/temperature/1.2291173334798757
+/year/2039
+/catastrophe/nix
+/headline/{'headline': 'Gletscher schmelzen, Menschen schwitzen: Klimawandel sorgt für neue Modetrends!', 'source': 'RAUM'}
+/catastrophe/nix
+/catastrophe/nix
+/temperature/1.2619965776354825
+/year/2040
+/catastrophe/nix
+/catastrophe/nix
+/catastrophe/nix
+/catastrophe/nix
+/headline/{'headline': 'Abkühlung für alle - Kälteste Temperaturen seit über 100 Jahren', 'source': 'TON'}
+/temperature/1.2968563631735612
+/year/2041
+/catastrophe/nix
+/catastrophe/nix
+/headline/{'headline': 'Seetaugliche Sandkisten für Kinder immer beliebter', 'source': 'TON'}
+/catastrophe/nix
+/temperature/1.333640921873608
+/year/2042
+/catastrophe/nix
+/catastrophe/nix
+/headline/{'headline': 'Süßwasserquellen jetzt auch für Marathon-Läufe geeignet', 'source': '24 hourly Mail'}
+/catastrophe/nix
+/catastrophe/nix
+/temperature/1.3722914062886573
+/year/2043
+/headline/{'headline': 'Extrem heiße Temperaturen sorgen für exotische Flora und Fauna in Deutschland', 'source': 'Chicago Times'}
+/catastrophe/nix
+/catastrophe/nix
+/temperature/1.4127459838886418
+/year/2044
+/headline/{'headline': 'Bei uns schmilzt der Schnee, in der Antarktis das Eis: Global gesehen ist alles im Lot!', 'source': '24 hourly Mail'}
+/catastrophe/nix
+/catastrophe/nix
+/temperature/1.4549399359792514
+/year/2045
+/headline/{'headline': 'Der Golfstrom bricht zusammen - Perfekt zum Surfen auf hoher See', 'source': '24 hourly Mail'}
+/headline/{'headline': 'Ohne Kühlschrank halten Lebensmittel länger - Ein Gewinn für Umweltschützer', 'source': 'Tiffany'}
+/headline/{'headline': 'Sommer in Grönland wird immer beliebter bei Touristen', 'source': 'TON'}
+/catastrophe/nix
+/catastrophe/nix
+/temperature/1.4988057612380374
+/year/2046
+/headline/{'headline': 'Globale Erwärmung sorgt für neue Transportwege: Bald sind die Polkappen eine wichtige Handelsroute!', 'source': 'The Moon'}
+/catastrophe/nix
+/catastrophe/nix
+/catastrophe/nix
+/catastrophe/nix
+/temperature/1.5442732837021294
+/year/2047
+/headline/{'headline': 'Polarbären tanzen auf schmelzenden Eisbergen - eine wunderschöne Show!', 'source': 'HARE NEWS'}
+/headline/{'headline': 'Fischsterben in der Ostsee: Aber dafür gibt es jetzt neue Sushi-Restaurants im Norden!', 'source': 'HARE NEWS'}
+/catastrophe/nix
+/temperature/1.5912697650348056
+/year/2048
+/catastrophe/nix
+/catastrophe/nix
+/catastrophe/nix
+/catastrophe/nix
+/catastrophe/nix
+/temperature/1.6397200208913147
+/year/2049
+/headline/{'headline': 'Ozeane werden wärmer - Meerjungfrauen verlassen lauwarme Gewässer', 'source': 'RAUM'}
+/headline/{'headline': 'Endlich wird es richtig tropical: Klimawandel sorgt für neue Geschmacksnuancen!', 'source': 'RAUM'}
+/headline/{'headline': 'Tropische Krankheiten sind der ihre Koffer schon am packen', 'source': 'TON'}
+/catastrophe/nix
+/headline/{'headline': 'Hochwasser - Perfekte Gelegenheit zum Segeln in der eigenen Wohnung', 'source': 'New York Now'}
+/temperature/1.6895465411977901
+/year/2050
+/headline/{'headline': 'Mückenpopulation wächst - bald haben wir endlich mehr Freunde!', 'source': 'APD'}
+/catastrophe/nix
+/headline/{'headline': 'Nach dieser Hitzewelle wird der Nordpol zur neuen Urlaubsdestination!', 'source': 'Tiffany'}
+/temperature/1.7406696141508322
+/year/2051
+/catastrophe/nix

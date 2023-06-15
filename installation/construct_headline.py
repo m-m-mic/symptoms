@@ -41,7 +41,9 @@ def construct_start_headline(region, catastrophe_type):
     elif catastrophe_type == "drought":
         headlines = [
             "Dürre " + region_term + " könnte Hungersnot auslösen",
-            "Fehlender Niederschlag " + region_term + ": Dürre wird intensiver"
+            "Fehlender Niederschlag " + region_term + ": Dürre wird intensiver",
+            "Kein Regen in Sicht: Dürre " + region_term,
+            "Dürre " + region_term + ": Ausgangslage laut Experten 'unglaublich ungünstig'"
         ]
         return headlines[random.randrange(0, len(headlines) - 1)]
     else:
@@ -67,14 +69,17 @@ def construct_end_headline(region, catastrophy_type, death_count):
         return headlines[0]
     elif catastrophy_type == "drought":
         headlines = [
-            "Regenfälle in " + region_term + ": Dürreperiode ist zu Ende (" + death_count_string + " Tote)"
+            "Regenfälle " + region_term + ": Dürreperiode ist zu Ende (" + death_count_string + " Tote)",
+            "Schäden in Milliardenhöhe: Dürre " + region_term + " hinterlässt " + death_count_string + " Tote",
+            "Dürreperiode " + region_term + " geht zu Ende: " + death_count_string + " Tote - Priester reden vom Willen Gottes"
+            "Das Dürre-Drama " + region_term + " ist zu Ende: Regierung leugnet Opferzahlen (" + death_count_string + " Tote)"
         ]
-        return headlines[0]
+        return headlines[random.randrange(0, len(headlines) - 1)]
     else:
         return "Katastrophe vom Typ '" + catastrophy_type + "' " + region_term + " is beendet (" + death_count_string + " Tote)"
 
 
 def get_source():
     sources = ["Tiffany", "RAUM", "Norddeutsche Nachrichten", "Beuters", "New York Now", "HARE NEWS", "The Moon", "TON",
-               "Erde", "APD", "Chicago Times", "The Protector", "The Impartial"]
+               "Erde", "APD", "Chicago Times", "The Protector", "The Impartial", "24 hourly Mail"]
     return random.choice(sources)

@@ -188,12 +188,12 @@ class Symptoms:
                 "headline": construct_start_headline(selected_region, catastrophe.type),
                 "source": get_source()
             }
-            print("════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════")
+            print("════════════════════════════════════════════════════════════════════════════════════════════════════════════")
             print(f"!!! CATASTROPHE - {selected_region} - {catastrophe.type} - {catastrophe.wind_up} wind up - {catastrophe.duration} duration - {catastrophe.deaths_per_second} deaths - {catastrophe.resolution_time} resolution time !!!")
             print(start_headline["headline"] + " - " + start_headline["source"])
             print("!!! On electrode " + str(catastrophe.electrode_index) + " - " + key_mapping[
                 catastrophe.electrode_index] + " !!!")
-            print("════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════")
+            print("════════════════════════════════════════════════════════════════════════════════════════════════════════════")
 
             # Changes region data
             self.region_data[selected_region]["is_active"] = True
@@ -242,10 +242,10 @@ class Symptoms:
                 "headline": construct_end_headline(selected_region, catastrophe.type, current_death_count),
                 "source": get_source()
             }
-            print("════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════")
+            print("════════════════════════════════════════════════════════════════════════════════════════════════════════════")
             print(f">>> RESOLVED - {selected_region} - {catastrophe.type} - resolved by player? {resolved_by_player} <<<")
             print(end_headline["headline"] + " - " + end_headline["source"])
-            print("════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════")
+            print("════════════════════════════════════════════════════════════════════════════════════════════════════════════")
 
             # Puts region on 2 second cooldown
             time.sleep(2)

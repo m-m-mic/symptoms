@@ -4,18 +4,18 @@ import random
 class Catastrophe:
     def __init__(self, region, temperature):
         self.__region_catastrophes = {
-            "na1": ["hurricane", "drought"],
-            "na2": ["hurricane", "wildfire"],
-            "eu1": ["hurricane", "drought"],
-            "sa1": ["hurricane", "wildfire"],
-            "sa2": ["hurricane", "drought"],
-            "af1": ["hurricane", "wildfire"],
-            "af2": ["hurricane", "drought"],
-            "af3": ["hurricane", "wildfire"],
-            "as1": ["hurricane", "drought"],
-            "as2": ["hurricane", "wildfire"],
-            "as3": ["hurricane", "drought"],
-            "oc1": ["hurricane", "wildfire"],
+            "na1": ["hurricane", "drought", "wildfire", "earthquake"],
+            "na2": ["hurricane", "wildfire", "flooding"],
+            "eu1": ["wildfire", "drought", "flooding"],
+            "sa1": ["wildfire", "tsunami", "earthquake"],
+            "sa2": ["wildfire", "flooding"],
+            "af1": ["sandstorm", "drought"],
+            "af2": ["sandstorm", "drought"],
+            "af3": ["drought", "wildfire"],
+            "as1": ["hurricane", "drought", "tsunami", "flooding"],
+            "as2": ["hurricane", "wildfire", "tsunami", "earthquake", "flooding"],
+            "as3": ["wildfire", "drought", "sandstorm"],
+            "oc1": ["wildfire", "drought", "tsunami", "earthquake"],
         }
         self.__region_electrode = ["na1", "na2", "eu1", "sa1", "sa2", "af1", "af2", "af3", "as1", "as2", "as3", "oc1"]
         self.__catastrophe_data = {
@@ -43,19 +43,55 @@ class Catastrophe:
                     "max": 7
                 },
                 "wind_up": {
-                    "min": 1,
-                    "max": 3,
+                    "min": 0,
+                    "max": 3
                 },
                 "deaths_per_second": {
-                    "min": 200,
-                    "max": 600
+                    "min": 500,
+                    "max": 900
                 },
                 "resolution_time": {
-                    "min": 1,
+                    "min": 30,
                     "max": 80
                 }
             },
             "drought": {
+                "duration": {
+                    "min": 5,
+                    "max": 10
+                },
+                "wind_up": {
+                    "min": 1,
+                    "max": 7
+                },
+                "deaths_per_second": {
+                    "min": 200,
+                    "max": 1100
+                },
+                "resolution_time": {
+                    "min": 1,
+                    "max": 120
+                }
+            },
+            "tsunami": {
+                "duration": {
+                    "min": 2,
+                    "max": 5
+                },
+                "wind_up": {
+                    "min": 0,
+                    "max": 1,
+                },
+                "deaths_per_second": {
+                    "min": 4000,
+                    "max": 10000
+                },
+                "resolution_time": {
+                    "min": 1,
+                    "max": 40
+                }
+            },
+            "flooding": {
                 "duration": {
                     "min": 4,
                     "max": 7
@@ -71,6 +107,42 @@ class Catastrophe:
                 "resolution_time": {
                     "min": 1,
                     "max": 80
+                }
+            },
+            "sandstorm": {
+                "duration": {
+                    "min": 4,
+                    "max": 7
+                },
+                "wind_up": {
+                    "min": 1,
+                    "max": 3,
+                },
+                "deaths_per_second": {
+                    "min": 200,
+                    "max": 600
+                },
+                "resolution_time": {
+                    "min": 1,
+                    "max": 80
+                }
+            },
+            "earthquake": {
+                "duration": {
+                    "min": 1,
+                    "max": 4
+                },
+                "wind_up": {
+                    "min": 0,
+                    "max": 1
+                },
+                "deaths_per_second": {
+                    "min": 1500,
+                    "max": 6000
+                },
+                "resolution_time": {
+                    "min": 1,
+                    "max": 70
                 }
             }
         }
@@ -94,11 +166,20 @@ class Catastrophe:
         duration = random.randrange(catastrophe_data["duration"]["min"],
                                     catastrophe_data["duration"]["max"]) * temperature
         # get wind_up
-        wind_up = random.randrange(catastrophe_data["wind_up"]["min"], catastrophe_data["wind_up"]["max"])
+        wind_up = random.randrange(catastrophe_data["wind_up"]["min"], catastrophe_data["wind_up"]["max"]) / temperature
         # get deaths_per_second
         deaths_per_second = random.randrange(catastrophe_data["deaths_per_second"]["min"],
                                              catastrophe_data["deaths_per_second"]["max"]) * (temperature**temperature)
         # get resolution_time
         resolution_time = random.randrange(catastrophe_data["resolution_time"]["min"],
                                            catastrophe_data["resolution_time"]["max"]) * temperature / 100
+        
+        # prevents resolution_time from being longer than catastrophe itself
+        if resolution_time > wind_up + duration:
+            resolution_time = (wind_up + duration) * 0.8
+        
+        # prevents resolution_time from being longer than 6 seconds
+        if resolution_time > 6:
+            resolution_time = 6
+
         return duration, wind_up, deaths_per_second, resolution_time
