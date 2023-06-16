@@ -111,9 +111,9 @@ class Symptoms:
         self.sensor_values = [0] * 12
 
     def reset_attributes(self):
-        generated_headlines = self.headlines
+        generated_headlines = self.headline_reserve
         self.__init__()
-        self.headlines = generated_headlines
+        self.headline_reserve = generated_headlines
 
     def get_inputs(self):
         # Writes sensor input from Pi Cap into variable
@@ -128,11 +128,26 @@ class Symptoms:
         server = osc_server.BlockingOSCUDPServer((ip_address, 3000), dispatcher)
         server.serve_forever()
 
+    def send_data(self):
+        tick_count = 0
+        while True:
+            if tick_count > 5:
+                # Sends data to p5project
+                client.send_message('/death_count', round(self.death_count))
+                tick_count = 0
+            tick_count += 1
+
+            region_json = json.dumps(self.region_data, indent=4)
+            client.send_message("/region_data", region_json)
+
+            client.send_message("/is_game_running", self.is_game_running)
+            time.sleep(0.1)
+
     def generate_headlines(self, verbose):
         while True:
-            if len(self.headlines) < 100:
+            if len(self.headline_reserve) < 100:
                 if verbose:
-                    print("Filling up headlines... (currently " + str(len(self.headlines)) + "/100)")
+                    print("Filling up headlines... (currently " + str(len(self.headline_reserve)) + "/100)")
                 try:
                     # Calls GPT API and requests headlines
                     gpt_response = openai.ChatCompletion.create(
@@ -146,7 +161,7 @@ class Symptoms:
                     headlines_json = json.loads(gpt_response.choices[0].message.content)
                     # Adds new headlines to headlines array
                     for headline in headlines_json['headlines']:
-                        self.headlines.append({"headline": headline, "source": get_source()})
+                        self.headline_reserve.append({"headline": headline, "source": get_source()})
                     # Rests for 5 seconds
                     time.sleep(5)
                 except Exception as e:
@@ -160,15 +175,15 @@ class Symptoms:
         # speichern_news("/temperature/", self.temperature)
 
     def trigger_headline(self):
-        if len(self.headlines) > 0:
+        if len(self.headline_reserve) > 0:
             # Randomly picks headline from array
-            index = random.randrange(0, len(self.headlines))
-            headline = self.headlines[index]
+            index = random.randrange(0, len(self.headline_reserve))
+            headline = self.headline_reserve[index]
             print(headline["headline"] + " - " + headline["source"])
             # Sendet Headline an Textfile
             # speichern_news("/headline/", self.headlines[index])
             # Removes chosen headline from array
-            del self.headlines[index]
+            del self.headline_reserve[index]
         else:
             print("--- Blank (headline) ---")
             # Später löschen
@@ -260,8 +275,6 @@ class Symptoms:
             # speichern_news("/catastrophe/", "nix")
 
     def trigger_event(self):
-
-        client.send_message('/test', round(self.death_count))
         # Chance of headline occurring
         chance_headline = 0.25
         # Base chance of catastrophe occurring
@@ -306,9 +319,9 @@ class Symptoms:
                     break
 
             # Waits for headline generation until at least 20 are available
-            if len(self.headlines) < 20 and not skip_headlines:
+            if len(self.headline_reserve) < 20 and not skip_headlines:
                 print("Waiting for GPT to return headlines...\n")
-            while len(self.headlines) < 20 and not skip_headlines:
+            while len(self.headline_reserve) < 20 and not skip_headlines:
                 pass
 
             print("/// SYMPTOMS startet ///")
@@ -339,11 +352,14 @@ class Symptoms:
         if not skip_headlines:
             Thread(target=self.generate_headlines, args=(verbose,)).start()
 
+        # Input fetching thread
+        Thread(target=self.get_inputs, daemon=True).start()
+
+        # Sends data to p5
+        Thread(target=self.send_data, daemon=True).start()
+
         # runtime thread
         Thread(target=self.run, args=(skip_headlines,)).start()
-
-        # input fetching thread
-        Thread(target=self.get_inputs(), daemon=True).start()
 
 
 # Speichert alle News für die GUI in news.txt

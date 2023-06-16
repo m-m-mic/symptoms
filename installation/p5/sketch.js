@@ -1,4 +1,20 @@
-var x = 0;
+var deaths = 0;
+var active = false;
+var regionData;
+var regionLocations = {
+	na1: [100, 500],
+	na2: [100, 1000],
+	eu1: [100, 1500],
+	sa1: [500, 500],
+	sa2: [500, 1000],
+	af1: [500, 1500],
+	af2: [1000, 500],
+	af3: [1000, 1000],
+	as1: [1000, 1500],
+	as2: [1800, 500],
+	as3: [1800, 1000],
+	oc1: [1800, 1500]
+}
 
 function setup() {
 	createCanvas(500, 500);
@@ -7,13 +23,27 @@ function setup() {
 
 function draw() {
 	background(0, 40);
-  var t = reformatNumber(x);
+  	var deathNumbers = reformatNumber(deaths);
 	fill(255);
-  textSize(32);
-  textAlign(CENTER, CENTER);
-  // text(x, width/2, 80)
-  text(t, width/2, 40);
-	fill(0);
+  	textSize(32);
+  	textAlign(CENTER, CENTER);
+  	text(deathNumbers, width/2, 40);
+
+	  if (active == false) {
+		  text('Berühre ein Ding um das Spiel zu starten', width/2, height/2);
+		  fill(255, 0, 0);
+		  for (let region of regionLocations){
+			  // falsch: circle(region[0], region[1], 50);
+		  }
+	  } else {
+		  for (let regionKey in regionLocations){
+			if(regionData[regionKey]["is_active"]){
+
+			}
+
+
+		  }
+	  }
 }
 
 function reformatNumber(number){
@@ -21,8 +51,14 @@ function reformatNumber(number){
 }
 
 function receiveOsc(address, value) {
-	console.log("received OSC: " + address + ", " + value);
-	x = value
+	// console.log("received OSC: " + address);
+	if(address === "/death_count"){
+		deaths = value;
+	} else if (address === "/is_game_running") {
+		active = value;
+	} else if (address === "/region_data") {
+		regionData = value;
+	}
 }
 
 function sendOsc(address, value) {
