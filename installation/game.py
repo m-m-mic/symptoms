@@ -10,20 +10,9 @@ from pythonosc import osc_server
 from pythonosc.dispatcher import Dispatcher
 from threading import Thread
 from get_ip import get_ip
-from socketIO_client import SocketIO, LoggingNamespace
-import socketio
 
-sio = socketio.Client()
-print("worked")
-connected = False
-while not connected:
-    try:
-        sio.connect("http://localhost:8000")
-        print("Socket established")
-        connected = True
-    except Exception as ex:
-        print("Failed to establish initial connnection to server")
-        time.sleep(2)
+# UPD Client for world map visualisation
+client = udp_client.SimpleUDPClient("127.0.0.1", 12000)
 
 # imports Catastrophe class
 from catastrophe import Catastrophe
@@ -36,8 +25,7 @@ load_dotenv()
 # Fetches api key from .env file (can be generated at https://platform.openai.com/account/api-keys)
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
-# UPD Client for world map visualisation
-#client = udp_client.SimpleUDPClient("127.0.0.1", 7000)
+
 
 # Gets current ip address of pc
 ip_address = get_ip()
@@ -294,7 +282,6 @@ class Symptoms:
         # Triggers catastrophe
         elif random_number < (chance_headline + chance_catastrophe):
             Thread(target=self.trigger_catastrophe).start()
-            sio.emit("deathcount", str(self.death_count))
 
         # Triggers nothing
         else:
@@ -304,6 +291,9 @@ class Symptoms:
 
     def run(self, skip_headlines):
         while True:
+
+            client.send_message('/test', self.death_count)
+
             # Game starts when any of the sensors are touched by the player
             print("Touch any electrode to start game.\n")
             while self.is_game_running is False:
