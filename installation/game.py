@@ -26,6 +26,9 @@ load_dotenv()
 # Fetches api key from .env file (can be generated at https://platform.openai.com/account/api-keys)
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
+# UPD Client for world map visualisation
+client = udp_client.SimpleUDPClient("127.0.0.1", 7000)
+
 # Gets current ip address of pc
 ip_address = get_ip()
 
@@ -47,68 +50,70 @@ class Symptoms:
         self.region_data = {
             "na1": {
                 "is_active": False,
-                "type": None,
+                "type": "",
                 "resolution_percentage": 0,
             },
             "na2": {
                 "is_active": False,
-                "type": None,
+                "type": "",
                 "resolution_percentage": 0,
             },
             "eu1": {
                 "is_active": False,
-                "type": None,
+                "type": "",
                 "resolution_percentage": 0,
             },
             "sa1": {
                 "is_active": False,
-                "type": None,
+                "type": "",
                 "resolution_percentage": 0,
             },
             "sa2": {
                 "is_active": False,
-                "type": None,
+                "type": "",
                 "resolution_percentage": 0,
             },
             "af1": {
                 "is_active": False,
-                "type": None,
+                "type": "",
                 "resolution_percentage": 0,
             },
             "af2": {
                 "is_active": False,
-                "type": None,
+                "type": "",
                 "resolution_percentage": 0,
             },
             "af3": {
                 "is_active": False,
-                "type": None,
+                "type": "",
                 "resolution_percentage": 0,
             },
             "as1": {
                 "is_active": False,
-                "type": None,
+                "type": "",
                 "resolution_percentage": 0,
             },
             "as2": {
                 "is_active": False,
-                "type": None,
+                "type": "",
                 "resolution_percentage": 0,
             },
             "as3": {
                 "is_active": False,
-                "type": None,
+                "type": "",
                 "resolution_percentage": 0,
             },
             "oc1": {
                 "is_active": False,
-                "type": None,
+                "type": "",
                 "resolution_percentage": 0,
             },
         }
         self.headline_reserve = []
         self.used_headlines = []
-        self.sensor_values = [0] * 12
+        self.sensor_values: list[int] = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+        self.has_first_catastrophe_happened = False
+        self.annihilation_triggered = False
 
     def reset_attributes(self):
         generated_headlines = self.headline_reserve
@@ -205,7 +210,7 @@ class Symptoms:
             print(
                 "════════════════════════════════════════════════════════════════════════════════════════════════════════════")
             print(
-                f"!!! CATASTROPHE - {selected_region} - {catastrophe.type} - {catastrophe.wind_up} wind up - {catastrophe.duration} duration - {catastrophe.deaths_per_second} deaths - {catastrophe.resolution_time} resolution time !!!")
+                f"!!! CATASTROPHE - {selected_region} - {catastrophe.type} - {float(catastrophe.wind_up):.3}s wind_up - {float(catastrophe.duration):.3}s dur - {float(catastrophe.resolution_time):.3}s res_time - {int(catastrophe.deaths_per_second):,} d_p_s !!!")
             print(start_headline["headline"] + " - " + start_headline["source"])
             print("!!! On electrode " + str(catastrophe.electrode_index) + " - " + key_mapping[
                 catastrophe.electrode_index] + " !!!")
@@ -268,8 +273,9 @@ class Symptoms:
             print(
                 "════════════════════════════════════════════════════════════════════════════════════════════════════════════")
 
-            # Puts region on 2 second cooldown
-            time.sleep(2)
+            if self.is_game_running is True:
+                # Puts region on 2 second cooldown
+                time.sleep(2)
 
             # Moves region back from occupied to free
             self.free_regions.append(selected_region)
@@ -277,7 +283,93 @@ class Symptoms:
         else:
             print("--- Blank (catastrophe) ---")
 
+    def trigger_annihilation(self):
+        print("☁☢☁ Started annihilation event ☁☢☁")
+        # Occupies regions until it reaches four occupied
+        war_regions = []
+        while len(war_regions) < 4:
+            if len(self.free_regions) > 0:
+                selected_region = self.free_regions[0]
+                self.free_regions.remove(selected_region)
+                self.occupied_regions.add(selected_region)
+                print(f"☁☢☁ Added {selected_region} to annihilation event ☁☢☁")
+                war_regions.append(selected_region)
+
+        # Gets sensor value indexes for all four occupied regions
+        region_indexes = []
+        for region in war_regions:
+            catastrophe = Catastrophe(region, self.temperature)
+            region_indexes.append(catastrophe.electrode_index)
+            self.region_data[region]["is_active"] = True
+            self.region_data[region]["type"] = "annihilation"
+            self.region_data[region]["resolution_percentage"] = 0
+
+        # Constructs starting headline for the nuclear war
+        start_headline = {
+            "headline": "Nach Monaten der Anspannung - DEFCON 1 erreicht: Das Zeitalter der Atomkriege beginnt",
+            "source": "Tiffany"
+        }
+        print(
+            "☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢")
+        print(f"☢☢☢ NUCLEAR WAR - {str(war_regions)} ☢☢☢")
+        print(start_headline["headline"] + " - " + start_headline["source"])
+        print("☢☢☢ On electrodes " + str(region_indexes) + " ☢☢☢")
+        print(
+            "☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢")
+
+        # Sets starting parameters for annihilation
+        resolution_time = 4
+        deaths_per_second = 500_000_000
+        current_death_count = 0
+        current_resolution_time = 0
+
+        # Annihilation loop which runs until death_count reaches 10 billion, the game ends or the player resolves the event
+        while self.death_count < 10_000_000_000 and self.is_game_running is True:
+            if self.sensor_values[region_indexes[0]] > 100 and self.sensor_values[region_indexes[1]] > 100 and \
+                    self.sensor_values[region_indexes[2]] > 100 and self.sensor_values[region_indexes[3]] > 100:
+                current_resolution_time += 0.01
+                for region in war_regions:
+                    self.region_data[region][
+                        "resolution_percentage"] = current_resolution_time / resolution_time
+            if current_resolution_time >= resolution_time:
+                break
+            self.death_count += deaths_per_second * 0.01
+            current_death_count += deaths_per_second * 0.01
+            time.sleep(0.01)
+
+        # Changes region data
+        for region in war_regions:
+            self.region_data[region]["is_active"] = False
+
+        # Sends ending headline
+        end_headline = {
+            "headline": f"Ein Wunder: Der Atomkrieg ist vorbei! Für den Frieden mussten nur {int(current_death_count):,} Personen sterben",
+            "source": "Tiffany"
+        }
+        print(
+            "☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢")
+        print(end_headline["headline"] + " - " + end_headline["source"])
+        print(
+            "☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢")
+
+        if self.is_game_running is True:
+            # Puts regions on 2 second cooldown
+            time.sleep(2)
+
+        # Moves regions back from occupied to free
+        for region in war_regions:
+            self.free_regions.append(region)
+            self.occupied_regions.remove(region)
+
     def trigger_event(self):
+        # Chance of nuclear war
+        chance_annihilation = 0.001 * (self.death_count / 10_000_000)
+        # Limits chance of nuclear war to 10 %
+        if chance_annihilation > 0.08:
+            chance_annihilation = 0.08
+        # Prevents further nuclear wars if one has already been triggered
+        if self.annihilation_triggered is True:
+            chance_annihilation = 0
         # Chance of headline occurring
         chance_headline = 0.25
         # Base chance of catastrophe occurring
@@ -285,13 +377,18 @@ class Symptoms:
         # Temperature increase since game start
         temperature_delta = self.temperature - 1
         # Chance of nothing happening
-        chance_remaining = 1 - chance_headline - base_chance_catastrophe
+        chance_remaining = 1 - chance_headline - base_chance_catastrophe - chance_annihilation
         # Chance of catastrophe occurring depending on temperature
-        chance_catastrophe = base_chance_catastrophe + (
-                math.cos(math.pi + (temperature_delta / 3) * math.pi) + 1) * chance_remaining
+        catastrophe_function = 0.7 * (math.cos(math.pi + (temperature_delta / 3) * math.pi) + 1)
+        if catastrophe_function > 1:
+            catastrophe_function = 1
+        chance_catastrophe = base_chance_catastrophe + catastrophe_function * chance_remaining
+        # Increase chance of first catastrophe
+        if self.has_first_catastrophe_happened is False:
+            chance_catastrophe = 0.5
 
         # Picks random number
-        random_number = random.randrange(0, 101) / 100
+        random_number = random.randrange(0, 1000000) / 1000000
 
         # Triggers headline
         if random_number < chance_headline:
@@ -299,7 +396,13 @@ class Symptoms:
 
         # Triggers catastrophe
         elif random_number < (chance_headline + chance_catastrophe):
+            self.has_first_catastrophe_happened = True
             Thread(target=self.trigger_catastrophe).start()
+
+        elif random_number < (chance_headline + chance_catastrophe + chance_annihilation):
+            if self.annihilation_triggered is False:
+                self.annihilation_triggered = True
+                Thread(target=self.trigger_annihilation).start()
 
         # Triggers nothing
         else:
@@ -308,7 +411,7 @@ class Symptoms:
     def run(self, skip_headlines):
         while True:
             # Game starts when any of the sensors are touched by the player
-            print("Touch any electrode to start game.\n")
+            print("\nTouch any electrode to start game.\n")
             while self.is_game_running is False:
                 if any(sensor > 100 for sensor in self.sensor_values):
                     # Clears all attributes except headlines
@@ -327,22 +430,26 @@ class Symptoms:
             time.sleep(1)
 
             # Main game loop
-            while self.year < 2100:
+            while self.year < 2100 and self.death_count < 10_000_000_000:
                 self.trigger_event()
                 self.count += 1
                 if self.count == 5:
                     self.year += 1
                     self.count = 0
                     self.set_temperature()
-                    print("┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄")
+                    print("┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄")
                     print(
-                        f"JAHR {str(self.year)} - {float(self.temperature):.2}°C - {str(int(self.death_count))} TOTE - {len(self.occupied_regions)} AKTIVE REGION(EN)")
-                    print("┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄")
-                    # speichern_news("/year/", self.year)
+                        f"JAHR {self.year} - {float(self.temperature):.2}°C - {int(self.death_count):,} TOTE - {len(self.occupied_regions)} AKTIVE REGION(EN) - ATOMKRIEG WAHRSCHEINLICHKEIT {(0.01 * (self.death_count / 10_000_000)):.2%}")
+                    print("┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄")
                 time.sleep(1)
             self.is_game_running = False
             time.sleep(1)
-            print(f"SPIEL ZU ENDE: {str(int(self.death_count))} TOTE")
+            if self.death_count >= 10_000_000_000:
+                print(f"\n// MENSCHHEIT AUSGESTORBEN, SPIEL ZU ENDE: {int(self.death_count):,} TOTE //")
+            else:
+                print(f"\n// SPIEL ZU ENDE: {int(self.death_count):,} TOTE //")
+                if self.annihilation_triggered:
+                    print("★ DU HAST DIE ZERSTÖRUNG DER MENSCHHEIT DURCH DEN ATOMKRIEG VERHINDERT. GUT GEMACHT! ★")
             time.sleep(4)
 
     def gui(self):
