@@ -17,7 +17,7 @@ var regionLocations = {
 }
 
 function setup() {
-	createCanvas(500, 500);
+	createCanvas(1920, 1080);
 	setupOsc(12000, 3334);
 }
 

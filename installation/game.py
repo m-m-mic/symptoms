@@ -10,22 +10,21 @@ from pythonosc import osc_server
 from pythonosc.dispatcher import Dispatcher
 from threading import Thread
 from get_ip import get_ip
+import tkinter
 
 # UPD Client for world map visualisation
 client = udp_client.SimpleUDPClient("127.0.0.1", 12000)
 
-# imports Catastrophe class
+# Imports Catastrophe class
 from catastrophe import Catastrophe
 
-# gets headline constructors
+# Gets headline constructors
 from construct_headline import construct_start_headline, construct_end_headline, get_source
 
 # Loads in .env file which needs to be located in the same folder as this file
 load_dotenv()
 # Fetches api key from .env file (can be generated at https://platform.openai.com/account/api-keys)
 openai.api_key = os.getenv("OPENAI_API_KEY")
-
-
 
 # Gets current ip address of pc
 ip_address = get_ip()
@@ -107,7 +106,8 @@ class Symptoms:
                 "resolution_percentage": 0,
             },
         }
-        self.headlines = []
+        self.headline_reserve = []
+        self.used_headlines = []
         self.sensor_values = [0] * 12
 
     def reset_attributes(self):
@@ -171,8 +171,6 @@ class Symptoms:
     def set_temperature(self):
         # Temperature graph
         self.temperature = 1.5 * math.cos(0.04 * (self.year - self.start_year) + math.pi) + 2.5
-        # Sendet Temperatur an Textfile
-        # speichern_news("/temperature/", self.temperature)
 
     def trigger_headline(self):
         if len(self.headline_reserve) > 0:
@@ -180,14 +178,12 @@ class Symptoms:
             index = random.randrange(0, len(self.headline_reserve))
             headline = self.headline_reserve[index]
             print(headline["headline"] + " - " + headline["source"])
-            # Sendet Headline an Textfile
-            # speichern_news("/headline/", self.headlines[index])
+
+            self.used_headlines.insert(0, headline)
             # Removes chosen headline from array
             del self.headline_reserve[index]
         else:
             print("--- Blank (headline) ---")
-            # Später löschen
-            # speichern_news("/headline/", "nix")
 
     def trigger_catastrophe(self):
         # TODO: Melli News input
@@ -205,12 +201,16 @@ class Symptoms:
                 "headline": construct_start_headline(selected_region, catastrophe.type),
                 "source": get_source()
             }
-            print("════════════════════════════════════════════════════════════════════════════════════════════════════════════")
-            print(f"!!! CATASTROPHE - {selected_region} - {catastrophe.type} - {catastrophe.wind_up} wind up - {catastrophe.duration} duration - {catastrophe.deaths_per_second} deaths - {catastrophe.resolution_time} resolution time !!!")
+            self.used_headlines.insert(0, start_headline)
+            print(
+                "════════════════════════════════════════════════════════════════════════════════════════════════════════════")
+            print(
+                f"!!! CATASTROPHE - {selected_region} - {catastrophe.type} - {catastrophe.wind_up} wind up - {catastrophe.duration} duration - {catastrophe.deaths_per_second} deaths - {catastrophe.resolution_time} resolution time !!!")
             print(start_headline["headline"] + " - " + start_headline["source"])
             print("!!! On electrode " + str(catastrophe.electrode_index) + " - " + key_mapping[
                 catastrophe.electrode_index] + " !!!")
-            print("════════════════════════════════════════════════════════════════════════════════════════════════════════════")
+            print(
+                "════════════════════════════════════════════════════════════════════════════════════════════════════════════")
 
             # Changes region data
             self.region_data[selected_region]["is_active"] = True
@@ -259,10 +259,14 @@ class Symptoms:
                 "headline": construct_end_headline(selected_region, catastrophe.type, current_death_count),
                 "source": get_source()
             }
-            print("════════════════════════════════════════════════════════════════════════════════════════════════════════════")
-            print(f">>> RESOLVED - {selected_region} - {catastrophe.type} - resolved by player? {resolved_by_player} <<<")
+            self.used_headlines.insert(0, end_headline)
+            print(
+                "════════════════════════════════════════════════════════════════════════════════════════════════════════════")
+            print(
+                f">>> RESOLVED - {selected_region} - {catastrophe.type} - resolved by player? {resolved_by_player} <<<")
             print(end_headline["headline"] + " - " + end_headline["source"])
-            print("════════════════════════════════════════════════════════════════════════════════════════════════════════════")
+            print(
+                "════════════════════════════════════════════════════════════════════════════════════════════════════════════")
 
             # Puts region on 2 second cooldown
             time.sleep(2)
@@ -272,7 +276,6 @@ class Symptoms:
             self.occupied_regions.remove(selected_region)
         else:
             print("--- Blank (catastrophe) ---")
-            # speichern_news("/catastrophe/", "nix")
 
     def trigger_event(self):
         # Chance of headline occurring
@@ -301,14 +304,9 @@ class Symptoms:
         # Triggers nothing
         else:
             print("--- Blank ---")
-            # Später löschen
-            # speichern_news("/catastrophe/", "nix")
 
     def run(self, skip_headlines):
         while True:
-
-            
-
             # Game starts when any of the sensors are touched by the player
             print("Touch any electrode to start game.\n")
             while self.is_game_running is False:
@@ -347,8 +345,45 @@ class Symptoms:
             print(f"SPIEL ZU ENDE: {str(int(self.death_count))} TOTE")
             time.sleep(4)
 
+    def gui(self):
+        def update_labels():
+            # @Melli tkinter benutzt jetzt statt der txt-Datei direkt die Attribute der Klasse, sonst ist es quasi gleich
+            year_label.config(text=str(self.year))
+            temperature_label.config(text=f"{self.temperature:.2f} °C")
+            death_count_label.config(text=f"{int(self.death_count):,}")
+
+            headlines_to_display = self.used_headlines[:15]
+            headlines_text = "\n".join(headlines_to_display)
+            headline_list_label.config(text=headlines_text)
+
+            window.after(100, update_labels)
+
+        window = tkinter.Tk()
+
+        # Label for year variable
+        year_label = tkinter.Label(window, text=str(self.year), bg="white", font=("Arial", 18))
+        year_label.pack(fill=tkinter.X)
+
+        # Label for temperature variable
+        temperature_label = tkinter.Label(window, text=f"{self.temperature:.2f} °C", bg="white", font=("Arial", 12))
+        temperature_label.pack(fill=tkinter.Y, side=tkinter.RIGHT)
+
+        # Label for death count TODO: @Melli wahrscheinlich den entfernen, da er auf der Karte angezeigt wird?
+        death_count_label = tkinter.Label(window, text=f"{int(self.death_count):,}", bg="white", font=("Arial", 12))
+        death_count_label.pack(fill=tkinter.X)
+
+        # Label for the list of headlines
+        headline_list_label = tkinter.Label(window, bg="white", font=("Arial", 12))
+        headline_list_label.pack(fill=tkinter.X)
+
+        update_labels()
+        window.mainloop()
+
     def main(self, skip_headlines=False, verbose=False):
-        # headline generation thread
+        # Starts GUI with headlines, year & temperature
+        Thread(target=self.gui).start()
+
+        # Headline generation thread
         if not skip_headlines:
             Thread(target=self.generate_headlines, args=(verbose,)).start()
 
@@ -358,14 +393,8 @@ class Symptoms:
         # Sends data to p5
         Thread(target=self.send_data, daemon=True).start()
 
-        # runtime thread
+        # Runtime thread
         Thread(target=self.run, args=(skip_headlines,)).start()
-
-
-# Speichert alle News für die GUI in news.txt
-def speichern_news(type, value):
-    with open("news.txt", 'a') as datei:
-        datei.write(type + str(value) + '\n')
 
 
 symptoms = Symptoms()
