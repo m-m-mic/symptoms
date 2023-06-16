@@ -138,7 +138,7 @@ class Symptoms:
         while True:
             if tick_count > 5:
                 # Sends data to p5project
-                client.send_message('/death_count', round(self.death_count))
+                client.send_message('/death_count', str(int(self.death_count)))
                 tick_count = 0
             tick_count += 1
 
@@ -309,6 +309,7 @@ class Symptoms:
             "headline": "Nach Monaten der Anspannung - DEFCON 1 erreicht: Das Zeitalter der Atomkriege beginnt",
             "source": "Tiffany"
         }
+        self.used_headlines.insert(0, start_headline)
         print(
             "☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢")
         print(f"☢☢☢ NUCLEAR WAR - {str(war_regions)} ☢☢☢")
@@ -346,6 +347,7 @@ class Symptoms:
             "headline": f"Ein Wunder: Der Atomkrieg ist vorbei! Für den Frieden mussten nur {int(current_death_count):,} Personen sterben",
             "source": "Tiffany"
         }
+        self.used_headlines.insert(0, end_headline)
         print(
             "☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢")
         print(end_headline["headline"] + " - " + end_headline["source"])
@@ -459,10 +461,14 @@ class Symptoms:
             temperature_label.config(text=f"{self.temperature:.2f} °C")
             death_count_label.config(text=f"{int(self.death_count):,}")
 
-            headlines_to_display = self.used_headlines[:15]
-            headlines_text = "\n".join(headlines_to_display)
-            headline_list_label.config(text=headlines_text)
+            # TODO: Die Headlines sind jetzt dictionaries die so aussehen: { "headline": "hier headline", "source": "Name einer Zeitschrift" }
+            # Habs jetzt deinen alten Code grob abgewandelt damit es nicht crashed
+            headline_strings = self.used_headlines[:15]
+            headlines_text = ""
+            for headline in headline_strings:
+                headlines_text += headline["headline"] + " - " + headline["source"] + "\n"
 
+            headline_list_label.config(text=headlines_text)
             window.after(100, update_labels)
 
         window = tkinter.Tk()
