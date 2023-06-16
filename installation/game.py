@@ -157,7 +157,7 @@ class Symptoms:
         # Temperature graph
         self.temperature = 1.5 * math.cos(0.04 * (self.year - self.start_year) + math.pi) + 2.5
         # Sendet Temperatur an Textfile
-        speichern_news("/temperature/", self.temperature)
+        # speichern_news("/temperature/", self.temperature)
 
     def trigger_headline(self):
         if len(self.headlines) > 0:
@@ -166,13 +166,13 @@ class Symptoms:
             headline = self.headlines[index]
             print(headline["headline"] + " - " + headline["source"])
             # Sendet Headline an Textfile
-            speichern_news("/headline/", self.headlines[index])
+            # speichern_news("/headline/", self.headlines[index])
             # Removes chosen headline from array
             del self.headlines[index]
         else:
             print("--- Blank (headline) ---")
             # Später löschen
-            speichern_news("/headline/", "nix")
+            # speichern_news("/headline/", "nix")
 
     def trigger_catastrophe(self):
         # TODO: Melli News input
@@ -257,9 +257,11 @@ class Symptoms:
             self.occupied_regions.remove(selected_region)
         else:
             print("--- Blank (catastrophe) ---")
-            speichern_news("/catastrophe/", "nix")
+            # speichern_news("/catastrophe/", "nix")
 
     def trigger_event(self):
+
+        client.send_message('/test', str(round(self.death_count)))
         # Chance of headline occurring
         chance_headline = 0.25
         # Base chance of catastrophe occurring
@@ -287,12 +289,12 @@ class Symptoms:
         else:
             print("--- Blank ---")
             # Später löschen
-            speichern_news("/catastrophe/", "nix")
+            # speichern_news("/catastrophe/", "nix")
 
     def run(self, skip_headlines):
         while True:
 
-            client.send_message('/test', self.death_count)
+            
 
             # Game starts when any of the sensors are touched by the player
             print("Touch any electrode to start game.\n")
@@ -325,7 +327,7 @@ class Symptoms:
                     print(
                         f"JAHR {str(self.year)} - {float(self.temperature):.2}°C - {str(int(self.death_count))} TOTE - {len(self.occupied_regions)} AKTIVE REGION(EN)")
                     print("┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄")
-                    speichern_news("/year/", self.year)
+                    # speichern_news("/year/", self.year)
                 time.sleep(1)
             self.is_game_running = False
             time.sleep(1)

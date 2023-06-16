@@ -1,4 +1,4 @@
-var x;
+var x = "test";
 
 function setup() {
 	createCanvas(500, 500);
@@ -8,15 +8,14 @@ function setup() {
 function draw() {
 	background(0, 0, 255);
 	fill(0, 255, 0);
-	ellipse((x/1000), 100, 100, 100);
+  textSize(32);
+  text(x, 100, 100);
 	fill(0);
-	text("I'm p5.js", x-25, 100);
 }
 
 function receiveOsc(address, value) {
 	console.log("received OSC: " + address + ", " + value);
-
-  x = value
+	x = value
 }
 
 function sendOsc(address, value) {
