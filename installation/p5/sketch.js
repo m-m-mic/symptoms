@@ -1,7 +1,68 @@
-var deaths = 0;
-var active = false;
-var regionData;
-var regionLocations = {
+let deaths = 0;
+let active = false;
+let regionData = {
+            na1: {
+                is_active: false,
+                type: "",
+                resolution_percentage: 0,
+            },
+            na2: {
+                is_active: false,
+                type: "",
+                resolution_percentage: 0,
+            },
+            eu1: {
+                is_active: false,
+                type: "",
+                resolution_percentage: 0,
+            },
+            sa1: {
+                is_active: false,
+                type: "",
+                resolution_percentage: 0,
+            },
+            sa2: {
+                is_active: false,
+                type: "",
+                resolution_percentage: 0,
+            },
+            af1: {
+                is_active: false,
+                type: "",
+                resolution_percentage: 0,
+            },
+            af2: {
+                is_active: false,
+                type: "",
+                resolution_percentage: 0,
+            },
+            af3: {
+                is_active: false,
+                type: "",
+                resolution_percentage: 0,
+            },
+            as1: {
+                is_active: false,
+                type: "",
+                resolution_percentage: 0,
+            },
+            as2: {
+                is_active: false,
+                type: "",
+                resolution_percentage: 0,
+            },
+            as3: {
+                is_active: false,
+                type: "",
+                resolution_percentage: 0,
+            },
+            oc1: {
+                is_active: false,
+                type: "",
+                resolution_percentage: 0,
+            },
+        };
+const regionLocations = {
 	na1: [100, 500],
 	na2: [100, 1000],
 	eu1: [100, 1500],
@@ -29,19 +90,22 @@ function draw() {
   	textAlign(CENTER, CENTER);
   	text(deathNumbers, width/2, 40);
 
-	  if (active == false) {
+	  if (active === false) {
 		  text('Berühre ein Ding um das Spiel zu starten', width/2, height/2);
 		  fill(255, 0, 0);
-		  for (let region of regionLocations){
-			  // falsch: circle(region[0], region[1], 50);
-		  }
 	  } else {
-		  for (let regionKey in regionLocations){
-			if(regionData[regionKey]["is_active"]){
+		  let regions = Object.keys(regionLocations);
+		  console.log(regions);
 
-			}
-
-
+		  console.log("regions running: ")
+		  if(regionData){
+			  regions.forEach(function (item, index) {
+				  console.log(item);
+				  if (regionData[item].is_active) {
+					  fill(0, 0, 255);
+					  circle(regionLocations[item][0], regionLocations[item][1], 200);
+				  }
+			  })
 		  }
 	  }
 }
@@ -57,7 +121,7 @@ function receiveOsc(address, value) {
 	} else if (address === "/is_game_running") {
 		active = value;
 	} else if (address === "/region_data") {
-		regionData = value;
+		regionData = JSON.parse(value);
 	}
 }
 
