@@ -10,6 +10,20 @@ from pythonosc import osc_server
 from pythonosc.dispatcher import Dispatcher
 from threading import Thread
 from get_ip import get_ip
+from socketIO_client import SocketIO, LoggingNamespace
+import socketio
+
+sio = socketio.Client()
+print("worked")
+connected = False
+while not connected:
+    try:
+        sio.connect("http://localhost:8000")
+        print("Socket established")
+        connected = True
+    except Exception as ex:
+        print("Failed to establish initial connnection to server")
+        time.sleep(2)
 
 # imports Catastrophe class
 from catastrophe import Catastrophe
@@ -23,7 +37,7 @@ load_dotenv()
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
 # UPD Client for world map visualisation
-client = udp_client.SimpleUDPClient("127.0.0.1", 7000)
+#client = udp_client.SimpleUDPClient("127.0.0.1", 7000)
 
 # Gets current ip address of pc
 ip_address = get_ip()
@@ -280,6 +294,7 @@ class Symptoms:
         # Triggers catastrophe
         elif random_number < (chance_headline + chance_catastrophe):
             Thread(target=self.trigger_catastrophe).start()
+            sio.emit("deathcount", str(self.death_count))
 
         # Triggers nothing
         else:
@@ -350,4 +365,4 @@ symptoms = Symptoms()
 # Props:
 # skip_headlines: Whether headline generation is skipped (defaults to False)
 # verbose: Prints progress of headline generation (defaults to True)
-symptoms.main(skip_headlines=False, verbose=False)
+symptoms.main(skip_headlines=True, verbose=False)
