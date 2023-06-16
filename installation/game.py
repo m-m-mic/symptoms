@@ -324,17 +324,16 @@ class Symptoms:
         for region in war_regions:
             self.region_data[region]["is_active"] = False
 
-        # Sends ending headline if annihilation was resolved
-        if self.annihilation_triggered is True:
-            end_headline = {
-                "headline": f"Ein Wunder: Der Atomkrieg ist vorbei! Für den Frieden mussten nur {int(current_death_count):,} Personen sterben",
-                "source": "Tiffany"
-            }
-            print(
-                "☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢")
-            print(end_headline["headline"] + " - " + end_headline["source"])
-            print(
-                "☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢")
+        # Sends ending headline
+        end_headline = {
+            "headline": f"Ein Wunder: Der Atomkrieg ist vorbei! Für den Frieden mussten nur {int(current_death_count):,} Personen sterben",
+            "source": "Tiffany"
+        }
+        print(
+            "☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢")
+        print(end_headline["headline"] + " - " + end_headline["source"])
+        print(
+            "☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢")
 
         if self.is_game_running is True:
             # Puts regions on 2 second cooldown
@@ -347,7 +346,11 @@ class Symptoms:
 
     def trigger_event(self):
         # Chance of nuclear war
-        chance_annihilation = 0.005 * (self.death_count / 10_000_000)
+        chance_annihilation = 0.001 * (self.death_count / 10_000_000)
+        # Limits chance of nuclear war to 10 %
+        if chance_annihilation > 0.08:
+            chance_annihilation = 0.08
+        # Prevents further nuclear wars if one has already been triggered
         if self.annihilation_triggered is True:
             chance_annihilation = 0
         # Chance of headline occurring
@@ -359,8 +362,10 @@ class Symptoms:
         # Chance of nothing happening
         chance_remaining = 1 - chance_headline - base_chance_catastrophe - chance_annihilation
         # Chance of catastrophe occurring depending on temperature
-        chance_catastrophe = base_chance_catastrophe + (
-                math.cos(math.pi + (temperature_delta / 3) * math.pi) + 1) * chance_remaining
+        catastrophe_function = 0.7 * (math.cos(math.pi + (temperature_delta / 3) * math.pi) + 1)
+        if catastrophe_function > 1:
+            catastrophe_function = 1
+        chance_catastrophe = base_chance_catastrophe + catastrophe_function * chance_remaining
         # Increase chance of first catastrophe
         if self.has_first_catastrophe_happened is False:
             chance_catastrophe = 0.5
@@ -419,7 +424,7 @@ class Symptoms:
                     self.set_temperature()
                     print("┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄")
                     print(
-                        f"JAHR {self.year} - {float(self.temperature):.2}°C - {int(self.death_count):,} TOTE - {len(self.occupied_regions)} AKTIVE REGION(EN) - ATOMKRIEG WAHRSCHEINLICHKEIT {(0.005 * (self.death_count / 10_000_000)):.2%}")
+                        f"JAHR {self.year} - {float(self.temperature):.2}°C - {int(self.death_count):,} TOTE - {len(self.occupied_regions)} AKTIVE REGION(EN) - ATOMKRIEG WAHRSCHEINLICHKEIT {(0.01 * (self.death_count / 10_000_000)):.2%}")
                     print("┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄")
                     speichern_news("/year/", self.year)
                 time.sleep(1)
