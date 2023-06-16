@@ -261,7 +261,7 @@ class Symptoms:
 
     def trigger_event(self):
 
-        client.send_message('/test', str(round(self.death_count)))
+        client.send_message('/test', round(self.death_count))
         # Chance of headline occurring
         chance_headline = 0.25
         # Base chance of catastrophe occurring

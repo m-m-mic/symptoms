@@ -1,4 +1,4 @@
-var x = "test";
+var x = 0;
 
 function setup() {
 	createCanvas(500, 500);
@@ -6,11 +6,18 @@ function setup() {
 }
 
 function draw() {
-	background(0, 0, 255);
-	fill(0, 255, 0);
+	background(0, 40);
+  var t = reformatNumber(x);
+	fill(255);
   textSize(32);
-  text(x, 100, 100);
+  textAlign(CENTER, CENTER);
+  // text(x, width/2, 80)
+  text(t, width/2, 40);
 	fill(0);
+}
+
+function reformatNumber(number){
+  return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 }
 
 function receiveOsc(address, value) {
