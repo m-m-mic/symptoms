@@ -46,7 +46,17 @@ def construct_start_headline(region, catastrophe_type):
             "Dürre " + region_term + ": Ausgangslage laut Experten 'unglaublich ungünstig'"
         ]
         return headlines[random.randrange(0, len(headlines) - 1)]
-    
+    elif catastrophe_type == "flooding":
+        headlines = [
+            "Anhaltende Überschwemmung " + region_term + ", Gefahr vor kontaminierten Wasser nimmt rasant zu",
+            "Starker Niederschlag " + region_term + ": Überschwemmungen nehmen zu",
+            "Anhaltender Starkregen: Überschwemmung " + region_term,
+            "Nach Starkregen " + region_term + " sind die Staudämme an ihren Grenzen",
+            "Platzregen gemischt mit Hagel " + region_term + " setzten der Umwelt sehr zu",
+            "Überschwemmungen sorgten " + region_term + " zu Erdrutschen, Anwohner werden evakuiert",
+            "Aktuelle Warnung: Tiefdruckgebiet" + region_term + "verstärkt sich"
+        ]
+        return headlines[random.randrange(0, len(headlines) - 1)]
     else:
         return "Katastrophe vom Typ '" + catastrophe_type + "' " + region_term + " ausgebrochen"
 
@@ -75,6 +85,17 @@ def construct_end_headline(region, catastrophy_type, death_count):
             "Schäden in Milliardenhöhe: Dürre " + region_term + " hinterlässt " + death_count_string + " Tote",
             "Dürreperiode " + region_term + " geht zu Ende: " + death_count_string + " Tote - Priester reden vom Willen Gottes"
             "Das Dürre-Drama " + region_term + " ist zu Ende: Regierung leugnet Opferzahlen (" + death_count_string + " Tote)"
+        ]
+        return headlines[random.randrange(0, len(headlines) - 1)]
+    elif catastrophy_type == "flooding":
+        headlines = [
+            "Entwarnung: Wasser " + region_term + " ist wieder trinkbar, " + death_count_string + " Menschen starben an den Folgen.",
+            "Tiefdruck " + region_term + " löst sich auf. (" + death_count_string + " Tote)",
+            "Starkregen " + region_term + "hat immens an Kraft verloren. Bisher kam es zu " + death_count_string + " Tot.)",
+            "Anwohner im Gebiet der Staudammbereich " + region_term + " evakuiert, " + death_count_string + " Tote und unzählige Vermisste.",
+            "Aufatmen! Platzregen " + region_term + " hat gestoppt. (" + death_count_string + " Tote)",
+            "Die letzten Anwohner im Erdrutschgebiet wurden evakuiert. Die Anzahl der Toten liegt bei " + death_count_string + ".",
+            "Tiefdruckgebiet " + region_term + " löst sich auf. (" + death_count_string + " Tote)"
         ]
         return headlines[random.randrange(0, len(headlines) - 1)]
     else:
