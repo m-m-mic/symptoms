@@ -1,5 +1,12 @@
 {
+  "name": "symptoms-p5",
+  "version": "1.0.0",
+  "scripts": {
+    "serve": "npx http-server -p 5000"
+  },
   "dependencies": {
+    "http-server": "^14.1.1",
+    "prettier": "^2.8.8",
     "socket.io": "^4.6.2"
   }
 }
