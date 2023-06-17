@@ -529,8 +529,7 @@ class Symptoms:
 
         update_labels()
         window.title("Symptoms")
-        window.attributes('-fullscreen', True)
-        window.minsize(700, 500)
+        # window.attributes('-fullscreen', True)
         window.mainloop()
 
     def main(self, skip_headlines=False, test_auto_start=False, verbose=False):
