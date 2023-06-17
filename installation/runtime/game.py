@@ -532,14 +532,14 @@ class Symptoms:
         # window.attributes('-fullscreen', True)
         window.mainloop()
 
-    def main(self, skip_headlines=False, test_auto_start=False, verbose=False):
+    def main(self, skip_headlines=False, test_auto_start=False, start_p5=True, verbose=False):
+        if start_p5 is True:
+            # Starts osc bridge and p5 sketch
+            subprocess.Popen("bridge.bat")
+            subprocess.Popen("serve.bat")
 
-        # Starts osc bridge and p5 sketch
-        subprocess.Popen("bridge.bat")
-        subprocess.Popen("serve.bat")
-
-        # Opens sketch in Browser window
-        webbrowser.open_new("http://127.0.0.1:5000")
+            # Opens sketch in Browser window
+            webbrowser.open_new("http://127.0.0.1:5000")
 
         # Starts GUI with headlines, year & temperature
         Thread(target=self.gui, daemon=True).start()
@@ -566,5 +566,7 @@ symptoms = Symptoms()
 
 # Props:
 # skip_headlines: Whether headline generation is skipped (defaults to False)
+# test_auto_start: Immediately starts game (defaults to False)
+# start_p5: Starts p5 sketch & bridge and opens browser window (defaults to True)
 # verbose: Prints progress of headline generation (defaults to True)
-symptoms.main(skip_headlines=False, test_auto_start=True, verbose=False)
+symptoms.main(skip_headlines=False, test_auto_start=False, start_p5=True, verbose=False)
