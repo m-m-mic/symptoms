@@ -10,7 +10,7 @@ from pythonosc import osc_server
 from pythonosc.dispatcher import Dispatcher
 from threading import Thread
 from get_ip import get_ip
-import tkinter
+import tkinter as tk
 
 # UPD Client for world map visualisation
 client = udp_client.SimpleUDPClient("127.0.0.1", 12000)
@@ -191,7 +191,6 @@ class Symptoms:
             print("--- Blank (headline) ---")
 
     def trigger_catastrophe(self):
-        # TODO: Melli News input
         if len(self.free_regions) != 0:
             # Moves region from free to occupied
             selected_region = random.choice(self.free_regions)
@@ -414,12 +413,12 @@ class Symptoms:
         while True:
             # Game starts when any of the sensors are touched by the player
             print("\nTouch any electrode to start game.\n")
-            while self.is_game_running is False:
+            """while self.is_game_running is False:
                 if any(sensor > 100 for sensor in self.sensor_values):
                     # Clears all attributes except headlines
                     self.reset_attributes()
                     self.is_game_running = True
-                    break
+                    break"""
 
             # Waits for headline generation until at least 20 are available
             if len(self.headline_reserve) < 20 and not skip_headlines:
@@ -459,35 +458,69 @@ class Symptoms:
             # @Melli tkinter benutzt jetzt statt der txt-Datei direkt die Attribute der Klasse, sonst ist es quasi gleich
             year_label.config(text=str(self.year))
             temperature_label.config(text=f"{self.temperature:.2f} °C")
-            death_count_label.config(text=f"{int(self.death_count):,}")
 
             # TODO: Die Headlines sind jetzt dictionaries die so aussehen: { "headline": "hier headline", "source": "Name einer Zeitschrift" }
             # Habs jetzt deinen alten Code grob abgewandelt damit es nicht crashed
             headline_strings = self.used_headlines[:15]
             headlines_text = ""
             for headline in headline_strings:
-                headlines_text += headline["headline"] + " - " + headline["source"] + "\n"
+                headlines_text += headline["headline"] + "\n"+ " - " + headline["source"] + "\n"
 
             headline_list_label.config(text=headlines_text)
             window.after(100, update_labels)
 
-        window = tkinter.Tk()
+        window = tk.Tk()
+        window.configure(bg='#DFE9F6')
+
+        #Newsfeed according to screensize
+        screen_width = window.winfo_screenwidth() 
+        screen_height = window.winfo_screenheight()
+
+        window_width = screen_width // 2
+        news_wrap = screen_width // 1.5
+        titel_size = screen_width // 40
+        text_size = screen_width // 80
+        news_size = screen_width // 120
+
+        window.geometry(f"{window_width}x{screen_height}")
+
+        #MainFrame
+        frame = tk.Frame(window, bg='#DFE9F6',pady=24, padx=32)
+        frame.pack(fill=tk.BOTH, expand=True)
+
+        #Header
+        header = tk.Frame(frame, bg=window.cget("bg")) 
+        header.pack(fill=tk.X)
+
+        #Newsframe
+        newsframe = tk.Frame(window, bg=window.cget("bg"), pady=24, padx=24)
+        newsframe.pack(fill=tk.X)
+
+        #Postframe
+        postframe =tk.Frame(newsframe,bg='#FFFFFF', padx=24)
+        postframe.pack(side=tk.LEFT, anchor='n')
 
         # Label for year variable
-        year_label = tkinter.Label(window, text=str(self.year), bg="white", font=("Arial", 18))
-        year_label.pack(fill=tkinter.X)
+        year_label = tk.Label(header, text=str(self.year), font=("Inter", titel_size), fg="#262626", bg=window.cget("bg"))
+        year_label.pack(side=tk.LEFT)
+        #Image for header
+        image = tk.PhotoImage(file="./assets/Sorting.png")  
+        resized_image = image.subsample(2, 2)  
+        image_label = tk.Label(header, image=resized_image, bg=window.cget("bg"))  
+        image_label.pack(side=tk.RIGHT)
 
         # Label for temperature variable
-        temperature_label = tkinter.Label(window, text=f"{self.temperature:.2f} °C", bg="white", font=("Arial", 12))
-        temperature_label.pack(fill=tkinter.Y, side=tkinter.RIGHT)
-
-        # Label for death count TODO: @Melli wahrscheinlich den entfernen, da er auf der Karte angezeigt wird?
-        death_count_label = tkinter.Label(window, text=f"{int(self.death_count):,}", bg="white", font=("Arial", 12))
-        death_count_label.pack(fill=tkinter.X)
-
+        temperature_label = tk.Label(frame, text=f"Aktuelle Erderwärmung von{self.temperature:.2f}°C",font=("Inter", text_size), fg="#262626", bg=window.cget("bg"))
+        temperature_label.pack(fill=tk.Y, side=tk.TOP, anchor='w')
+        #Mellis TODO:
+        #TODO: Headlines ganz oben zuerst anzeigen lassen
+        #TODO: Trennbalken einfügen
+        #TODO: Text links gebündigt darstellen
+        #TODO: Bilder einfügen
+        #TODO: Werbungen nach jeder 5 Meldung einfügen 
         # Label for the list of headlines
-        headline_list_label = tkinter.Label(window, bg="white", font=("Arial", 12))
-        headline_list_label.pack(fill=tkinter.X)
+        headline_list_label = tk.Label(postframe, width=screen_width, font=("Inter", news_size),fg="#262626", wraplength=news_wrap, bg=postframe.cget("bg"))
+        headline_list_label.pack(fill=tk.Y)
 
         update_labels()
         window.mainloop()

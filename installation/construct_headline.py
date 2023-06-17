@@ -46,6 +46,7 @@ def construct_start_headline(region, catastrophe_type):
             "Dürre " + region_term + ": Ausgangslage laut Experten 'unglaublich ungünstig'"
         ]
         return headlines[random.randrange(0, len(headlines) - 1)]
+    
     else:
         return "Katastrophe vom Typ '" + catastrophe_type + "' " + region_term + " ausgebrochen"
 

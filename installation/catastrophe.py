@@ -93,20 +93,20 @@ class Catastrophe:
             },
             "flooding": {
                 "duration": {
-                    "min": 4,
+                    "min": 2,
                     "max": 7
                 },
                 "wind_up": {
                     "min": 1,
-                    "max": 3,
+                    "max": 6,
                 },
                 "deaths_per_second": {
                     "min": 200,
-                    "max": 600
+                    "max": 500000
                 },
                 "resolution_time": {
                     "min": 1,
-                    "max": 80
+                    "max": 120
                 }
             },
             "sandstorm": {

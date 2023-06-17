@@ -74,7 +74,7 @@ def update_labels():
         elif first_line.startswith("/temperature/"):
             temperature = first_line.lstrip("/temperature/")
             temperature = float(temperature)
-            temperature_label.config(text=f"{temperature:.2f} °C")  
+            temperature_label.config(text="" + f"Aktuelle Erderwärmung von {temperature:.2f}°C")  
         elif first_line.startswith("/catastrophe/"):
             catastrophe = first_line.lstrip("/catastrophe/")
             #inserting in Array, not label
@@ -97,22 +97,57 @@ def update_labels():
 filepath = 'news.txt'
 
 window = tk.Tk()
+window.configure(bg='#DFE9F6')
 
-#Label for all textfile variables
-year_label = tk.Label(window, text="2025", bg="white", font=("Arial", 18))
-year_label.pack(fill=tk.X)
+#Newsfeed according to screensize
+screen_width = window.winfo_screenwidth() 
+screen_height = window.winfo_screenheight()
 
-temperature_label = tk.Label(window, text="1.00 °C", bg="white", font=("Arial", 12))
-temperature_label.pack(fill=tk.Y, side=tk.RIGHT)
+window_width = screen_width // 2
+news_wrap = screen_width // 1.5
+titel_size = screen_width // 40
+text_size = screen_width // 80
+news_size = screen_width // 100
 
-deathcount_label = tk.Label(window, text="Deathcount", bg="white", font=("Arial", 12))
-deathcount_label.pack(fill=tk.X)
+window.geometry(f"{window_width}x{screen_height}")
 
+#MainFrame
+frame = tk.Frame(window, bg='#DFE9F6',pady=24, padx=32)
+frame.pack(fill=tk.BOTH, expand=True)
+
+#Header
+header = tk.Frame(frame, bg=window.cget("bg")) 
+header.pack(fill=tk.X)
+
+#Newsframe
+newsframe = tk.Frame(window, bg=window.cget("bg"), pady=24, padx=24)
+newsframe.pack(fill=tk.X)
+
+#Postframe
+postframe =tk.Frame(newsframe,bg='#FFFFFF', padx=24)
+postframe.pack(side=tk.LEFT, anchor='n')
+
+#Darstellung im Header
+year_label = tk.Label(header, text="2025", font=("Inter", titel_size),  fg="#262626", bg=window.cget("bg"))
+year_label.pack(side=tk.LEFT)
+
+#Image for header
+image = tk.PhotoImage(file="./assets/Sorting.png")  
+resized_image = image.subsample(2, 2)  
+image_label = tk.Label(header, image=resized_image, bg=window.cget("bg"))  
+image_label.pack(side=tk.RIGHT)
+
+temperature_label = tk.Label(frame, text="Aktuelle Erderwärmung von 1.00°C", font=("Inter", text_size), fg="#262626", bg=window.cget("bg"))
+temperature_label.pack(fill=tk.Y, side=tk.TOP, anchor='w')
+
+#TODO: HEadlines ganz oben zuerst anzeigen lassen
 #Label for the list of headlines
-headline_list_label = tk.Label(window, bg="white", font=("Arial", 12))
-headline_list_label.pack(fill=tk.X)
+headline_list_label = tk.Label(postframe, width=screen_width, font=("Inter", news_size), wraplength=news_wrap)
+headline_list_label.pack(fill=tk.Y, side=tk.TOP)
+
 #Initialize the headlines array
 headlines = []
+
 
 update_labels()
 window.mainloop()
