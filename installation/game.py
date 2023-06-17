@@ -399,12 +399,12 @@ class Symptoms:
         # Triggers catastrophe
         elif random_number < (chance_headline + chance_catastrophe):
             self.has_first_catastrophe_happened = True
-            Thread(target=self.trigger_catastrophe).start()
+            Thread(target=self.trigger_catastrophe, daemon=True).start()
 
         elif random_number < (chance_headline + chance_catastrophe + chance_annihilation):
             if self.annihilation_triggered is False:
                 self.annihilation_triggered = True
-                Thread(target=self.trigger_annihilation).start()
+                Thread(target=self.trigger_annihilation, daemon=True).start()
 
         # Triggers nothing
         else:
@@ -441,7 +441,7 @@ class Symptoms:
                     self.set_temperature()
                     print("┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄")
                     print(
-                        f"JAHR {self.year} - {float(self.temperature):.2}°C - {int(self.death_count):,} TOTE - {len(self.occupied_regions)} AKTIVE REGION(EN) - ATOMKRIEG WAHRSCHEINLICHKEIT {(0.01 * (self.death_count / 10_000_000)):.2%}")
+                        f"JAHR {self.year} - {float(self.temperature):.2}°C - {int(self.death_count):,} TOTE - {len(self.occupied_regions)} AKTIVE REGION(EN) - ATOMKRIEG WAHRSCHEINLICHKEIT {(0.001 * (self.death_count / 10_000_000)):.2%}")
                     print("┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄")
                 time.sleep(1)
             self.is_game_running = False
@@ -494,11 +494,11 @@ class Symptoms:
 
     def main(self, skip_headlines=False, verbose=False):
         # Starts GUI with headlines, year & temperature
-        Thread(target=self.gui).start()
+        Thread(target=self.gui, daemon=True).start()
 
         # Headline generation thread
         if not skip_headlines:
-            Thread(target=self.generate_headlines, args=(verbose,)).start()
+            Thread(target=self.generate_headlines, args=(verbose,), daemon=True).start()
 
         # Input fetching thread
         Thread(target=self.get_inputs, daemon=True).start()
@@ -506,8 +506,8 @@ class Symptoms:
         # Sends data to p5
         Thread(target=self.send_data, daemon=True).start()
 
-        # Runtime thread
-        Thread(target=self.run, args=(skip_headlines,)).start()
+        # Runtime
+        self.run(skip_headlines)
 
 
 symptoms = Symptoms()

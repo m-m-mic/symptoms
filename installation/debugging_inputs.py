@@ -36,7 +36,7 @@ class Debugging:
                     self.inputs[i] = 0
 
     def main(self):
-        Thread(target=self.get_inputs).start()
+        Thread(target=self.get_inputs, daemon=True).start()
         self.start_client()
 
 
