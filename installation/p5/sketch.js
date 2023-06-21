@@ -91,18 +91,6 @@ let earthquake
 let sandstorm
 let annihilation
 
-const names = {
-  "hurricane": hurricane,
-  "drought": drought,
-  "hurricane": hurricane,
-  "flooding": flooding,
-  "tsunami": tsunami,
-  "earthquake": earthquake,
-  "sandstorm": sandstorm,
-  "annihilation": annihilation
-
-}
-
 function preload() {
   wildfire = loadImage("assets/wildfire.png")
   drought = loadImage("assets/drought.png")
@@ -112,6 +100,18 @@ function preload() {
   earthquake = loadImage("assets/earthquake.png")
   sandstorm = loadImage("assets/sandstorm.png")
   annihilation = loadImage("assets/annihilation.png")
+}
+
+const catastropheFunctions = {
+  "hurricane": hurricane,
+  "drought": drought,
+  "hurricane": hurricane,
+  "flooding": flooding,
+  "tsunami": tsunami,
+  "earthquake": earthquake,
+  "sandstorm": sandstorm,
+  "annihilation": annihilation
+
 }
 
 function draw() {
@@ -137,12 +137,27 @@ function draw() {
     fill(255, 0, 0);
   } else {
     regions.forEach(function (item, index) {
-      fill(0, 0, 255, regionData[item].is_active ? 255 : 0);
-      circle(regionLocations[item][0], regionLocations[item][1], 150 * regionData[item].resolution_percentage);
-      fill(255, 255, 255, regionData[item].is_active ? 255 : 0);
-      textSize(32 * regionData[item].resolution_percentage);
-      text(item, regionLocations[item][0], regionLocations[item][1] - 20);
-      text(regionData[item].type, regionLocations[item][0], regionLocations[item][1] + 20);
+      if (regionData[item].is_active) {
+        let catastropheType;
+        switch (regionData[item].type) {
+          case "hurricane":
+            catastropheType = hurricane
+            break
+          case "sandstorm":
+            catastropheType = sandstorm
+            break
+          default:
+            catastropheType = wildfire
+        }
+        imageMode(CENTER)
+        image(catastropheType, regionLocations[item][0], regionLocations[item][1], 150 * regionData[item].resolution_percentage, 150 * regionData[item].resolution_percentage)
+      }
+      //fill(0, 0, 255, regionData[item].is_active ? 255 : 0);
+      //circle(regionLocations[item][0], regionLocations[item][1], 150 * regionData[item].resolution_percentage);
+      //fill(255, 255, 255, regionData[item].is_active ? 255 : 0);
+      //textSize(32 * regionData[item].resolution_percentage);
+      //text(item, regionLocations[item][0], regionLocations[item][1] - 20);
+      //text(regionData[item].type, regionLocations[item][0], regionLocations[item][1] + 20);
     });
   }
 }
