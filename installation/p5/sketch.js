@@ -146,6 +146,24 @@ function draw() {
           case "sandstorm":
             catastropheType = sandstorm
             break
+          case "wildfire":
+            catastropheType = wildfire
+            break
+          case "drought":
+            catastropheType = drought
+            break
+          case "flooding":
+            catastropheType = flooding
+            break
+          case "earthquake":
+            catastropheType = earthquake
+            break
+          case "tsunami":
+            catastropheType = tsunami
+            break
+          case "annihilation":
+            catastropheType = annihilation
+            break
           default:
             catastropheType = wildfire
         }
