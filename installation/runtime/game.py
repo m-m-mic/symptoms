@@ -13,6 +13,7 @@ from get_ip import get_ip
 import tkinter as tk
 import subprocess
 import webbrowser
+from playsound import playsound
 
 # UPD Client for world map visualisation
 client = udp_client.SimpleUDPClient("127.0.0.1", 12000)
@@ -29,10 +30,13 @@ load_dotenv()
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
 # Gets current ip address of pc
-ip_address = get_ip()
+ip_address = "192.168.194.94"
 
 key_mapping = ["a", "s", "d", "f", "g", "h", "j", "k", "l", "ö", "ä", "#"]
 
+# ["na1", "na2", "eu1", "sa1", "sa2", "af1", "af2", "af3", "as1", "as2", "as3", "oc1"]
+
+print(ip_address)
 
 class Symptoms:
     def __init__(self):
@@ -44,7 +48,7 @@ class Symptoms:
         self.count = 0
         self.death_count = 0
         self.temperature = 1
-        self.free_regions = ["na1", "na2", "eu1", "sa1", "sa2", "af1", "af2", "af3", "as1", "as2", "as3", "oc1"]
+        self.free_regions = ["na1", "na2", "eu1", "sa2", "af1", "as2", "as3"]
         self.occupied_regions = set()
         self.region_data = {
             "na1": {
@@ -230,7 +234,7 @@ class Symptoms:
 
             # Wind up period of catastrophe
             while current_windup < catastrophe.wind_up and self.is_game_running is True:
-                if self.sensor_values[catastrophe.electrode_index] > 100:
+                if self.sensor_values[catastrophe.electrode_index] > 15:
                     current_resolution_time += 0.01
                     self.region_data[selected_region][
                         "resolution_percentage"] = 1 - current_resolution_time / catastrophe.resolution_time
@@ -243,7 +247,7 @@ class Symptoms:
             # Main duration of catastrophe if it hasn't been resolved yet
             if catastrophe.resolution_time >= current_resolution_time:
                 while current_duration < catastrophe.duration and self.is_game_running is True:
-                    if self.sensor_values[catastrophe.electrode_index] > 100:
+                    if self.sensor_values[catastrophe.electrode_index] > 15:
                         current_resolution_time += 0.01
                         self.region_data[selected_region][
                             "resolution_percentage"] = 1 - current_resolution_time / catastrophe.resolution_time
@@ -325,8 +329,8 @@ class Symptoms:
 
         # Annihilation loop which runs until death_count reaches 10 billion, the game ends or the player resolves the event
         while self.death_count < 10_000_000_000 and self.is_game_running is True:
-            if self.sensor_values[region_indexes[0]] > 100 and self.sensor_values[region_indexes[1]] > 100 and \
-                    self.sensor_values[region_indexes[2]] > 100 and self.sensor_values[region_indexes[3]] > 100:
+            if self.sensor_values[region_indexes[0]] > 15 and self.sensor_values[region_indexes[1]] > 15 and \
+                    self.sensor_values[region_indexes[2]] > 15 and self.sensor_values[region_indexes[3]] > 15:
                 current_resolution_time += 0.01
                 for region in war_regions:
                     self.region_data[region][
@@ -414,7 +418,7 @@ class Symptoms:
             # Game starts when any of the sensors are touched by the player
             print("\nTouch any electrode to start game.\n")
             while self.is_game_running is False:
-                if any(sensor > 100 for sensor in self.sensor_values):
+                if any(sensor > 15 for sensor in self.sensor_values):
                     # Clears all attributes except headlines
                     self.reset_attributes()
                     self.is_game_running = True
@@ -434,7 +438,7 @@ class Symptoms:
             while self.year < 2100 and self.death_count < 10_000_000_000:
                 self.trigger_event()
                 self.count += 1
-                if self.count == 5:
+                if self.count == 10:
                     self.year += 1
                     self.count = 0
                     self.set_temperature()
@@ -444,7 +448,7 @@ class Symptoms:
                         f"JAHR {self.year} - {float(self.temperature):.2}°C - {int(self.death_count):,} TOTE - {len(self.occupied_regions)} AKTIVE REGION(EN) - ATOMKRIEG WAHRSCHEINLICHKEIT {(0.001 * (self.death_count / 10_000_000)):.2%}")
                     print(
                         "┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄")
-                time.sleep(1)
+                time.sleep(0.3)
             self.is_game_running = False
             time.sleep(1)
             if self.death_count >= 10_000_000_000:
@@ -569,4 +573,4 @@ symptoms = Symptoms()
 # test_auto_start: Immediately starts game (defaults to False)
 # start_p5: Starts p5 sketch & bridge and opens browser window (defaults to True)
 # verbose: Prints progress of headline generation (defaults to True)
-symptoms.main(skip_headlines=False, test_auto_start=False, start_p5=True, verbose=False)
+symptoms.main(skip_headlines=True, test_auto_start=False, start_p5=True, verbose=False)

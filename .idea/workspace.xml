@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b1801950-a512-4d71-8e2a-e7b3d71e1db5" name="Changes" comment="reset gitignore" />
+    <list default="true" id="b1801950-a512-4d71-8e2a-e7b3d71e1db5" name="Changes" comment="reset gitignore">
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <list id="1c7ef776-4c33-4cd0-b871-3ab741ea43e2" name="Changes by sponi" comment="added nuclear war" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,7 +49,7 @@
     <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectId" id="2OY0SdE3dnHOpDFF2SCuNNDdjKC" />
-  <component name="ProjectLevelVcsManager">
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectViewState">
@@ -59,7 +62,6 @@
     &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
     &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
@@ -70,7 +72,7 @@
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;C:\\Users\\Michael\\Hauptdateien\\Studium\\Repositories\\4-projektmodul-ki\\installation\\p5\\node_modules\\prettier&quot;,
+    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;C:\\Users\\gamea\\Documents\\Primary files\\Studium\\group-1\\installation\\p5\\node_modules\\prettier&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
@@ -85,59 +87,13 @@
       <recent name="C:\Users\Michael\Hauptdateien\Studium\Repositories\4-projektmodul-ki\presentations" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\gamea\Documents\Primary files\Studium\group-1\installation\runtime" />
       <recent name="C:\Users\Michael\Hauptdateien\Studium\Repositories\4-projektmodul-ki\installation\runtime" />
       <recent name="C:\Users\Michael\Hauptdateien\Studium\Repositories\4-projektmodul-ki\installation\runtime\old_newsfeed" />
       <recent name="C:\Users\Michael\Hauptdateien\Studium\Repositories\4-projektmodul-ki\installation\bridge" />
     </key>
   </component>
   <component name="RunManager" selected="npm.bridge">
-    <configuration default="true" type="PythonConfigurationType" factoryName="Python">
-      <module name="4-projektmodul-ki" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration default="true" type="Python.FlaskServer">
-      <module name="4-projektmodul-ki" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="launchJavascriptDebuger" value="false" />
-      <method v="2" />
-    </configuration>
-    <configuration default="true" type="Tox" factoryName="Tox">
-      <module name="4-projektmodul-ki" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <method v="2" />
-    </configuration>
     <configuration name="bridge" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/installation/bridge/package.json" />
       <command value="run" />
@@ -203,6 +159,8 @@
       <workItem from="1687019712214" duration="72000" />
       <workItem from="1687020589362" duration="1045000" />
       <workItem from="1687022875056" duration="748000" />
+      <workItem from="1687191541175" duration="11000" />
+      <workItem from="1687336170183" duration="15000" />
     </task>
     <task id="LOCAL-00001" summary="added 20230412 homework and personal diary">
       <created>1681722413737</created>
@@ -358,8 +316,11 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/4_projektmodul_ki$ip.coverage" NAME="ip Coverage Results" MODIFIED="1685901532675" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/installation" />
-    <SUITE FILE_PATH="coverage/4_projektmodul_ki$newsfeed.coverage" NAME="newsfeed Coverage Results" MODIFIED="1686759972566" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/installation" />
     <SUITE FILE_PATH="coverage/4_projektmodul_ki$debugging_inputs.coverage" NAME="debugging_inputs Coverage Results" MODIFIED="1687019518821" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/installation/runtime" />
+    <SUITE FILE_PATH="coverage/4_projektmodul_ki$newsfeed.coverage" NAME="newsfeed Coverage Results" MODIFIED="1686759972566" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/installation" />
+    <SUITE FILE_PATH="coverage/group_1$game.coverage" NAME="game Coverage Results" MODIFIED="1687031918288" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/installation/runtime" />
     <SUITE FILE_PATH="coverage/4_projektmodul_ki$game.coverage" NAME="game Coverage Results" MODIFIED="1687019524395" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/installation/runtime" />
+    <SUITE FILE_PATH="coverage/group_1$newsfeed.coverage" NAME="newsfeed Coverage Results" MODIFIED="1686729588639" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/installation" />
+    <SUITE FILE_PATH="coverage/group_1$debugging_inputs.coverage" NAME="debugging_inputs Coverage Results" MODIFIED="1687032174944" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/installation/runtime" />
   </component>
 </project>
