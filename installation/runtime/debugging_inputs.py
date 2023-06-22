@@ -1,10 +1,12 @@
 from pythonosc.udp_client import SimpleUDPClient
-from get_ip import get_ip
+from dotenv import load_dotenv
+import os
 from threading import Thread
 import keyboard
 
+load_dotenv()
 # gets current ip address of pc
-ip_address = get_ip()
+ip_address = os.getenv("IP_ADDRESS")
 
 # osc client port destination
 port = 3000

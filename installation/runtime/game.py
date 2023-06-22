@@ -9,7 +9,6 @@ from pythonosc import udp_client
 from pythonosc import osc_server
 from pythonosc.dispatcher import Dispatcher
 from threading import Thread
-from get_ip import get_ip
 import tkinter as tk
 import subprocess
 import webbrowser
@@ -29,26 +28,26 @@ load_dotenv()
 # Fetches api key from .env file (can be generated at https://platform.openai.com/account/api-keys)
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
-# Gets current ip address of pc
-ip_address = "192.168.194.94"
+# Fetches IP address from .env file
+ip_address = os.getenv("IP_ADDRESS")
 
 key_mapping = ["a", "s", "d", "f", "g", "h", "j", "k", "l", "ö", "ä", "#"]
 
-# ["na1", "na2", "eu1", "sa1", "sa2", "af1", "af2", "af3", "as1", "as2", "as3", "oc1"]
+print(f"Momentane IP Adresse: {ip_address}")
 
-print(ip_address)
 
 class Symptoms:
     def __init__(self):
         # Start values
         self.prompt = "Generiere 25 kurze, fiktive & sarkastische Schlagzeilen über den Klimawandel. Die Schlagzeilen sollen keine Jahreszahlen oder den Begriff Klimawandel beinhalten. Geb die Schlagzeilen als Liste mit dem key 'headlines' in einer JSON zurück"
         self.is_game_running = False
+        self.are_headlines_loaded = True
         self.start_year = 2025
         self.year = self.start_year
         self.count = 0
         self.death_count = 0
         self.temperature = 1
-        self.free_regions = ["na1", "na2", "eu1", "sa2", "af1", "as2", "as3"]
+        self.free_regions = ["na1", "na2", "eu1", "sa1", "sa2", "af1", "af2", "af3", "as1", "as2", "as3", "oc1"]
         self.occupied_regions = set()
         self.region_data = {
             "na1": {
@@ -143,6 +142,7 @@ class Symptoms:
             if tick_count > 5:
                 # Sends data to p5project
                 client.send_message('/death_count', str(int(self.death_count)))
+                client.send_message("/are_headlines_loaded", self.are_headlines_loaded)
                 tick_count = 0
             tick_count += 1
 
@@ -210,6 +210,7 @@ class Symptoms:
                 "source": get_source()
             }
             self.used_headlines.insert(0, start_headline)
+            # playsound("audio/alert.wav", block=False)
             print(
                 "════════════════════════════════════════════════════════════════════════════════════════════════════════════")
             print(
@@ -240,6 +241,7 @@ class Symptoms:
                         "resolution_percentage"] = 1 - current_resolution_time / catastrophe.resolution_time
                 if current_resolution_time >= catastrophe.resolution_time:
                     resolved_by_player = True
+                    playsound("audio/resolved.wav", block=False)
                     break
                 current_windup += 0.01
                 time.sleep(0.01)
@@ -253,6 +255,7 @@ class Symptoms:
                             "resolution_percentage"] = 1 - current_resolution_time / catastrophe.resolution_time
                     if current_resolution_time >= catastrophe.resolution_time:
                         resolved_by_player = True
+                        playsound("audio/resolved.wav", block=False)
                         break
                     self.death_count += catastrophe.deaths_per_second * 0.01
                     current_death_count += catastrophe.deaths_per_second * 0.01
@@ -313,6 +316,7 @@ class Symptoms:
             "source": "Tiffany"
         }
         self.used_headlines.insert(0, start_headline)
+        playsound("audio/annihilation.wav", block=False)
         print(
             "☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢☁☢")
         print(f"☢☢☢ NUCLEAR WAR - {str(war_regions)} ☢☢☢")
@@ -336,6 +340,7 @@ class Symptoms:
                     self.region_data[region][
                         "resolution_percentage"] = 1 - current_resolution_time / resolution_time
             if current_resolution_time >= resolution_time:
+                playsound("audio/resolved.wav", block=False)
                 break
             self.death_count += deaths_per_second * 0.01
             current_death_count += deaths_per_second * 0.01
@@ -426,9 +431,12 @@ class Symptoms:
 
             # Waits for headline generation until at least 20 are available
             if len(self.headline_reserve) < 20 and not skip_headlines:
+                self.are_headlines_loaded = False
                 print("Waiting for GPT to return headlines...\n")
             while len(self.headline_reserve) < 20 and not skip_headlines:
                 pass
+
+            self.are_headlines_loaded = True
 
             print("/// SYMPTOMS startet ///")
             print("\n")
@@ -573,4 +581,4 @@ symptoms = Symptoms()
 # test_auto_start: Immediately starts game (defaults to False)
 # start_p5: Starts p5 sketch & bridge and opens browser window (defaults to True)
 # verbose: Prints progress of headline generation (defaults to True)
-symptoms.main(skip_headlines=True, test_auto_start=False, start_p5=True, verbose=False)
+symptoms.main(skip_headlines=False, test_auto_start=False, start_p5=True, verbose=True)

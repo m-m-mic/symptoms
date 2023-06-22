@@ -1,5 +1,6 @@
 let deaths = 0;
 let active = false;
+let headlinesLoaded = true;
 let regionData = {
   na1: {
     is_active: true,
@@ -82,36 +83,28 @@ function setup() {
   setupOsc(12000, 3334);
 }
 
-let wildfire
-let drought
-let hurricane
-let flooding
-let tsunami
-let earthquake
-let sandstorm
-let annihilation
+let wildfire;
+let drought;
+let hurricane;
+let flooding;
+let tsunami;
+let earthquake;
+let sandstorm;
+let annihilation;
+let kohoMedium;
+let kohoBold;
 
 function preload() {
-  wildfire = loadImage("assets/wildfire.png")
-  drought = loadImage("assets/drought.png")
-  hurricane = loadImage("assets/hurricane.png")
-  flooding = loadImage("assets/flooding.png")
-  tsunami = loadImage("assets/tsunami.png")
-  earthquake = loadImage("assets/earthquake.png")
-  sandstorm = loadImage("assets/sandstorm.png")
-  annihilation = loadImage("assets/annihilation.png")
-}
-
-const catastropheFunctions = {
-  "hurricane": hurricane,
-  "drought": drought,
-  "hurricane": hurricane,
-  "flooding": flooding,
-  "tsunami": tsunami,
-  "earthquake": earthquake,
-  "sandstorm": sandstorm,
-  "annihilation": annihilation
-
+  wildfire = loadImage("assets/wildfire.png");
+  drought = loadImage("assets/drought.png");
+  hurricane = loadImage("assets/hurricane.png");
+  flooding = loadImage("assets/flooding.png");
+  tsunami = loadImage("assets/tsunami.png");
+  earthquake = loadImage("assets/earthquake.png");
+  sandstorm = loadImage("assets/sandstorm.png");
+  annihilation = loadImage("assets/annihilation.png");
+  kohoMedium = loadFont("assets/KoHo-Medium.ttf");
+  kohoBold = loadFont("assets/KoHo-Bold.ttf");
 }
 
 function draw() {
@@ -119,63 +112,72 @@ function draw() {
   var deathNumbers = reformatNumber(deaths);
   fill(255);
   textSize(64);
+  textFont(kohoBold);
   textAlign(CENTER, CENTER);
-  text(deathNumbers + " Tote", width / 2, 40);
+  text(deathNumbers + " TOTE", width / 2, 40);
 
   let regions = Object.keys(regionLocations);
 
   if (active === false) {
     regions.forEach(function (item, index) {
-      fill(32, 180, 156, 255);
+      fill(245, 192, 17, 255);
       circle(regionLocations[item][0], regionLocations[item][1], 150);
-      fill(255);
-      textSize(32);
-      text(item, regionLocations[item][0], regionLocations[item][1]);
     });
-    textSize(48)
+    textSize(48);
+    textFont(kohoMedium);
+    fill(255);
     text("Berühre ein leuchtenden Punkt um das Spiel zu starten", width / 2, 110);
-    fill(255, 0, 0);
   } else {
+    if (!headlinesLoaded) {
+      fill(7, 72, 171);
+      rectMode(CENTER);
+      noStroke();
+      rect(width / 2, height / 2, 1200, 150, 12);
+      fill(255);
+      textSize(48);
+      textFont(kohoMedium);
+      text("Schlagzeilen werden generiert, bitte warten...", width / 2, height / 2 - 10);
+    }
     regions.forEach(function (item, index) {
       if (regionData[item].is_active) {
         let catastropheType;
         switch (regionData[item].type) {
           case "hurricane":
-            catastropheType = hurricane
-            break
+            catastropheType = hurricane;
+            break;
           case "sandstorm":
-            catastropheType = sandstorm
-            break
+            catastropheType = sandstorm;
+            break;
           case "wildfire":
-            catastropheType = wildfire
-            break
+            catastropheType = wildfire;
+            break;
           case "drought":
-            catastropheType = drought
-            break
+            catastropheType = drought;
+            break;
           case "flooding":
-            catastropheType = flooding
-            break
+            catastropheType = flooding;
+            break;
           case "earthquake":
-            catastropheType = earthquake
-            break
+            catastropheType = earthquake;
+            break;
           case "tsunami":
-            catastropheType = tsunami
-            break
+            catastropheType = tsunami;
+            break;
           case "annihilation":
-            catastropheType = annihilation
-            break
+            catastropheType = annihilation;
+            break;
           default:
-            catastropheType = wildfire
+            catastropheType = wildfire;
         }
-        imageMode(CENTER)
-        image(catastropheType, regionLocations[item][0], regionLocations[item][1], 150 * regionData[item].resolution_percentage, 150 * regionData[item].resolution_percentage)
+        imageMode(CENTER);
+        image(
+          catastropheType,
+          regionLocations[item][0],
+          regionLocations[item][1],
+          150 * regionData[item].resolution_percentage,
+          150 * regionData[item].resolution_percentage
+        );
       }
-      //fill(0, 0, 255, regionData[item].is_active ? 255 : 0);
-      //circle(regionLocations[item][0], regionLocations[item][1], 150 * regionData[item].resolution_percentage);
-      //fill(255, 255, 255, regionData[item].is_active ? 255 : 0);
-      //textSize(32 * regionData[item].resolution_percentage);
-      //text(item, regionLocations[item][0], regionLocations[item][1] - 20);
-      //text(regionData[item].type, regionLocations[item][0], regionLocations[item][1] + 20);
     });
   }
 }
@@ -191,6 +193,8 @@ function receiveOsc(address, value) {
     active = value[0];
   } else if (address === "/region_data") {
     regionData = JSON.parse(value);
+  } else if (address === "/are_headlines_loaded") {
+    headlinesLoaded = value[0];
   }
 }
 

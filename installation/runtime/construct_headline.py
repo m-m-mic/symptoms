@@ -60,9 +60,18 @@ def construct_start_headline(region, catastrophe_type):
     elif catastrophe_type == "earthquake":
         headlines = [
             "Starkes Erdbeben " + region_term + " erschüttert Einwohner",
-            "Erdbeben " + region_term + ": keine Aussicht auf Rettung?",
+            "Erdbeben " + region_term + ": Keine Aussicht auf Rettung?",
             "Ungewöhnlich hohe Stärke: Erdbeben " + region_term,
-            "Erdbeben " + region_term + ": ganze Orte evakuiert"
+            "Erdbeben " + region_term + ": Ganze Orte evakuiert"
+        ]
+        return headlines[random.randrange(0, len(headlines) - 1)]
+    elif catastrophe_type == "tsunami":
+        headlines = [
+            "Tsunami Warnung " + region_term + ": Experten fordern sofortige Evakuierung",
+            "Panik " + region_term + " - Große Tsunamiwelle bewegt sich auf Festland zu",
+            "Schlimme Prognosen: Tsunami " + region_term + " gefährdet tausende von Menschen",
+            "Nach nächtlichem Unterwasserbeben - Tsunami " + region_term + " erreicht bald Festland",
+            "Sofortige Evakuierung notwendig! Tsunamiwelle " + region_term + " bedroht unzählige Siedelungen"
         ]
         return headlines[random.randrange(0, len(headlines) - 1)]
     else:
@@ -84,26 +93,28 @@ def construct_end_headline(region, catastrophy_type, death_count):
 
         headlines = [
             catastrophe_term + " " + region_term + " hat sich aufgelöst (" + death_count_string + " Tote)",
-            death_count_string + "Tote und überall Zerstörung - " + catastrophe_term + " " + region_term + " offiziell zu Ende"
+            death_count_string + " Tote und überall Zerstörung - " + catastrophe_term + " " + region_term + " offiziell zu Ende",
+            catastrophe_term + " Katastrophe " + region_term + ": Regierungen berichten von " + death_count_string + " Toten",
+            "Ende von " + catastrophe_term + " " + region_term + " - " + death_count_string + " Opfer"
         ]
-        return headlines[0]
+        return headlines[random.randrange(0, len(headlines) - 1)]
     elif catastrophy_type == "drought":
         headlines = [
             "Regenfälle " + region_term + ": Dürreperiode ist zu Ende (" + death_count_string + " Tote)",
             "Schäden in Milliardenhöhe: Dürre " + region_term + " hinterlässt " + death_count_string + " Tote",
             "Dürreperiode " + region_term + " geht zu Ende: " + death_count_string + " Tote - Priester reden vom Willen Gottes",
-            "Das Dürre-Drama " + region_term + " ist zu Ende: Regierung leugnet Opferzahlen (" + death_count_string + " Tote)"
+            "Das Dürre-Drama " + region_term + " ist zu Ende: Regierung leugnet Opferzahlen (" + death_count_string + " Tote)",
         ]
         return headlines[random.randrange(0, len(headlines) - 1)]
     elif catastrophy_type == "flooding":
         headlines = [
-            "Entwarnung: Wasser " + region_term + " ist wieder trinkbar, " + death_count_string + " Menschen starben an den Folgen.",
-            "Tiefdruck " + region_term + " löst sich auf. (" + death_count_string + " Tote)",
-            "Starkregen " + region_term + "hat immens an Kraft verloren. Bisher kam es zu " + death_count_string + " Tot.)",
-            "Anwohner im Gebiet der Staudammbereich " + region_term + " evakuiert, " + death_count_string + " Tote und unzählige Vermisste.",
-            "Aufatmen! Platzregen " + region_term + " hat gestoppt. (" + death_count_string + " Tote)",
-            "Die letzten Anwohner im Erdrutschgebiet wurden evakuiert. Die Anzahl der Toten liegt bei " + death_count_string + ".",
-            "Tiefdruckgebiet " + region_term + " löst sich auf. (" + death_count_string + " Tote)"
+            "Entwarnung: Wasser " + region_term + " ist wieder trinkbar, " + death_count_string + " Menschen starben an den Folgen",
+            "Tiefdruck " + region_term + " löst sich auf (" + death_count_string + " Tote)",
+            "Starkregen " + region_term + "hat immens an Kraft verloren: Bisher kam es zu " + death_count_string + " Toten",
+            "Anwohner im Gebiet der Staudammbereich " + region_term + " evakuiert, " + death_count_string + " Tote und unzählige Vermisste",
+            "Aufatmen! Platzregen " + region_term + " hat gestoppt (" + death_count_string + " Tote)",
+            "Die letzten Anwohner im Erdrutschgebiet wurden evakuiert: Die Anzahl der Toten liegt bei " + death_count_string,
+            "Tiefdruckgebiet " + region_term + " löst sich auf (" + death_count_string + " Tote)"
         ]
         return headlines[random.randrange(0, len(headlines) - 1)]
     elif catastrophy_type == "earthquake":
@@ -114,6 +125,13 @@ def construct_end_headline(region, catastrophy_type, death_count):
             "Nach Erdbeben " + region_term + " : " + death_count_string + " Tote - alles kaputt!",
             "Erdbeben " + region_term + " geht zu Ende: " + death_count_string + " Tote - Gläubige reden vom Willen Gottes",
             "Erdbeben " + region_term + " : 'Ich dachte, der Boden bricht unter mir ein' - " + death_count_string + " Tote"
+        ]
+        return headlines[random.randrange(0, len(headlines) - 1)]
+    elif catastrophy_type == "tsunami":
+        headlines = [
+            "Tsunami " + region_term + " lässt zerstörerische Spuren zurück: " + death_count_string + " Tote",
+            death_count_string + " Opfer durch Tsunami " + region_term + ": Wissenschaftler fordern Konsequenzen in der Politik",
+            "Traumatische Szenen " + region_term + ": Tsunami Opferzahlen steigen zu " + death_count_string
         ]
         return headlines[random.randrange(0, len(headlines) - 1)]
     else:
