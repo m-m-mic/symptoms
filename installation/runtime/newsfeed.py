@@ -1,11 +1,5 @@
 import tkinter as tk
 
-# TODO: Deathcount missing
-# TODO: UI Structure help:https://realpython.com/python-gui-tkinter/
-# TODO: Dienstag?: Icons je nach Wetter oder Nachricht
-# TODO: Jahr und Temperatur gleichzeitig aktuallisieren -> funktioniert net wirklich
-# TODO: Code aufhübschen ฅ^•ﻌ•^ฅ
-# TODO: Dienstag: UI aufhübschen ฅ^•ﻌ•^ฅ
 def read_and_get_first_line(filepath):
     with open(filepath, "r+") as file:
         #Reads the first line and removes spaces and line breaks
@@ -54,16 +48,7 @@ def delete_second_line(filepath):
 #For GUI, searches for keywords to assign to labels
 def update_labels():
     first_line = read_and_get_first_line(filepath)
-    #second_line = read_and_get_second_line(filepath)
-    """ Bedinung für das gleichzeitige Auslesen von der ersten und zweiten Zeile -> funktioniert nur nicht
-    if first_line.startswith("/year/") and second_line.startswith("/temperature/"):
-        year = first_line.lstrip("/year/")
-        year_label.config(text=f"{year}")
-        temperature = second_line.lstrip("/temperature/")
-        temperature = float(temperature)
-        temperature_label.config(text=f"{temperature}")
-        delete_second_line(filepath)
-    """
+
     if is_file_empty(filepath):
         year_label.config(text="Game Over")
         temperature_label.config(text="")
@@ -74,23 +59,28 @@ def update_labels():
         elif first_line.startswith("/temperature/"):
             temperature = first_line.lstrip("/temperature/")
             temperature = float(temperature)
-            temperature_label.config(text="" + f"Aktuelle Erderwärmung von {temperature:.2f}°C")  
+            temperature_label.config(text="" + f"Aktuelle Erderwärmung: {temperature:.2f}°C")  
         elif first_line.startswith("/catastrophe/"):
             catastrophe = first_line.lstrip("/catastrophe/")
-            #inserting in Array, not label
-            #catastrophe_label.config(text=f"{catastrophe}")
             headlines.insert(0, catastrophe)
+            #headline_list_text.image_create(tk.END, image=image)
         elif first_line.startswith("/headline/"):
             headline = first_line.lstrip("/headline/")
-            #headline_label.config(text=f"{headline}")
             headlines.insert(0, headline)
         else:
             first_line = ""
         delete_first_line(filepath)
 
         headlines_to_display = headlines[:15]
-        headlines_text = "\n".join(headlines_to_display)
-        headline_list_label.config(text=headlines_text)
+        headlines_text = "\n\n\n\n".join(headlines_to_display)
+        #headline_list_label.config(text=headlines_text)
+    
+        #Insert the headlines text into the headline_list_text
+        headline_list_text.delete(1.0, tk.END)  
+        #Bild einfügen
+        headline_list_text.image_create(tk.END, image=image)
+        headline_list_text.insert(tk.END, headlines_text)
+
     #updatet Labels
     window.after(500, update_labels)
 
@@ -121,7 +111,7 @@ header.pack(fill=tk.X)
 
 #Newsframe
 newsframe = tk.Frame(window, bg=window.cget("bg"), pady=24, padx=24)
-newsframe.pack(fill=tk.X)
+newsframe.pack(fill=tk.BOTH)
 
 #Postframe
 postframe =tk.Frame(newsframe,bg='#FFFFFF', padx=24)
@@ -137,17 +127,21 @@ resized_image = image.subsample(2, 2)
 image_label = tk.Label(header, image=resized_image, bg=window.cget("bg"))  
 image_label.pack(side=tk.RIGHT)
 
-temperature_label = tk.Label(frame, text="Aktuelle Erderwärmung von 1.00°C", font=("Inter", text_size), fg="#262626", bg=window.cget("bg"))
+temperature_label = tk.Label(frame, text="Aktuelle Erderwärmung: 1.00°C", font=("Inter", text_size), fg="#262626", bg=window.cget("bg"))
 temperature_label.pack(fill=tk.Y, side=tk.TOP, anchor='w')
 
 #TODO: HEadlines ganz oben zuerst anzeigen lassen
 #Label for the list of headlines
-headline_list_label = tk.Label(postframe, width=screen_width, font=("Inter", news_size), wraplength=news_wrap)
+headline_list_label = tk.Label(newsframe, text="Dein Newsfeed", width=screen_width, font=("Inter", text_size), fg="#262626", wraplength=news_wrap,  bg=window.cget("bg"))
 headline_list_label.pack(fill=tk.Y, side=tk.TOP)
 
+
+headline_list_text = tk.Text(newsframe, width=screen_width, pady=12, padx=24, font=("Inter", news_size), wrap=tk.WORD)
+headline_list_text.pack(fill=tk.Y, side=tk.TOP)           
 #Initialize the headlines array
 headlines = []
 
+image = tk.PhotoImage("./assets/Sorting.gif")
 
 update_labels()
 window.mainloop()
