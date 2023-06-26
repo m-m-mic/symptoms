@@ -74,6 +74,15 @@ def construct_start_headline(region, catastrophe_type):
             "Sofortige Evakuierung notwendig! Tsunamiwelle " + region_term + " bedroht unzählige Siedelungen"
         ]
         return headlines[random.randrange(0, len(headlines) - 1)]
+    elif catastrophe_type == "sandstorm":
+        headlines = [
+            "Sandsturmwarnung: Die Straßen in " + region_term + " werden zur Gafehrenzone",
+            "Achtung! Wegen eines Sandsturms sollten Bürger in " + region_term + " heute Zuhause bleiben",
+            "Massiver Sandsturm in " + region_term + ". Sofortige Maßnahmen der Regierung nötig",
+            "Verheerender Sandsturm: " + region_term + " erlebt Katastrophe",
+            "Jahrunderts Sandsturm!" + region_term + " muss sofort evakuiert werden!"
+        ]
+        return headlines[random.randrange(0, len(headlines) - 1)]
     else:
         return "Katastrophe vom Typ '" + catastrophe_type + "' " + region_term + " ausgebrochen"
 
@@ -132,6 +141,14 @@ def construct_end_headline(region, catastrophy_type, death_count):
             "Tsunami " + region_term + " lässt zerstörerische Spuren zurück: " + death_count_string + " Tote",
             death_count_string + " Opfer durch Tsunami " + region_term + ": Wissenschaftler fordern Konsequenzen in der Politik",
             "Traumatische Szenen " + region_term + ": Tsunami Opferzahlen steigen zu " + death_count_string
+        ]
+        return headlines[random.randrange(0, len(headlines) - 1)]
+    elif catastrophy_type == "sandstorm":
+        headlines = [
+            "Sandsturm  " + region_term + " fordert " + death_count_string + " Tote. Experten sagen die Regierung hat viel zu spät reagiert",
+            death_count_string + " starben durch katastrophalen Sandsturm. " + region_term + " entsetzt",
+            "Ein Sandsturm in" + region_term + " verursachte " + death_count_string + "Tote. Zu späte Maßnahmen führten zu massenhaft Unfällen",
+            region_term + " verwüstet durch Sandsturm. Die Bürger trauern um " + death_count_string + "Tote."
         ]
         return headlines[random.randrange(0, len(headlines) - 1)]
     else:

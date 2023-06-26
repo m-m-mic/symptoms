@@ -111,8 +111,8 @@ class Catastrophe:
             },
             "sandstorm": {
                 "duration": {
-                    "min": 4,
-                    "max": 7
+                    "min": 2,
+                    "max": 6
                 },
                 "wind_up": {
                     "min": 1,
@@ -120,11 +120,11 @@ class Catastrophe:
                 },
                 "deaths_per_second": {
                     "min": 200,
-                    "max": 600
+                    "max": 2000
                 },
                 "resolution_time": {
                     "min": 1,
-                    "max": 80
+                    "max": 40
                 }
             },
             "earthquake": {
