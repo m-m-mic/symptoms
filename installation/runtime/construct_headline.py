@@ -147,12 +147,12 @@ def construct_end_headline(region, catastrophy_type, death_count):
         headlines = [
             "Sandsturm  " + region_term + " fordert " + death_count_string + " Tote. Experten sagen die Regierung hat viel zu spät reagiert",
             death_count_string + " starben durch katastrophalen Sandsturm. " + region_term + " entsetzt",
-            "Ein Sandsturm in" + region_term + " verursachte " + death_count_string + "Tote. Zu späte Maßnahmen führten zu massenhaft Unfällen",
-            region_term + " verwüstet durch Sandsturm. Die Bürger trauern um " + death_count_string + "Tote."
+            "Ein Sandsturm in " + region_term + " verursachte " + death_count_string + " Tote. Zu späte Maßnahmen führten zu massenhaft Unfällen",
+            region_term + " verwüstet durch Sandsturm. Die Bürger trauern um " + death_count_string + " Tote."
         ]
         return headlines[random.randrange(0, len(headlines) - 1)]
     else:
-        return "Katastrophe vom Typ '" + catastrophy_type + "' " + region_term + " is beendet (" + death_count_string + " Tote)"
+        return "Katastrophe vom Typ '" + catastrophy_type + "' " + region_term + " ist beendet (" + death_count_string + " Tote)"
 
 
 def get_source():

@@ -478,16 +478,23 @@ class Symptoms:
             for headline in headline_strings:
                 headlines_text += headline["headline"] + "\n" + " - " + headline["source"] + "\n\n\n"
             
-            #if headline_strings is empty, UI shows starting condition
+            # if headline_strings is empty, UI shows starting condition
             if not headline_strings:
                 placeholder_text = "Kannst du die Welt retten? Versuch es sofort und berühre einen der leuchtenden Punkte"
                 headline_list_text.delete(1.0, tk.END)
                 headline_list_text.insert(tk.END, placeholder_text)
+            elif self.year == 2100 or self.death_count >= 10_000_000_000:
+                end_game_text = f"{self.death_count} Menschen sind durch die Folgen des Klimawandel umgekommen."
+                headline_list_text.delete(1.0, tk.END)
+                headline_list_text.insert(tk.END, end_game_text)
+
+                # closes Window after delay of 20 seconds
+                window.after(20000, window.destroy)
             else:
                 current_text = headline_list_text.get(1.0, tk.END).strip()
                 if current_text == "Kannst du die Welt retten? Versuch es sofort und berühre einen der leuchtenden Punkte":
                     headline_list_text.delete(1.0, tk.END)
-                #Insert the headlines text into the headline_list_text
+                # Insert the headlines text into the headline_list_text
                 headline_list_text.delete(1.0, tk.END)
                 headline_list_text.insert(tk.END, headlines_text)
 
@@ -517,13 +524,17 @@ class Symptoms:
         header.pack(fill=tk.X)
 
         # Newsframe
-        newsframe = tk.Frame(window, bg=window.cget("bg"), pady=24, padx=24)
+        newsframe = tk.Frame(window, bg=window.cget("bg"), pady=12, padx=24)
         newsframe.pack(fill=tk.X)
 
         # Postframe
         postframe = tk.Frame(newsframe, bg='#FFFFFF', padx=24)
         postframe.pack(side=tk.LEFT, anchor='n')
 
+        # Logo
+        logo_image = tk.PhotoImage(file="./assets/SYMPTOMS.png")
+        logo_label = tk.Label(header, image=logo_image, bg=window.cget("bg"), pady=12)
+        logo_label.pack()
         # Label for year variable
         year_label = tk.Label(header, text=str(self.year), font=("Inter", titel_size), fg="#262626",
                               bg=window.cget("bg"))
