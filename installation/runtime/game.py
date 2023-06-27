@@ -469,23 +469,27 @@ class Symptoms:
 
     def gui(self):
         def update_labels():
-            # @Melli tkinter benutzt jetzt statt der txt-Datei direkt die Attribute der Klasse, sonst ist es quasi gleich
+    
             year_label.config(text=str(self.year))
             temperature_label.config(text=f"Aktuelle Erderwärmung: {self.temperature:.2f}°C")
 
-            # TODO: Die Headlines sind jetzt dictionaries die so aussehen: { "headline": "hier headline", "source": "Name einer Zeitschrift" }
-            # Habs jetzt deinen alten Code grob abgewandelt damit es nicht crashed
             headline_strings = self.used_headlines[:25]
             headlines_text = ""
             for headline in headline_strings:
                 headlines_text += headline["headline"] + "\n" + " - " + headline["source"] + "\n\n\n"
             
-            headlines_text = "".join(headlines_text)
-            #Insert the headlines text into the headline_list_text
-            headline_list_text.delete(1.0, tk.END)  
-            #Bild einfügen
-            headline_list_text.image_create(tk.END, image=image)
-            headline_list_text.insert(tk.END, headlines_text)
+            #if headline_strings is empty, UI shows starting condition
+            if not headline_strings:
+                placeholder_text = "Kannst du die Welt retten? Versuch es sofort und berühre einen der leuchtenden Punkte"
+                headline_list_text.delete(1.0, tk.END)
+                headline_list_text.insert(tk.END, placeholder_text)
+            else:
+                current_text = headline_list_text.get(1.0, tk.END).strip()
+                if current_text == "Kannst du die Welt retten? Versuch es sofort und berühre einen der leuchtenden Punkte":
+                    headline_list_text.delete(1.0, tk.END)
+                #Insert the headlines text into the headline_list_text
+                headline_list_text.delete(1.0, tk.END)
+                headline_list_text.insert(tk.END, headlines_text)
 
             window.after(100, update_labels)
 
@@ -496,7 +500,7 @@ class Symptoms:
         screen_width = window.winfo_screenwidth()
         screen_height = window.winfo_screenheight()
 
-        window_width = screen_width 
+        window_width = screen_width // 2
         news_wrap = screen_width // 1.5
         titel_size = screen_width // 40
         text_size = screen_width // 80
@@ -534,10 +538,7 @@ class Symptoms:
         temperature_label = tk.Label(frame, text=f"Aktuelle Erderwärmung: {self.temperature:.2f}°C",
                                      font=("Inter", text_size), fg="#262626", bg=window.cget("bg"))
         temperature_label.pack(fill=tk.Y, side=tk.TOP, anchor='w')
-        # Mellis TODO:
-        # TODO: Bilder einfügen -> Funktioniert nicht, aber wenn Code auskommentiert erscheint der gesamte Feed nicht??
-        # TODO: Werbungen nach jeder 5 Meldung einfügen -> siehe TODO Bilder
-        # TODO: Startscreen -> Samstag als statisches Bild & danach Feed laden ?
+
         # TODO: Zum Schluss Windows_width auf 100% stellen
         # Label for the list of headlines
         headline_list_label = tk.Label(newsframe, text="Dein Newsfeed", width=screen_width, font=("Inter", news_size), fg="#262626",
@@ -546,8 +547,6 @@ class Symptoms:
 
         headline_list_text = tk.Text(newsframe, width=screen_width, pady=24, padx=24, font=("Inter", news_size), fg="#262626", wrap=tk.WORD)
         headline_list_text.pack(fill=tk.Y, side=tk.TOP) 
-        #Test für Image
-        image = tk.PhotoImage("./assets/Sorting.gif")
 
         update_labels()
         window.title("Symptoms")

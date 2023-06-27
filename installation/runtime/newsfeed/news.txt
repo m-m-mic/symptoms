@@ -1,16 +1,3 @@
-/catastrophe/nix
-/temperature/1.0011998400085331
-/year/2026
-/catastrophe/nix
-/headline/nix
-/catastrophe/nix
-/catastrophe/nix
-/catastrophe/nix
-/temperature/1.004797440546071
-/year/2027
-/headline/nix
-/headline/nix
-/catastrophe/nix
 /headline/nix
 /catastrophe/nix
 /temperature/1.0107870462192006
