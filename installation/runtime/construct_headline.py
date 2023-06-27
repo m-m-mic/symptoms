@@ -74,6 +74,15 @@ def construct_start_headline(region, catastrophe_type):
             "Sofortige Evakuierung notwendig! Tsunamiwelle " + region_term + " bedroht unzählige Siedelungen"
         ]
         return headlines[random.randrange(0, len(headlines) - 1)]
+    elif catastrophe_type == "wildfire":
+        headlines = [
+            "Waldbrand in " + region_term + " breitet sich aus!",
+            "Die anhaltende Trockenheit und Hitze haben in " + region_term + " zu hoher Waldbrandgefahr geführt",
+            "Experten der Feuerwehr warnen vor weiter steigender Brandgefahr in " + region_term,
+            "Brandgefahr und trockene Böden in " + region_term + ": Was sind die Folgen?",
+            "Etliche Menschen in " + region_term + " wegen Waldbrand evakuiert"
+        ]
+        return headlines[random.randrange(0, len(headlines) - 1)]
     elif catastrophe_type == "sandstorm":
         headlines = [
             "Sandsturmwarnung: Die Straßen in " + region_term + " werden zur Gafehrenzone",
@@ -141,6 +150,13 @@ def construct_end_headline(region, catastrophy_type, death_count):
             "Tsunami " + region_term + " lässt zerstörerische Spuren zurück: " + death_count_string + " Tote",
             death_count_string + " Opfer durch Tsunami " + region_term + ": Wissenschaftler fordern Konsequenzen in der Politik",
             "Traumatische Szenen " + region_term + ": Tsunami Opferzahlen steigen zu " + death_count_string
+        ]
+        return headlines[random.randrange(0, len(headlines) - 1)]
+    elif catastrophy_type == "wildfire":
+        headlines = [
+            "Tausende Hektar Land zerstört in " + region_term + ": " + death_count_string + " Tote durch Waldbrand",
+            "Bei einem der schlimmsten Waldbränden in der Geschichte von " + region_term + " sind " + death_count_string + " Menschen ums Leben gekommen",
+            "Hütten in " + region_term + "stehen in Flammen: " + death_count_string + " Tote"
         ]
         return headlines[random.randrange(0, len(headlines) - 1)]
     elif catastrophy_type == "sandstorm":
