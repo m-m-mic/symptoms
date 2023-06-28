@@ -97,12 +97,12 @@ class Catastrophe:
                     "max": 7
                 },
                 "wind_up": {
-                    "min": 1,
+                    "min": 2,
                     "max": 6,
                 },
                 "deaths_per_second": {
                     "min": 200,
-                    "max": 500000
+                    "max": 10000
                 },
                 "resolution_time": {
                     "min": 1,

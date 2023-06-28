@@ -484,7 +484,7 @@ class Symptoms:
                 headline_list_text.delete(1.0, tk.END)
                 headline_list_text.insert(tk.END, placeholder_text)
             elif self.year == 2100 or self.death_count >= 10_000_000_000:
-                end_game_text = f"{self.death_count} Menschen sind durch die Folgen des Klimawandel umgekommen."
+                end_game_text = f"{self.death_count} Menschen sind durch die Folgen des Klimawandels umgekommen"
                 headline_list_text.delete(1.0, tk.END)
                 headline_list_text.insert(tk.END, end_game_text)
 
@@ -507,7 +507,7 @@ class Symptoms:
         screen_width = window.winfo_screenwidth()
         screen_height = window.winfo_screenheight()
 
-        window_width = screen_width // 2
+        window_width = screen_width 
         news_wrap = screen_width // 1.5
         titel_size = screen_width // 40
         text_size = screen_width // 80
@@ -517,47 +517,59 @@ class Symptoms:
 
         # MainFrame
         frame = tk.Frame(window, bg='#DFE9F6', pady=24, padx=32)
-        frame.pack(fill=tk.BOTH, expand=True)
+        frame.grid(sticky='nsew')  # Using grid instead of pack
+
+        window.grid_rowconfigure(0, weight=1)  # Make the frame expandable
+        window.grid_columnconfigure(0, weight=1)
 
         # Header
         header = tk.Frame(frame, bg=window.cget("bg"))
-        header.pack(fill=tk.X)
-
-        # Newsframe
-        newsframe = tk.Frame(window, bg=window.cget("bg"), pady=12, padx=24)
-        newsframe.pack(fill=tk.X)
-
-        # Postframe
-        postframe = tk.Frame(newsframe, bg='#FFFFFF', padx=24)
-        postframe.pack(side=tk.LEFT, anchor='n')
+        header.grid(sticky='ew')  # Header occupies the entire width
 
         # Logo
         logo_image = tk.PhotoImage(file="./assets/SYMPTOMS.png")
         logo_label = tk.Label(header, image=logo_image, bg=window.cget("bg"), pady=12)
         logo_label.pack()
+
         # Label for year variable
         year_label = tk.Label(header, text=str(self.year), font=("Inter", titel_size), fg="#262626",
-                              bg=window.cget("bg"))
+                            bg=window.cget("bg"))
         year_label.pack(side=tk.LEFT)
+
         # Image for header
         image = tk.PhotoImage(file="./assets/Sorting.png")
         resized_image = image.subsample(2, 2)
         image_label = tk.Label(header, image=resized_image, bg=window.cget("bg"))
         image_label.pack(side=tk.RIGHT)
 
+        # Frame for temperature_label
+        temperature_frame = tk.Frame(frame, bg=window.cget("bg"))
+        temperature_frame.grid(sticky='ew')  # temperature_frame occupies the entire width
+
         # Label for temperature variable
-        temperature_label = tk.Label(frame, text=f"Aktuelle Erderwärmung: {self.temperature:.2f}°C",
-                                     font=("Inter", text_size), fg="#262626", bg=window.cget("bg"))
-        temperature_label.pack(fill=tk.Y, side=tk.TOP, anchor='w')
+        temperature_label = tk.Label(temperature_frame, text=f"Aktuelle Erderwärmung: {self.temperature:.2f}°C",
+                                    font=("Inter", text_size), fg="#262626", bg=window.cget("bg"))
+        temperature_label.pack(side=tk.TOP, anchor='w')
+
+        # Newsframe
+        newsframe = tk.Frame(frame, bg=window.cget("bg"), pady=12, padx=24)
+        newsframe.grid(sticky='nsew')  # Newsframe fills the remaining space
+
+        frame.grid_rowconfigure(2, weight=1)  # Make the newsframe expandable
+        frame.grid_columnconfigure(0, weight=1)
+
+        # Postframe
+        postframe = tk.Frame(newsframe, bg='#FFFFFF', padx=24)
+        postframe.pack(side=tk.LEFT, anchor='n', expand=True)
 
         # TODO: Zum Schluss Windows_width auf 100% stellen
         # Label for the list of headlines
         headline_list_label = tk.Label(newsframe, text="Dein Newsfeed", width=screen_width, font=("Inter", news_size), fg="#262626",
-                                       wraplength=news_wrap, bg=window.cget("bg"))
-        headline_list_label.pack(fill=tk.Y)
+                                    wraplength=news_wrap, bg=window.cget("bg"))
+        headline_list_label.pack(fill=tk.Y, anchor='w')
 
         headline_list_text = tk.Text(newsframe, width=screen_width, pady=24, padx=24, font=("Inter", news_size), fg="#262626", wrap=tk.WORD)
-        headline_list_text.pack(fill=tk.Y, side=tk.TOP) 
+        headline_list_text.pack(fill=tk.BOTH, expand=True)  # Changed to fill both sides and expand
 
         update_labels()
         window.title("Symptoms")
