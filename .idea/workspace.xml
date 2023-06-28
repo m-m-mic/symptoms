@@ -5,18 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b1801950-a512-4d71-8e2a-e7b3d71e1db5" name="Changes" comment="reset gitignore">
-      <change afterPath="$PROJECT_DIR$/installation/p5/assets/KoHo-Bold.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/installation/p5/assets/KoHo-Medium.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/installation/runtime/audio/annihilation.wav" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_16_06_2023_09_36__Changes_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/installation/p5/sketch.js" beforeDir="false" afterPath="$PROJECT_DIR$/installation/p5/sketch.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/installation/runtime/audio/alert.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/installation/runtime/audio/resolved.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/installation/runtime/audio/resolved.wav" beforeDir="false" afterPath="$PROJECT_DIR$/installation/runtime/audio/resolved.wav" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/installation/runtime/construct_headline.py" beforeDir="false" afterPath="$PROJECT_DIR$/installation/runtime/construct_headline.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/installation/runtime/debugging_inputs.py" beforeDir="false" afterPath="$PROJECT_DIR$/installation/runtime/debugging_inputs.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/installation/runtime/catastrophe.py" beforeDir="false" afterPath="$PROJECT_DIR$/installation/runtime/catastrophe.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/installation/runtime/game.py" beforeDir="false" afterPath="$PROJECT_DIR$/installation/runtime/game.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/installation/runtime/soundtest.py" beforeDir="false" />
     </list>
     <list id="1c7ef776-4c33-4cd0-b871-3ab741ea43e2" name="Changes by sponi" comment="added nuclear war" />
     <option name="SHOW_DIALOG" value="false" />
@@ -332,8 +324,8 @@
     <SUITE FILE_PATH="coverage/group_1$game.coverage" NAME="game Coverage Results" MODIFIED="1687031918288" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/installation/runtime" />
     <SUITE FILE_PATH="coverage/4_projektmodul_ki$ip.coverage" NAME="ip Coverage Results" MODIFIED="1685901532675" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/installation" />
     <SUITE FILE_PATH="coverage/4_projektmodul_ki$newsfeed.coverage" NAME="newsfeed Coverage Results" MODIFIED="1686759972566" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/installation" />
-    <SUITE FILE_PATH="coverage/4_projektmodul_ki$debugging_inputs.coverage" NAME="debugging_inputs Coverage Results" MODIFIED="1687428022165" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/installation/runtime" />
+    <SUITE FILE_PATH="coverage/4_projektmodul_ki$debugging_inputs.coverage" NAME="debugging_inputs Coverage Results" MODIFIED="1687975379221" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/installation/runtime" />
     <SUITE FILE_PATH="coverage/group_1$newsfeed.coverage" NAME="newsfeed Coverage Results" MODIFIED="1686729588639" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/installation" />
-    <SUITE FILE_PATH="coverage/4_projektmodul_ki$game.coverage" NAME="game Coverage Results" MODIFIED="1687428025126" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/installation/runtime" />
+    <SUITE FILE_PATH="coverage/4_projektmodul_ki$game.coverage" NAME="game Coverage Results" MODIFIED="1687976556376" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/installation/runtime" />
   </component>
 </project>

@@ -30,7 +30,7 @@ class Catastrophe:
                 },
                 "deaths_per_second": {
                     "min": 200,
-                    "max": 600
+                    "max": 700
                 },
                 "resolution_time": {
                     "min": 1,
@@ -48,7 +48,7 @@ class Catastrophe:
                 },
                 "deaths_per_second": {
                     "min": 500,
-                    "max": 900
+                    "max": 1300
                 },
                 "resolution_time": {
                     "min": 30,
@@ -65,8 +65,8 @@ class Catastrophe:
                     "max": 7
                 },
                 "deaths_per_second": {
-                    "min": 200,
-                    "max": 1100
+                    "min": 400,
+                    "max": 1400
                 },
                 "resolution_time": {
                     "min": 1,
@@ -84,7 +84,7 @@ class Catastrophe:
                 },
                 "deaths_per_second": {
                     "min": 4000,
-                    "max": 10000
+                    "max": 15000
                 },
                 "resolution_time": {
                     "min": 1,
@@ -120,7 +120,7 @@ class Catastrophe:
                 },
                 "deaths_per_second": {
                     "min": 200,
-                    "max": 2000
+                    "max": 2500
                 },
                 "resolution_time": {
                     "min": 1,
@@ -137,8 +137,8 @@ class Catastrophe:
                     "max": 1
                 },
                 "deaths_per_second": {
-                    "min": 1500,
-                    "max": 6000
+                    "min": 2500,
+                    "max": 9000
                 },
                 "resolution_time": {
                     "min": 1,
@@ -169,7 +169,7 @@ class Catastrophe:
         wind_up = random.randrange(catastrophe_data["wind_up"]["min"], catastrophe_data["wind_up"]["max"]) / temperature
         # get deaths_per_second
         deaths_per_second = random.randrange(catastrophe_data["deaths_per_second"]["min"],
-                                             catastrophe_data["deaths_per_second"]["max"]) * (temperature**temperature*1.2)
+                                             catastrophe_data["deaths_per_second"]["max"]) * (temperature**temperature*6)
         # get resolution_time
         resolution_time = random.randrange(catastrophe_data["resolution_time"]["min"],
                                            catastrophe_data["resolution_time"]["max"]) * temperature / 100

@@ -374,9 +374,9 @@ class Symptoms:
     def trigger_event(self):
         # Chance of nuclear war
         chance_annihilation = 0.001 * (self.death_count / 10_000_000)
-        # Limits chance of nuclear war to 10 %
-        if chance_annihilation > 0.08:
-            chance_annihilation = 0.08
+        # Limits chance of nuclear war to 5 %
+        if chance_annihilation > 0.05:
+            chance_annihilation = 0.05
         # Prevents further nuclear wars if one has already been triggered
         if self.annihilation_triggered is True:
             chance_annihilation = 0
@@ -484,12 +484,12 @@ class Symptoms:
                 headline_list_text.delete(1.0, tk.END)
                 headline_list_text.insert(tk.END, placeholder_text)
             elif self.year == 2100 or self.death_count >= 10_000_000_000:
-                end_game_text = f"{self.death_count} Menschen sind durch die Folgen des Klimawandels umgekommen"
+                end_game_text = f"{int(self.death_count):,} Menschen sind durch die Folgen des Klimawandels umgekommen"
                 headline_list_text.delete(1.0, tk.END)
                 headline_list_text.insert(tk.END, end_game_text)
 
                 # closes Window after delay of 20 seconds
-                window.after(20000, window.destroy)
+                # window.after(20000, window.destroy)
             else:
                 current_text = headline_list_text.get(1.0, tk.END).strip()
                 if current_text == "Kannst du die Welt retten? Versuch es sofort und berühre einen der leuchtenden Punkte":
@@ -612,5 +612,4 @@ symptoms = Symptoms()
 # test_auto_start: Immediately starts game (defaults to False)
 # start_p5: Starts p5 sketch & bridge and opens browser window (defaults to True)
 # verbose: Prints progress of headline generation (defaults to True)
-
-symptoms.main(skip_headlines=True, test_auto_start=True, start_p5=False, verbose=False)
+symptoms.main(skip_headlines=False, test_auto_start=False, start_p5=True, verbose=False)
