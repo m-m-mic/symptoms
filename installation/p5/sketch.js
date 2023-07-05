@@ -64,18 +64,18 @@ let regionData = {
   },
 };
 const regionLocations = {
-  na1: [120, 490],
-  na2: [410, 550],
-  eu1: [1040, 460],
-  sa1: [440, 1040],
-  sa2: [630, 810],
-  af1: [890, 620],
-  af2: [1170, 690],
-  af3: [1080, 920],
-  as1: [1420, 650],
-  as2: [1650, 480],
-  as3: [1280, 470],
-  oc1: [1800, 780],
+  na1: [80, 320],
+  na2: [380, 390],
+  eu1: [1060, 280],
+  sa1: [440, 930],
+  sa2: [620, 660],
+  af1: [900, 440],
+  af2: [1190, 530],
+  af3: [1100, 780],
+  as1: [1450, 490],
+  as2: [1700, 310],
+  as3: [1310, 290],
+  oc1: [1840, 650],
 };
 
 function setup() {
@@ -114,19 +114,19 @@ function draw() {
   textSize(64);
   textFont(kohoBold);
   textAlign(CENTER, CENTER);
-  text(deathNumbers + " TOTE", width / 2, 40);
+  text(deathNumbers + " TOTE", width / 2, 20);
 
   let regions = Object.keys(regionLocations);
 
   if (active === false) {
     regions.forEach(function (item, index) {
-      fill(245, 192, 17, 255);
+      fill(66, 135, 245, 255);
       circle(regionLocations[item][0], regionLocations[item][1], 150);
     });
     textSize(48);
     textFont(kohoMedium);
     fill(255);
-    text("Berühre ein leuchtenden Punkt um das Spiel zu starten", width / 2, 110);
+    text("Berühre einen leuchtenden Punkt um das Spiel zu starten", width / 2, 90);
   } else {
     if (!headlinesLoaded) {
       fill(7, 72, 171);
