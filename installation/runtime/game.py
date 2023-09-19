@@ -374,14 +374,14 @@ class Symptoms:
     def trigger_event(self):
         # Chance of nuclear war
         chance_annihilation = 0.001 * (self.death_count / 10_000_000)
-        # Limits chance of nuclear war to 5 %
-        if chance_annihilation > 0.05:
-            chance_annihilation = 0.05
+        # Limits chance of nuclear war to 4 %
+        if chance_annihilation > 0.04:
+            chance_annihilation = 0.04
         # Prevents further nuclear wars if one has already been triggered
         if self.annihilation_triggered is True:
             chance_annihilation = 0
         # Chance of headline occurring
-        chance_headline = 0.25
+        chance_headline = 0.15
         # Base chance of catastrophe occurring
         base_chance_catastrophe = 0.10
         # Temperature increase since game start
